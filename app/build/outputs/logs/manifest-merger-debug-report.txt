@@ -1,0 +1,569 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
+	package
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:98-123
+	android:versionName
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:70-97
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+	android:hardwareAccelerated
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
+	android:versionCode
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:46-69
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:124-182
+supports-screens
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
+	android:largeScreens
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
+	android:smallScreens
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
+	android:normalScreens
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
+	android:xlargeScreens
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
+	android:resizeable
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
+	android:anyDensity
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
+uses-permission#android.permission.INTERNET
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] /home/ibrar/.android/build-cache/9b02723269193ce5d1e2fa35d5f945c1d85fb405/output/AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] /home/ibrar/.android/build-cache/43f91d468d0b445fd9f92fea79a2a61082de7660/output/AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/2187d765be9aa3023c711d69412d63ec68e00947/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.android/build-cache/ae85c8cbacf9958be742bff36152c333bf1325b8/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
+application
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:5:5-24:19
+MERGED from [com.google.firebase:firebase-core:11.4.2] /home/ibrar/.android/build-cache/6141c1d1e90f038c79298677697d600a0ef87b46/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:24:5-34:19
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.4.2] /home/ibrar/.android/build-cache/3b3489b028bb80acf4ce436cf41a965127a6ddca/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics-license:11.4.2] /home/ibrar/.android/build-cache/ad6d50d3679c292dbcae47a6c76d49895e1b37d0/output/AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:design:26.0.1] /home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.0.1] /home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:26.0.1] /home/ibrar/.android/build-cache/47aca63417a67795392d04ea1e081cfbc7a652bd/output/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.0.1] /home/ibrar/.android/build-cache/d1f9f1b65498227d993b09011d36fde849cc9acc/output/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/ibrar/.android/build-cache/9461267eaf016462bccb05576b4e15435d93dc32/output/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:recyclerview-v7:26.0.1] /home/ibrar/.android/build-cache/c2c870e46db676a8760e784a4d4931b6a3154c1f/output/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.volley:volley:1.1.0-rc1] /home/ibrar/.android/build-cache/f9d7c5201d39bce0cccbe2853c71589b116f9c2b/output/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] /home/ibrar/.android/build-cache/9b02723269193ce5d1e2fa35d5f945c1d85fb405/output/AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] /home/ibrar/.android/build-cache/43f91d468d0b445fd9f92fea79a2a61082de7660/output/AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] /home/ibrar/.android/build-cache/231d995fa2f50744e3b495e8ff94fe800c323a4e/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] /home/ibrar/.android/build-cache/19ecd80542a45f7ead1618afe7626a5d0ab56010/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:26:5-31:19
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.4.2] /home/ibrar/.android/build-cache/84b78b2fc3192380cc5427a1a89e44369b173a52/output/AndroidManifest.xml:19:5-19
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/2187d765be9aa3023c711d69412d63ec68e00947/output/AndroidManifest.xml:26:5-19
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.4.2] /home/ibrar/.android/build-cache/281b0dc0745c178daf415091d42bb89f4db882bd/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.4.2] /home/ibrar/.android/build-cache/8dbfe3b0e3117f227ee249d40748e4ddc116da5f/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-analytics-license:11.4.2] /home/ibrar/.android/build-cache/c48b7044f7a170633f6d3f564d5f94ce3ae7ed85/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-location:11.4.2] /home/ibrar/.android/build-cache/8015c55c1ca12b37705c841e6e2d2629928782e6/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-location-license:11.4.2] /home/ibrar/.android/build-cache/c2258dde8c62a2ae56d0c429ff1cb4b183c8beae/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-places:11.4.2] /home/ibrar/.android/build-cache/8d1f26c360c9a71733aa058d6eb7f967083642c9/output/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-places-license:11.4.2] /home/ibrar/.android/build-cache/982a858fe26ec7a56bc3f81d339565e1b94a6403/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.android/build-cache/ae85c8cbacf9958be742bff36152c333bf1325b8/output/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-maps-license:11.4.2] /home/ibrar/.android/build-cache/ed4487d1de119b647c7a53456c66f51ed573640d/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-wearable:11.4.2] /home/ibrar/.android/build-cache/350d803ce670c3d7bf05dd85a0729a44409349ca/output/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-wearable-license:11.4.2] /home/ibrar/.android/build-cache/918ab067f2644740f0d93148e3ff39f4343737f3/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-nearby:11.4.2] /home/ibrar/.android/build-cache/287ebf545dc56ce7e67547aced4404e3ab2d17d4/output/AndroidManifest.xml:5:5-19
+MERGED from [com.google.android.gms:play-services-base:11.4.2] /home/ibrar/.android/build-cache/1c8cac63702c563cac6adff3bc26c07e478690b1/output/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] /home/ibrar/.android/build-cache/6f43581e616561ef13fb2ec6addfb4087a40970d/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-nearby-license:11.4.2] /home/ibrar/.android/build-cache/970f730b7547f9eee685104266cdbd7947b35eb3/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:19:5-29:19
+MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:28:5-49:19
+MERGED from [com.google.firebase:firebase-iid-license:11.4.2] /home/ibrar/.android/build-cache/65bd9f355e3e29a78d24731bcb1e4eb35befd1ba/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] /home/ibrar/.android/build-cache/12e5748d5e721366b681c24f34af0a0c9da491bc/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] /home/ibrar/.android/build-cache/b016fb6c6a38f844c63392d69d30ee83799d9fb8/output/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:26.0.1] /home/ibrar/.android/build-cache/1e62c4bc21fce0bc624b2d74b253fbb866b2dcef/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.0.1] /home/ibrar/.android/build-cache/dc5bfc637de0706369151c197f5424a74729034e/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.0.1] /home/ibrar/.android/build-cache/33e38a483526cb6680ecf1a76c0b11d225cf1467/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.0.1] /home/ibrar/.android/build-cache/38a08b776b36483fb9a96a7de54f8cf7f68a22eb/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.0.1] /home/ibrar/.android/build-cache/fe7dee3a4c650a96d75b0a136d0a2f8d43657119/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] /home/ibrar/.android/build-cache/13fd94479ffd98ae0338db4bf83c5ebc43ae5967/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] /home/ibrar/.android/build-cache/e1fa8bdd9abcfff2edd5d3f6ebb599a51e5bf503/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-common-license:11.4.2] /home/ibrar/.android/build-cache/dc71d3614adf93a8d646801bd5bf442302f0cb7e/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-messaging-license:11.4.2] /home/ibrar/.android/build-cache/e1088d5aee5b772eec5a5d3d4b48987195f2eb03/output/AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.1] /home/ibrar/.android/build-cache/a2cd3c4449e5c740c872ba0fe37a7fe86348d7dc/output/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-compat:26.0.1] /home/ibrar/.android/build-cache/769f92d37037b39e1d6923f266b6243c157c3193/output/AndroidManifest.xml:25:5-29:19
+	android:label
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
+	android:supportsRtl
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
+	android:hardwareAccelerated
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
+	android:icon
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
+activity#com.techv.penna.MainActivity
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
+	android:label
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
+	android:launchMode
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:6:135-165
+	android:windowSoftInputMode
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:6:257-299
+	android:configChanges
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
+	android:theme
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:6:194-256
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:6:166-193
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
+	android:label
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
+action#android.intent.action.MAIN
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+provider#io.github.pwlin.cordova.plugins.fileopener2.FileProvider
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:12:9-14:20
+	android:authorities
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:12:19-72
+	android:grantUriPermissions
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:12:98-132
+	android:exported
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:12:73-97
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:12:133-204
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:13:13-114
+	android:resource
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:13:75-111
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:13:24-74
+meta-data#com.google.android.gms.version
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:15:9-122
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] /home/ibrar/.android/build-cache/b016fb6c6a38f844c63392d69d30ee83799d9fb8/output/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:15:66-119
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:15:20-65
+activity#com.marianhello.bgloc.DummyActivity
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:9-372
+	android:clearTaskOnLaunch
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:93-125
+	android:enabled
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:126-148
+	android:stateNotNeeded
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:293-322
+	android:excludeFromRecents
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:149-182
+	android:noHistory
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:268-292
+	android:allowTaskReparenting
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:19-54
+	android:alwaysRetainTaskState
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:55-92
+	android:finishOnTaskLaunch
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:183-216
+	android:theme
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:323-369
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:16:217-267
+service#com.marianhello.bgloc.LocationService
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:17:9-121
+	android:enabled
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:17:18-40
+	android:exported
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:17:41-65
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:17:66-118
+receiver#com.marianhello.bgloc.BootCompletedReceiver
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:18:9-22:20
+	android:enabled
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:18:19-41
+	android:exported
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:18:42-65
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:18:66-124
+intent-filter#android.intent.action.BOOT_COMPLETED
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:19:13-21:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:20:17-79
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:20:25-76
+activity#de.appplant.cordova.plugin.printer.ui.SelectPrinterActivity
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:23:9-145
+	android:label
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:23:44-67
+	android:exported
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:23:19-43
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:23:68-142
+uses-sdk
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:25:5-74
+MERGED from [com.google.firebase:firebase-core:11.4.2] /home/ibrar/.android/build-cache/6141c1d1e90f038c79298677697d600a0ef87b46/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.4.2] /home/ibrar/.android/build-cache/3b3489b028bb80acf4ce436cf41a965127a6ddca/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics-license:11.4.2] /home/ibrar/.android/build-cache/ad6d50d3679c292dbcae47a6c76d49895e1b37d0/output/AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:design:26.0.1] /home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:26.0.1] /home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:26.0.1] /home/ibrar/.android/build-cache/47aca63417a67795392d04ea1e081cfbc7a652bd/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.0.1] /home/ibrar/.android/build-cache/d1f9f1b65498227d993b09011d36fde849cc9acc/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/ibrar/.android/build-cache/9461267eaf016462bccb05576b4e15435d93dc32/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:26.0.1] /home/ibrar/.android/build-cache/c2c870e46db676a8760e784a4d4931b6a3154c1f/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.volley:volley:1.1.0-rc1] /home/ibrar/.android/build-cache/f9d7c5201d39bce0cccbe2853c71589b116f9c2b/output/AndroidManifest.xml:7:5-43
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] /home/ibrar/.android/build-cache/9b02723269193ce5d1e2fa35d5f945c1d85fb405/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] /home/ibrar/.android/build-cache/43f91d468d0b445fd9f92fea79a2a61082de7660/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] /home/ibrar/.android/build-cache/231d995fa2f50744e3b495e8ff94fe800c323a4e/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] /home/ibrar/.android/build-cache/19ecd80542a45f7ead1618afe7626a5d0ab56010/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.4.2] /home/ibrar/.android/build-cache/84b78b2fc3192380cc5427a1a89e44369b173a52/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/2187d765be9aa3023c711d69412d63ec68e00947/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.4.2] /home/ibrar/.android/build-cache/281b0dc0745c178daf415091d42bb89f4db882bd/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.4.2] /home/ibrar/.android/build-cache/8dbfe3b0e3117f227ee249d40748e4ddc116da5f/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-analytics-license:11.4.2] /home/ibrar/.android/build-cache/c48b7044f7a170633f6d3f564d5f94ce3ae7ed85/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-location:11.4.2] /home/ibrar/.android/build-cache/8015c55c1ca12b37705c841e6e2d2629928782e6/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-location-license:11.4.2] /home/ibrar/.android/build-cache/c2258dde8c62a2ae56d0c429ff1cb4b183c8beae/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-places:11.4.2] /home/ibrar/.android/build-cache/8d1f26c360c9a71733aa058d6eb7f967083642c9/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-places-license:11.4.2] /home/ibrar/.android/build-cache/982a858fe26ec7a56bc3f81d339565e1b94a6403/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.android/build-cache/ae85c8cbacf9958be742bff36152c333bf1325b8/output/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-maps-license:11.4.2] /home/ibrar/.android/build-cache/ed4487d1de119b647c7a53456c66f51ed573640d/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-wearable:11.4.2] /home/ibrar/.android/build-cache/350d803ce670c3d7bf05dd85a0729a44409349ca/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-wearable-license:11.4.2] /home/ibrar/.android/build-cache/918ab067f2644740f0d93148e3ff39f4343737f3/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-nearby:11.4.2] /home/ibrar/.android/build-cache/287ebf545dc56ce7e67547aced4404e3ab2d17d4/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-base:11.4.2] /home/ibrar/.android/build-cache/1c8cac63702c563cac6adff3bc26c07e478690b1/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] /home/ibrar/.android/build-cache/6f43581e616561ef13fb2ec6addfb4087a40970d/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-nearby-license:11.4.2] /home/ibrar/.android/build-cache/970f730b7547f9eee685104266cdbd7947b35eb3/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid-license:11.4.2] /home/ibrar/.android/build-cache/65bd9f355e3e29a78d24731bcb1e4eb35befd1ba/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] /home/ibrar/.android/build-cache/12e5748d5e721366b681c24f34af0a0c9da491bc/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] /home/ibrar/.android/build-cache/b016fb6c6a38f844c63392d69d30ee83799d9fb8/output/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:26.0.1] /home/ibrar/.android/build-cache/1e62c4bc21fce0bc624b2d74b253fbb866b2dcef/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.1] /home/ibrar/.android/build-cache/dc5bfc637de0706369151c197f5424a74729034e/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.1] /home/ibrar/.android/build-cache/33e38a483526cb6680ecf1a76c0b11d225cf1467/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.1] /home/ibrar/.android/build-cache/38a08b776b36483fb9a96a7de54f8cf7f68a22eb/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.0.1] /home/ibrar/.android/build-cache/fe7dee3a4c650a96d75b0a136d0a2f8d43657119/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] /home/ibrar/.android/build-cache/13fd94479ffd98ae0338db4bf83c5ebc43ae5967/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] /home/ibrar/.android/build-cache/e1fa8bdd9abcfff2edd5d3f6ebb599a51e5bf503/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common-license:11.4.2] /home/ibrar/.android/build-cache/dc71d3614adf93a8d646801bd5bf442302f0cb7e/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-messaging-license:11.4.2] /home/ibrar/.android/build-cache/e1088d5aee5b772eec5a5d3d4b48987195f2eb03/output/AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:support-vector-drawable:26.0.1] /home/ibrar/.android/build-cache/a2cd3c4449e5c740c872ba0fe37a7fe86348d7dc/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:26.0.1] /home/ibrar/.android/build-cache/769f92d37037b39e1d6923f266b6243c157c3193/output/AndroidManifest.xml:21:5-23:58
+MERGED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:7:5-9:41
+MERGED from [org.apache.cordova:CordovaLib:7.0.0:release] /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/CordovaLib/build/intermediates/bundles/release/AndroidManifest.xml:25:5-44
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:26.0.1] /home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:25:42-71
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:25:15-41
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:26:5-81
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:26:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:27:5-80
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:27:22-77
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:28:5-76
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:28:22-73
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:29:5-81
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:29:22-78
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:30:5-94
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:30:22-91
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:31:5-79
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/2187d765be9aa3023c711d69412d63ec68e00947/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.android/build-cache/ae85c8cbacf9958be742bff36152c333bf1325b8/output/AndroidManifest.xml:19:5-78
+MERGED from [com.google.android.gms:play-services-nearby:11.4.2] /home/ibrar/.android/build-cache/287ebf545dc56ce7e67547aced4404e3ab2d17d4/output/AndroidManifest.xml:4:5-78
+MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:31:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:32:5-81
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:32:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:33:5-79
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:33:22-76
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:34:5-89
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:34:22-86
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:35:5-68
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/2187d765be9aa3023c711d69412d63ec68e00947/output/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:35:22-65
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:25:113-137
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:27:162-184
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:27:185-208
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:32:16-87
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:33:7-197
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:33:148-170
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:33:171-195
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:33:91-147
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:33:16-90
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:26.0.1] /home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.0.1] /home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.0.1] /home/ibrar/.android/build-cache/47aca63417a67795392d04ea1e081cfbc7a652bd/output/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.0.1] /home/ibrar/.android/build-cache/d1f9f1b65498227d993b09011d36fde849cc9acc/output/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.0.1] /home/ibrar/.android/build-cache/c2c870e46db676a8760e784a4d4931b6a3154c1f/output/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.0.1] /home/ibrar/.android/build-cache/1e62c4bc21fce0bc624b2d74b253fbb866b2dcef/output/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.0.1] /home/ibrar/.android/build-cache/dc5bfc637de0706369151c197f5424a74729034e/output/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.0.1] /home/ibrar/.android/build-cache/33e38a483526cb6680ecf1a76c0b11d225cf1467/output/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.0.1] /home/ibrar/.android/build-cache/38a08b776b36483fb9a96a7de54f8cf7f68a22eb/output/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.0.1] /home/ibrar/.android/build-cache/fe7dee3a4c650a96d75b0a136d0a2f8d43657119/output/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-vector-drawable:26.0.1] /home/ibrar/.android/build-cache/a2cd3c4449e5c740c872ba0fe37a7fe86348d7dc/output/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-compat:26.0.1] /home/ibrar/.android/build-cache/769f92d37037b39e1d6923f266b6243c157c3193/output/AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:26.0.1] /home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:26.0.1] /home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/AndroidManifest.xml:27:13-51
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:11.4.2] /home/ibrar/.android/build-cache/9b02723269193ce5d1e2fa35d5f945c1d85fb405/output/AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] /home/ibrar/.android/build-cache/43f91d468d0b445fd9f92fea79a2a61082de7660/output/AndroidManifest.xml:20:5-81
+MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:11.4.2] /home/ibrar/.android/build-cache/9b02723269193ce5d1e2fa35d5f945c1d85fb405/output/AndroidManifest.xml:20:22-79
+receiver#com.google.android.gms.analytics.AnalyticsReceiver
+ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:27:9-28:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:27:85-107
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:27:108-132
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:27:19-84
+service#com.google.android.gms.analytics.AnalyticsService
+ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:29:9-132
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:29:83-105
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:29:106-130
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:29:18-82
+service#com.google.android.gms.analytics.AnalyticsJobService
+ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:30:9-192
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:30:143-165
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:30:166-190
+	android:permission
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:30:86-142
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:30:18-85
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.android/build-cache/ae85c8cbacf9958be742bff36152c333bf1325b8/output/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.android/build-cache/ae85c8cbacf9958be742bff36152c333bf1325b8/output/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.android/build-cache/ae85c8cbacf9958be742bff36152c333bf1325b8/output/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.4.2] /home/ibrar/.android/build-cache/1c8cac63702c563cac6adff3bc26c07e478690b1/output/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] /home/ibrar/.android/build-cache/1c8cac63702c563cac6adff3bc26c07e478690b1/output/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] /home/ibrar/.android/build-cache/1c8cac63702c563cac6adff3bc26c07e478690b1/output/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] /home/ibrar/.android/build-cache/1c8cac63702c563cac6adff3bc26c07e478690b1/output/AndroidManifest.xml:19:19-85
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:23:9-27:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:23:88-111
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:23:18-87
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:24:13-26:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:24:28-51
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:25:25-75
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:24:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:24:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:24:17-71
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:26:22-76
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:30:9-35:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:30:85-108
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:30:109-169
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:30:19-84
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:31:13-34:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:32:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:32:25-78
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:33:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:33:27-58
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:39:9-119
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:39:93-117
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:39:19-92
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:43:9-47:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:43:83-106
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:43:18-82
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:44:13-46:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:44:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:45:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:45:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:6:9-194
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:6:19-78
+		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:6:144-168
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:6:169-192
+	android:name
+		ADDED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:6:79-143
+uses-permission#com.sec.android.provider.badge.permission.READ
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:19:5-86
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:19:22-83
+uses-permission#com.sec.android.provider.badge.permission.WRITE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:20:5-87
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:20:22-84
+uses-permission#com.htc.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:23:5-81
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:23:22-78
+uses-permission#com.htc.launcher.permission.UPDATE_SHORTCUT
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:24:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:24:22-80
+uses-permission#com.sonyericsson.home.permission.BROADCAST_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:27:5-88
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:27:22-85
+uses-permission#com.sonymobile.home.permission.PROVIDER_INSERT_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:28:5-92
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:28:22-89
+uses-permission#com.anddoes.launcher.permission.UPDATE_COUNT
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:31:5-84
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:31:22-81
+uses-permission#com.majeur.launcher.permission.UPDATE_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:34:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:34:22-80
+uses-permission#com.huawei.android.launcher.permission.CHANGE_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:37:5-91
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:37:22-88
+uses-permission#com.huawei.android.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:38:5-92
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:38:22-89
+uses-permission#com.huawei.android.launcher.permission.WRITE_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:39:5-93
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:39:22-90
+uses-permission#android.permission.READ_APP_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:42:5-73
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:42:22-70
+uses-permission#com.oppo.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:45:5-82
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:45:22-79
+uses-permission#com.oppo.launcher.permission.WRITE_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:46:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:46:22-80
+uses-permission#me.everything.badger.permission.BADGE_COUNT_READ
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:49:5-88
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:49:22-85
+uses-permission#me.everything.badger.permission.BADGE_COUNT_WRITE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:50:5-89
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:50:22-86

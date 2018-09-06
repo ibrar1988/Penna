@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_next_item.png",
+        "source": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/res/drawable-xxhdpi/ic_action_next_item.png"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_previous_item.png",
+        "source": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/res/drawable-xxhdpi/ic_action_previous_item.png"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_remove.png",
+        "source": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/res/drawable-xxhdpi/ic_action_remove.png"
+    }
+]

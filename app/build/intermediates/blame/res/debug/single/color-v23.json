@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/design_tint_password_toggle.xml",
+        "source": "/home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_default.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v23/abc_tint_btn_checkable.xml"
+    }
+]

@@ -1,0 +1,4 @@
+#Thu Sep 06 11:51:39 IST 2018
+base.0=/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6
+renamed.0=classes.dex
+file.0=/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex

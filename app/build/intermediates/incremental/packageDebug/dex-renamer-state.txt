@@ -1,0 +1,7 @@
+#Thu Sep 06 11:51:42 IST 2018
+base.0=/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_33c98507abf2790f716c80fbc0baa109aa602952
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d4bfca18e2e6d9f50b0dd458799d2fdae88de1ab/classes.dex
+base.1=/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d4bfca18e2e6d9f50b0dd458799d2fdae88de1ab
+file.0=/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_33c98507abf2790f716c80fbc0baa109aa602952/classes.dex

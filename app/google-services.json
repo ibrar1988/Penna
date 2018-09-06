@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "58111566949",
+    "firebase_url": "https://sampleapp-a4671.firebaseio.com",
+    "project_id": "sampleapp-a4671",
+    "storage_bucket": "sampleapp-a4671.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58111566949:android:278fd026fe390041",
+        "android_client_info": {
+          "package_name": "com.techv.penna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58111566949-v6e0jr1kbes8420pf5p53t81aelgnbnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe-BwFC_5ztym4JB5TsEMMzoLJyDhDP48"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58111566949:android:a9928e4c4b35ad69",
+        "android_client_info": {
+          "package_name": "com.techv.sampleApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58111566949-v6e0jr1kbes8420pf5p53t81aelgnbnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe-BwFC_5ztym4JB5TsEMMzoLJyDhDP48"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

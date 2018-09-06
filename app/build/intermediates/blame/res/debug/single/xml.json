@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/xml/opener_paths.xml",
+        "source": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/res/xml/opener_paths.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/xml/config.xml",
+        "source": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/res/xml/config.xml"
+    }
+]

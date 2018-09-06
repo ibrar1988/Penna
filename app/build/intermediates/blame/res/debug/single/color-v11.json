@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/ibrar/.android/build-cache/abddc21498d845e9340c13c837e5f02f72cbbe6a/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]
