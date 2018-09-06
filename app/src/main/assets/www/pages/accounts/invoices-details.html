@@ -1,0 +1,86 @@
+<div class="single_tab_content">
+	<h2 class="page-header">
+        <a style="cursor: pointer;" ng-click="move_inovice()"  class="goback">
+            <i style="cursor: pointer;" class="fa fa-angle-left pull-left"></i>
+        </a><i style="cursor: pointer;" class="pci icon-invoices pull-left"></i> Invoices
+        <!-- <a ng-href="{{pdfURL}}" class="pull-right" download><i class="icon_download"></i></a> -->
+    </h2>
+	<div class="sectioncard">
+		<div class="">
+		</div>
+		<div class="card" ng-show="!myvalue">
+			<h4>Invoice Details</h4>
+			<!--<h4>Invoice Number - {{inv.sapInvoiceNumber}}</h4>-->
+
+			<!--<h4>Invoice Number - {{inv.ODNNumber}}</h4>-->
+			<h4 ng-if="inv.ODNNumber">Invoice Number - {{inv.ODNNumber}}</h4>
+            <h4 ng-if="!inv.ODNNumber">Invoice Number - {{inv.sapInvoiceNumber}}</h4>
+
+            <div class="single_info">
+            <p>Reference Number - {{inv.sapInvoiceNumber}}</p>
+			<div class="single_info">
+			<div class="single_info">
+				<h3>Order Number</h3>
+				<p> {{inv.sapOrderLineNumber}}
+					<!--{{inv.orderNumber}}-->
+				</p>
+
+
+			</div>
+			<div class="single_info">
+				<h3>Quantity</h3>
+				<p>Total : {{inv.totalQuantity}} MT | Delivered Quantity : {{inv.deliveredQuantity}} MT</p>
+			</div>
+			<div class="single_info">
+				<!--<h3>Invoice Details</h3>-->
+				<!--<p>Invoice Number : {{inv.invoiceNumber}}</p>-->
+				<p>Amount Rs. {{inv.amount | INR}} /-</p>
+				<p>Date: {{inv.dateTime | date:"dd/MM/yyyy"}}</p>
+			</div>
+
+			<div class="single_info">
+				<h3>Delivery Details</h3>
+				<p>Delivery By- {{inv.deliveredBy}}</p>
+				<!-- <p>Driver Mobile Number +{{inv.mobileNumber}}</p>-->
+				<p>Material Grade : {{inv.materialGrade}} </p>
+				<p>Material Code : {{inv.materialCode}}</p>
+				<p>Plant/Depot : {{inv.plantCode}}</p>
+				<p>Truck Number - {{inv.truckNumber}}</p>
+				 <p ng-if="inv.TurvoLink">Delivery Tracking Link - 
+                     <a ng-show="!ifMobile"  ng-click="myTurvoLink_web(inv.TurvoLink)">
+                     View Pdf</a>
+                     <a ng-show="ifMobile" ng-click="myTurvoLink(inv.TurvoLink)">
+                     {{inv.TurvoLink}}
+                     </a>
+                 </p><br>
+				
+				<!--<p>Received By : {{inv.receivedBy}}</p>-->
+			</div><br>
+			<div class="single_info">
+				<p>Received By : {{inv.receivedBy}}</p>
+				<h3>Remarks</h3>
+				<p ng-if="inv.cancelledInvNo == ''">{{inv.remarks}}</p>
+				<p ng-if="inv.cancelledInvNo != ''">This invoice has been cancelled</p>
+			</div>
+
+			<div class="card invoice_main" ng-click="invoicpdf(pdfURL)" ng-if="inv.image !='' && !ifMobile">
+				<!--   <pdf ng-href="{{pdfURL}}"></pdf>-->
+				<a href="">Invoice PDF</a>
+			</div>
+
+
+			<div class="single_info" ng-if="inv.image !='' && ifMobile">
+
+				<a href ng-click="showInvoice()">Invoice PDF <i class="fa fa-file-pdf-o"></i></a>
+			</div>
+
+			<!--<div class="card invoice_main text-center" ng-if="inv.image ==''">
+	There is no invoice PDF available
+</div>-->
+
+
+		</div>
+
+
+	</div>
+</div>

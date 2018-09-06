@@ -1,0 +1,19 @@
+<div class="single_tab_content" ng-controller="PartyConfirmation" data-autoscroll="true">
+    <h2 class="page-header">
+        <a ui-sref="accounts.statements.party-confirmation" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a> Invoice Number : {{singparty.sapInvoiceNum}}
+        <a ng-href="{{pdfURL}}" class="pull-right" download><i class="icon_download"></i></a>
+    </h2>
+
+    <div class="sectioncard">
+
+        <div class="card invoice_main" ng-hide="singparty.image == ''">
+            <pdf src="pdfURL"></pdf>
+        </div>
+
+        <div class="card invoice_main" ng-hide="singparty.image !== ''">
+            <p class="text-center">There is no invoice copy Available </p>
+        </div>
+    </div>
+</div>

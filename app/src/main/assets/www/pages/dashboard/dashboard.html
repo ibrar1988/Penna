@@ -1,0 +1,304 @@
+<style>
+.donut-inner {
+   margin-top: -100px;
+   margin-bottom: 100px;
+    margin-left: 72px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.donut-inner h5 {
+   margin-bottom: 0px;
+   margin-top: 0;
+}
+.donut-inner span {
+   font-size: 12px;
+}
+</style>
+
+<div ui-view autoscroll="true" ng-controller="dashbordctrl">
+	<div class="single_tab_content">
+		<!--<div class="sectioncard">
+    <div class="sync_card">
+        <p><a href=""><i class="fa fa-refresh pull-left"></i></a> Last Server Sync: 12:53pm | 15<sup>th</sup> Feb, 2016</p>
+    </div>
+</div>-->
+
+		<div>
+			<div class="users_alert" ng-repeat="bday in bdnotification">
+				<i class="birthday_alert"></i>
+				<div class="alert_desc">
+					<p class="penna_blue"><strong>Hi {{bday.name}}!</strong></p>
+					<p>{{bday.wishes}}</p>
+				</div>
+			</div>
+			<div class="users_alert" ng-repeat="anvsry in anvsryNotification">
+				<i class="birthday_alert"></i>
+				<div class="alert_desc">
+					<p class="penna_blue"><strong>Hi {{anvsry.name}}!</strong></p>
+					<p>{{anvsry.wishes}}</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="sectioncard dashb_performance">
+			<a href="" ng-click="myprerf('dash_per')">
+				<!--ui-sref="profile.my-performance"-->
+				<h2 class="section-head section-point">
+                    <i class="pci icon-my-performance pull-left"></i> My Performance
+                </h2>
+			</a>
+			<div class="card my_per my_perhigh">
+				<h4 class="text-center mf-head"> {{day11}} {{month22}} {{year11}} </h4>
+				<div class="performace_stat clearfix">
+					<div class="col-xs-4 perform_type">
+						<h4>Sales</h4>
+					</div>
+					<div class="col-xs-8 perform_val">
+						<h4 ng-repeat="(key,pre) in present_month" class="padding-10l"><i class="fa fa-inr"></i> <strong>{{pre| rounded | INR}}</strong></h4>
+					</div>
+				</div>
+				<div class="performace_stat clearfix">
+					<div class="col-xs-4 perform_type">
+						<h4>Payments</h4>
+					</div>
+					<div class="col-xs-8 perform_val">
+						<h4 class="padding-10l"><i class="fa fa-inr"></i> <strong>{{value_payment| rounded | INR}}</strong></h4>
+					</div>
+				</div>
+
+				<div class=" performace_stat clearfix">
+					<div class="col-xs-4 perform_type">
+						<h4>Product Mix</h4>
+					</div>
+					<div class="col-xs-8 perform_val perform_val1">
+						<!--<pre>{{total_quanty}}</pre>-->
+						<!--<div class="col-md-4 col-xs-12" ng-hide="total_quanty == '0' || total_quanty == ''">
+							<h4 class="graph-text"><span>{{rounddata(total_quanty)}}</span><br><span> MT</span></h4>
+							<h4>
+                                <canvas  id="doughnutChart" width="150" height="150" style="position: absolute">
+                                </canvas>
+                            </h4>
+
+						</div>-->
+                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty == '0' || total_quanty == ''">
+                        <canvas id="doughnutChart" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                        </div>
+						<div class="col-md-8 col-xs-12 prodMixVals">
+							<br class="hidden-md hidden-lg" ng-if="!total_quanty">
+							<br class="hidden-md hidden-lg" ng-if="!total_quanty">
+
+
+							<ul class="list-unstyled ulclass">
+
+								<li ng-repeat="da in datas66| orderBy : '-label'">
+									<h5 class="h5_dashboard"> <span class="fa fa-square fa-square_{{da.label}}"   ng-style="{'padding':'12px'}"></span>
+                                        <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty != 0">({{rounddata(da.value/total_quanty*100)}}%)</span>
+                                        <span ng-if="total_quanty == 0">(0%)</span>
+                                    </h5>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+		<div class="col-sm-6 nopadd-left">
+			<a ui-sref="dashboard.credit-details">
+				<h2 class="section-head section-point">
+                    <i class="pci icon-credit-details pull-left"></i> Outstanding Details
+                </h2>
+			</a>
+			<div class="sectioncard dashb_performance" style="min-height:409px">
+				<div class="card">
+					<h4 class="text-center mf-head">
+                        <b> {{date_split}} {{month2}} {{year_split}} </b>
+                    </h4>
+					<div class="text-center">
+						<div class="single_status  clearfix" style="display:none">
+							<h4>Credit Limit Usage</h4>
+							<div class="skill-lockup">
+								<span class="skill-bar">
+                                    <span class="skill-level  credit-limit" ng-style="{ width: limit + '%' }"></span>
+								</span>
+							</div>
+							<h4 content="telephone=no"><strong>{{creditDetails.CrdtLimit - creditDetails.AvailableCl| rounded |  INR}} / {{creditDetails.CrdtLimit| rounded |  INR}} </strong></h4>
+						</div>
+						<div class="single_status  clearfix" style="display:none">
+							<h4>Available credit Limit</h4>
+							<h4 content="telephone=no"><strong><i class="fa fa-inr green-txt"></i> {{creditDetails.AvailableCl| rounded |  INR}}</strong></h4>
+						</div>
+						<div class="single_status  clearfix">
+							<h4>Outstanding Amount</h4>
+							<!--<h4 content="telephone=no"><strong><i class="fa fa-inr text-yellow"></i> {{(creditDetails.OsAmt && (creditDetails.OsAmt > 0)) ? (creditDetails.OsAmt | rounded) : 0 }}</strong></h4>-->
+							<h4 content="telephone=no"><strong><i class="fa fa-inr text-yellow"></i> {{(creditDetails.OsAmt) ? (creditDetails.OsAmt | rounded |  INR) : 0 }}</strong></h4>
+
+						</div>
+						<div class="single_status  clearfix">
+							<h4>Over Due Amount</h4>
+							<!--{{creditDetails.OsOdAmt = ""}}-->
+							<!--<h4 content="telephone=no"><strong><i class="fa fa-inr txt-red"></i> {{(creditDetails.OsOdAmt && (creditDetails.OsOdAmt > 0)) ? (creditDetails.OsOdAmt | rounded) : 0 }} </strong></h4>-->
+							<h4 content="telephone=no"><strong><i class="fa fa-inr txt-red"></i> {{(creditDetails.OsOdAmt) ? (creditDetails.OsOdAmt | rounded | INR) : 0 }} </strong></h4>
+							<!--<h4 content="telephone=no" ng-if="creditDetails.OsOdAmt == ''"><strong><i class="fa fa-inr txt-red"></i> 0</strong></h4>-->
+
+							<p>Over due by: {{creditDetails.OsOdDays}} days</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 nopadd-right">
+			<div class="pending-pod-dash mrgbtm15">
+				<a href="javascript:void(0)" ng-click="dashboard_click('pods')">
+					<h2 class="section-head section-point">
+                        <i class="pci icon-proof-delivery pull-left"></i> Proof Of Delivery
+                    </h2>
+				</a>
+				<div class="pending_pods text-center">
+					<div class="pending_pod_info"
+						ng-class="{'flipPendingPODs flip1':!!noPods.noOfPendingPoDs}">
+						<div class="pending_stat">
+							<h1 style="min-height: 40px;">
+                                <span ng-show="noPods.noOfPendingPoDs">{{noPods.noOfPendingPoDs}}</span>
+                                <span ng-show="noPods && !noPods.noOfPendingPoDs">0</span>
+                            </h1>
+							<h4 style="color: #ffffff">Pending POD</h4>
+						</div>
+					</div>
+					<div class="pending_pod_info" ng-show="!!noPods.noOfPendingPoDs"
+					ng-class="{'flipPendingPODs flip2':!!noPods.noOfPendingPoDs}">
+						<div class="pending_stat">
+							<h1 style="min-height: 40px;">
+                                <span ng-show="noPods.noOfPendingPoDs">{{noPods.noOfPendingPoDs}}</span>
+                                <span ng-show="noPods && !noPods.noOfPendingPoDs">0</span>
+                            </h1>
+							<h4>Pending POD</h4>
+						</div>
+					</div>
+				</div>
+				<div class="action_pod_info">
+					<a ui-sref="orders.proof-of-delivery" class="btn penna-btn">Confirm POD</a>
+<!--					<a ui-sref="dashboard.pending-pod" class="btn penna-btn">Confirm POD</a>--> </div>
+				<!-- dashboard.pending-pod -->
+				<div style="margin-top:9px">
+					<br>
+				</div>
+			</div>
+		</div>
+
+		<!--    Order Statuses-->
+		<div class="sectioncard dashb_performance">
+			<a href="javascript:void(0)" ng-click="dashboard_click('orders')">
+				<h2 class="section-head section-point">
+                    <i class="pci icon-order-status pull-left"></i>Pending Orders</h2>
+			</a>
+			<ul class="all_status">
+
+				<li href="" class="single_status clearfix" ng-repeat="listoforder in listoforders|limitTo:4" style=" cursor:pointer !important;">
+
+					<i class="custom-list">{{$index + 1}}</i>
+					<div class="order_data" ng-click="detailsorder(listoforder)">
+						<span href="">
+                            <p><span class="highlight">Order Number - {{listoforder.PoNumber}}</span></p>
+                        </span>
+						<!-- <p>{{listoforder.POLine.length}} Order Line</p>-->
+						<!--<p ng-if="listoforder.POLine.length == 1">{{listoforder.POLine.length}} Order Line</p>
+						<p ng-if="listoforder.POLine.length > 1">{{listoforder.POLine.length}} Order Lines</p>-->
+						<p>Total Quantity: <strong>{{listoforder.totalqty}} MT</strong> | Delivered: <strong>{{listoforder.deliveredQty}} MT</strong></p>
+						<p>Order Placed: {{listoforder.CreateDate| date : "dd MMMM y"}}
+						{{listoforder.POLine[0].orderStatus | showorderstatus}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+        <div class="sectioncard dashb_performance" ng-if="visits != 0 && pennavisit">
+			<a href="javascript:void(0)" ng-click="movetoacctax('pennavisit')">
+				<h2 class="section-head section-point">
+                    <i class="pci icon-visits pull-left"></i>Penna Visits</h2>
+			</a>
+			<ul class="all_status">
+
+				<li href="" class="single_status clearfix" ng-repeat="visit in visits|limitTo:5" style=" cursor:pointer !important;">
+
+					<i class="custom-list">{{$index + 1}}</i>
+					<div class="order_data">
+						<span >
+                           <p><span class="highlight">Visit Number: {{visit.visitNo}}</span></p>
+                        </span>
+						 <p>
+                            <strong>Executive Name: </strong>{{visit.officerVisit}}
+                            <strong> | Date Visited: </strong><span style="color: #505051;">
+                             {{visit.checkInDateTime | date:'dd MMM yyyy hh:mm a'}}
+                            </span>
+                        </p>
+					</div>
+				</li>
+			</ul>
+
+			<div class="footer-buttons clearfix text-center" ng-if="visits != 0">
+				<a class="btn action_btn" href style="margin-bottom: 25px;" 
+					ng-click="movetoacctax('pennavisit')"
+					ng-if="pennavisit">Give Visit Feedback</a>
+			</div>
+		</div>
+
+
+
+		<div class="sectioncard dashb_performance">
+			<a ui-sref="dashboard.company-updates">
+				<h2 class="section-head section-point">
+                    <i class="pci icon-company-updates pull-left"></i>Company Updates</h2>
+			</a>
+			<div class="all_updates">
+
+				<div class="single_update clearfix" ng-repeat="companyupdate in companyupdates">
+					<div class="update-thumb">
+						<img src="img/update6.png" width="50" alt="update2 thumb">
+					</div>
+					<div class="update-title" style="width: 87%;">
+						<h4 id="updateText{{$index}}"></h4>
+						<img ng-src="{{companyupdate.imageUrl}}" width="325" />
+
+						<p>
+							<br/>
+							<time am-time-ago="companyupdate.LastUpdatedDate"></time>
+						</p>
+					</div>
+					<!--<div class="update-time" style="width: 75px;">
+
+						<time am-time-ago="companyupdate.LastUpdatedDate"></time>
+					</div>-->
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-buttons clearfix text-center">
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding:0px">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"  >
+						<a style="margin-bottom: 25px;width: 100%" ng-show="ifMobile" class="btn action_btn" href ng-click="gotoPaymentPage()">Make Payment</a>
+						<a style="margin-bottom: 25px;width: 100%"  ng-hide="ifMobile" class="btn action_btn" href ui-sref="accounts.payments.new-payment">Make Payment</a>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
+						<a style="margin-bottom: 25px;width: 100%" ng-show="feedback.show==='YES'"
+							class="btn action_btn pull-right"
+							ng-click="portal_app_feedback(feedback)" >{{feedback.type==='GIVE' ? 'Give' : 'View'}} Portal / App Feedback</a>
+					</div>
+				</div>
+
+			<!-- <a class="btn action_btn" ng-click="orderpage1()">Buy Product</a> -->
+		</div>
+
+	</div>
+</div>

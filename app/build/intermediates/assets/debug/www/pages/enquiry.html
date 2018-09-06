@@ -1,0 +1,28 @@
+<div class="single_tab_content prelogin_enquiry" ng-controller="enquiryCtrl">
+    <h2 class="page-header">
+        <a ui-sref="login" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a> What we have to offer
+    </h2>
+
+    <div class="grid sectioncard">
+        <div class="card products_grid_slide">
+            <pennaslide></pennaslide>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="add_family">
+    <script type="text/ng-template" id="productconf.html">
+        <div class="modal-body text-center saveconfirm">
+            <h4>Would you like to send in your Enquiry!!</h4>
+        </div>
+        <div class="modal-footer">
+            <a class="btn modal_grey" ng-click="ok()">Cancel</a>
+            <a class="btn modal_blue" ui-sref="login.pre-login-enquiry" ng-click="cancel()">Ok</a>
+        </div>
+    </script>
+</div>

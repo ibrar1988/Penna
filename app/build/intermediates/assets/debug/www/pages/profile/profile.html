@@ -1,0 +1,82 @@
+<div ui-view autoscroll="true">
+	<div class="profile_main">
+		<!-- ng-show="coverImgAsBGCover" -->
+		<!-- http://123.136.168.172:8080\penna_uploads\CoverImage\UserCover-6.png?lastmod=1462285484848 -->
+		<!-- <div class="bannerImg" ng-show="coverImgAsBGCover" ng-style="{'background-image': 'url('+ usersprofile.userCoverPic +')'}"></div> -->
+		<div class="bannerImg" ng-style="{'background-image': 'url('+ usersprofile.userCoverPic +')'}"></div>
+		<!-- <img ng-src="{{usersprofile.userCoverPic}}" ng-hide="coverImgAsBGCover" id="userCoverPic"  class="bannerImg"> -->
+
+
+		<div class="user_info">
+			<div class="user_profile_det">
+				<img ng-src="{{usersprofile.userProfilePic}}" alt="profile picture" id="userProfilePic" class="imageCache userProfilePic">
+				<form>
+					<input type="file" class="addprofilepicAttachInput" id="addprofilepicAttachInput" accept="image/*" name="image" style="display: none;" ng-model="image" ng-show="hide" onchange="angular.element(this).scope().uploadProfilePic(this)" required>
+					<a href="" class="pull-right icon_pencil-edit change_profilepic" name="image" ng-click="uploadNewPic('uploadProfilePhoto', 100, 150, 150, 'addprofilepicAttachInput');" title="Edit"></a>
+				</form>
+			</div>
+			<!-- ng-change="err.image=false;imageSelected()"  -->
+			<!-- onchange="angular.element(this).scope().uploadProfilePic(this)" -->
+			<div class="user_name">
+				<h3>{{usersprofileList.companyName}} </h3>
+			</div>
+		</div>
+		<div class="col-xs-1 pull-right change_mainpic">
+			<form>
+				<input type="file" class="addcoverpicAttachInput" id="addcoverpicAttachInput" accept="image/*" name="image" style="display: none;" ng-model="image" ng-show="hide" onchange="angular.element(this).scope().uploadCoverPic(this)" required>
+				<a href="" class="pull-right icon_pencil-edit" name="image" ng-click="uploadNewPic('uploadCoverImage', 100, 1024, 768, 'addcoverpicAttachInput')" title="Edit"></a>
+			</form>
+		</div>
+
+	</div>
+	<!-- <pre>{{base64Imgs}}</pre> -->
+
+	<div ng-if="showProfileCropper" ng-include="'pages/imageCrop.html'"></div>
+
+	<div class="profile_alltabs">
+		<div class="list-group" ui-turn-off='uiSidebarLeft'>
+			<a class="list-group-item" ui-sref="profile.my-profile">
+				<i class="pci icon-myprofile pull-left"></i> My Profile
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" ui-sref="profile.ship-address">
+				<i class="pci icon-shipadd pull-left"></i> Ship to Address
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" ui-sref="profile.bank-details">
+				<i class="pci icon-bankdetails pull-left"></i> Bank Details
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" ui-sref="profile.tax-information">
+				<i class="pci icon-taxinfo pull-left"></i> Tax Information
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a style="display:none" class="list-group-item" ui-sref="profile.security-deposit">
+				<i class="pci icon-securitydep pull-left"></i> Security Deposit
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" href="" ng-click="myprerf('profile_per')">
+				<i class="pci icon-my-performance pull-left"></i> My Performance
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a ng-show="!ifMobile" target="_blank" class="list-group-item" href="http://rewards.pennacement.in/" style="display: none">
+				<!--ui-sref="profile.my-rewards"-->
+				<i class="pci icon-myrewards pull-left"></i> My Rewards
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a ng-show="ifMobile" class="list-group-item" ng-click="myrewars()" style="display: none">
+				<!--ui-sref="profile.my-rewards"-->
+				<i class="pci icon-myrewards pull-left"></i> My Rewards
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a style="display:none" class="list-group-item" ui-sref="profile.suggestions">
+				<i class="pci icon-suggestions pull-left"></i> Suggestions
+				<i class="fa fa-caret-right pull-right"></i></a>
+            <a class="list-group-item" ng-click="movetoacctax('pennavisit')" ng-if="pennavisit" style="cursor: pointer">
+				<i class="pci icon-visits pull-left"></i> Penna Visits
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<!-- 			<a ng-show="!ifMobile" target="_blank" class="list-group-item" href="http://app.turvo.com/#/shipments/cards?status=ship">
+ -->
+			<!--ui-sref="profile.my-rewards"-->
+			<!-- <i class="pci icon-myrewards pull-left"></i> My Shipment
+				<i class="fa fa-caret-right pull-right"></i></a> -->
+			<!-- 			<a ng-show="ifMobile" class="list-group-item" ng-click="myshipment()">
+ -->
+			<!--ui-sref="profile.my-rewards"-->
+			<!-- <i class="pci icon-myrewards pull-left"></i> My Shipment
+				<i class="fa fa-caret-right pull-right"></i></a> -->
+		</div>
+	</div>
+</div>

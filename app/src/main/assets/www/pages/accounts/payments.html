@@ -1,0 +1,15 @@
+<div ui-view autoscroll="true">
+    <div class="single_tab_content">
+        <h2 class="page-header">
+        <a ui-sref="accounts" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-payments pull-left"></i> Payments     
+    </h2>
+
+        <div class="list-group" ui-turn-off='uiSidebarLeft'>
+            <a style="background-color:#fff !important" ng-show="ifMobile" class="list-group-item" ng-click="gotoPaymentPage()"> New Payment</a>
+            <a ng-hide="ifMobile" class="list-group-item" ui-sref="accounts.payments.new-payment"> New Payment</a>
+            <a style="background-color:#fff !important" class="list-group-item" ui-sref="accounts.payments.payment-history"> Payment History</a>
+        </div>
+    </div>
+</div>

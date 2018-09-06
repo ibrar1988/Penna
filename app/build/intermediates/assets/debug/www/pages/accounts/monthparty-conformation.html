@@ -1,0 +1,169 @@
+<style>
+	input[type="radio"].toggle + label:after {
+		background: none;
+		content: "";
+		height: 100%;
+		position: absolute;
+		top: 5;
+		-webkit-transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+		transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+		width: 100%;
+		z-index: -1;
+	}
+
+	.modal_blue {
+		background: #42cbfd;
+		color: #303031;
+		text-align: center;
+		width: 50%;
+		padding: 10px;
+		float: none;
+	}
+</style>
+
+
+
+<div class="single_tab_content" ng-controller="party_monthCtrl">
+	<h2 class="page-header">
+        <a ui-sref="accounts" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-proof-delivery pull-left"></i>Monthly Party Confirmation
+    </h2>
+
+	<div class="my_performance_tabs">
+		<uib-tabset>
+			<uib-tab heading="Pending">
+				<div class="dashb_performance">
+					<div class="all_pods">
+						<!--{{patymonth_pendings}}-->
+						<div class="single_pod clearfix" ng-repeat="patymonth_pending in patymonth_pendings">
+							<i class="custom-list">{{$index+1}}</i>
+							<div class="row">
+								<div class="col-md-1 col-sm-2 col-xs-3">
+									{{patymonth_pending.year}}
+								</div>
+								<div class="col-md-1 col-sm-2 col-xs-3">
+									<span>{{patymonth_pending.month}}</span>
+								</div>
+								<div class="col-md-3 col-sm-6 col-xs-6" style="cursor: pointer;" ng-click="mont_pdf(patymonth_pending)" ng-if="!ifMobile">
+									<a><span class="highlight">Monthly Party Confirmation Statement Pdf<span></a>
+								</div>
+								<div class="col-md-3 col-sm-6 col-xs-6" style="cursor: pointer;" ng-click="showInvoice(patymonth_pending.pdfPath)" ng-if="ifMobile">
+									<a><span class="highlight">Monthly Party Confirmation Statement Pdf<span></a>
+								</div>
+								<div class="col-md-6 col-sm-12 col-xs-12">
+									<div class="row">
+										<div class="col-md-4 col-sm-12 col-xs-12">
+											<label class="radio-inline">
+												<input type="radio" ng-model="patymonth_pending.status" value="yes" ng-click="yes_conform($index)"> confirm
+											</label>
+											<label class="radio-inline">
+												<input ng-click="textfocus($index)" type="radio" ng-model="patymonth_pending.status" value="no"> deny
+											</label>
+
+										</div>
+										<div class="col-md-8 col-sm-12 col-xs-12" ng-show="patymonth_pending.status == 'no' || patymonth_pending.status == 'yes'">
+											<textarea id="reviewProduct{{$index}}" class="form-control-custom" ng-model="patymonth_pending.notes" rows="3" ng-focus="isFocused($index)" style="height: 40px;    border: 1px solid #ccc;resize: none;overflow-y: scroll;padding-left: 5px;" maxlength="250"></textarea>
+
+											<span style="color:red" ng-show="patymonth_pendings[{{$index}}].notes_status == true">Please enter comments</span>
+										</div>
+										<div class="col-md-3 col-sm-12 col-xs-12 text-center" style="padding-left: 0px;">
+											<!--<a class="btn penna-btn sm-full" style="padding: 5px;">Submit</a>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="sectioncard text-center" ng-show="patymonth_pendings.length == '0'">
+							<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no data available".</h5>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="text-center footer-buttons" ng-show="patymonth_pendings.length != '0'">
+					<a href="" class="btn action_btn sm-full" ng-click="submit_month(patymonth_pending)">Submit</a>
+				</div>
+			</uib-tab>
+
+			<uib-tab heading="Confirmed">
+				<div class="sectioncard">
+					<div class="dashb_performance">
+						<div class="all_pods">
+							<div class="single_pod clearfix" ng-repeat="patymonth_pending in patymonth_pendings1">
+								<i class="custom-list">{{$index+1}}</i>
+								<div class="row">
+									<div class="col-md-1 col-sm-2 col-xs-3">
+										{{patymonth_pending.year}}
+									</div>
+									<div class="col-md-1 col-sm-2 col-xs-3">
+										{{patymonth_pending.month}}
+									</div>
+									<div class="col-md-3 col-sm-6 col-xs-6" style="cursor: pointer;" ng-click="mont_pdf(patymonth_pending)" ng-if="!ifMobile">
+										<a><span class="highlight">Monthly Party Confirmation Statement Pdf<span></a>
+									</div>
+									<div class="col-md-3 col-sm-6 col-xs-6" style="cursor: pointer;" ng-click="showInvoice(patymonth_pending.pdfPath)" ng-if="ifMobile">
+										<a><span class="highlight">Monthly Party Confirmation Statement Pdf<span></a>
+									</div>
+									<div class="col-md-1 col-sm-12 col-xs-12">
+										<div class="text-center">
+											<i class="success_note1"></i>
+										</div>
+									</div>
+                                    <div class="col-md-5 col-sm-12 col-xs-12">
+                                        <textarea  class="form-control-custom" ng-model="patymonth_pending.comments" rows="3" ng-focus="isFocused($index)" style="height: 40px;    border: 1px solid #ccc;resize: none;overflow-y: scroll;padding-left: 5px;" maxlength="250" disabled></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="sectioncard text-center" ng-show="patymonth_pendings1.length == '0'">
+								<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no data available".</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</uib-tab>
+			<uib-tab heading="Denied">
+				<div class="sectioncard">
+					<div class="dashb_performance">
+						<div class="all_pods">
+							<div class="single_pod clearfix" ng-repeat="patymonth_pending in patymonth_pendings2">
+								<div>
+									<i class="custom-list">{{$index+1}}</i>
+									<div class="row">
+										<div class="col-md-1 col-sm-2 col-xs-3">
+											{{patymonth_pending.year}}
+										</div>
+										<div class="col-md-1 col-sm-2 col-xs-3">
+											{{patymonth_pending.month}}
+										</div>
+										<div class="col-md-3 col-sm-6 col-xs-6" style="cursor: pointer;" ng-click="mont_pdf(patymonth_pending)" ng-if="!ifMobile">
+											<a><span class="highlight">Monthly Party Confirmation Statement Pdf<span></a>
+										</div>
+										<div class="col-md-3 col-sm-6 col-xs-6" style="cursor: pointer;" ng-click="showInvoice(patymonth_pending.pdfPath)" ng-if="ifMobile">
+											<a><span class="highlight">Monthly Party Confirmation Statement Pdf<span></a>
+										</div>
+										<div class="col-md-1 col-sm-12 col-xs-12">
+											<div class="text-center">
+												<i class="success_note2"></i>
+											</div>
+										</div>
+
+											<div class="col-md-5 col-sm-12 col-xs-12">
+                                        <textarea  class="form-control-custom" ng-model="patymonth_pending.comments" rows="3" ng-focus="isFocused($index)" style="height: 40px;    border: 1px solid #ccc;resize: none;overflow-y: scroll;padding-left: 5px;" maxlength="250" disabled></textarea>
+									</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="sectioncard text-center" ng-show="patymonth_pendings2.length == '0'">
+								<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no data available".</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</uib-tab>
+		</uib-tabset>
+	</div>
+</div>

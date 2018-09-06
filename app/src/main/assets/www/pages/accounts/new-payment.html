@@ -1,0 +1,75 @@
+<style>
+.btn.disabled,
+	.btn[disabled],
+	fieldset[disabled] .btn {
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		opacity: .65;
+		pointer-events: none;
+	}
+</style>
+<div>
+	<div class="single_tab_content">
+
+		<h2 class="page-header">
+            <a ui-sref="accounts.payments" class="goback">
+                <i class="fa fa-angle-left pull-left"></i>
+            </a><i class="pci icon-payments pull-left"></i> Payments
+        </h2>
+
+		<div class="sectioncard get_quote_main">
+			<div class="card">
+				<h3>Make a Payment</h3>
+				<p>Please enter the amount</p>
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Amount :</label>
+						<div class="col-sm-10">
+							<input type="text" name="decimal" id="decimal" ng-model="payment.amount" class="form-control-custom" placeholder="">
+						</div>
+					</div>
+
+<!--
+					<div class="form-group">
+						<label class="col-sm-2 control-label">PAN Number :</label>
+						<div class="col-sm-10">
+							<input type="text" name="Pan" id="Pan" ng-model="payment.pan_number" class="form-control-custom" placeholder="">
+						</div>
+					</div>
+-->
+
+					<!--<div class="form-group" ng-class="(err.billAddress == true) ? 'has-error' : 'has-primary' ">
+    <label class="col-sm-2 control-label">Billing Address :</label>
+    <div class="col-sm-10">
+        <select ng-model="payment.billAddress" class="form-control-custom select-drop" name="comptype" ng-options="item as item.addressCity for item in billingAddrs" ng-focus="err.complaint_type=false;">
+            <option value="" disabled="true">Select Billing Address</option>
+            <option value="" ng-if="false"></option>
+        </select>
+        <div class="errors">
+            <span ng-show="err.complaint_type">Billing Address is required</span>
+        </div>
+    </div>
+</div>-->
+				</form>
+			</div>
+		</div>
+
+		<div class="text-center footer-buttons ng-scope" ng-show="payment.amount">
+			<div ng-bind-html="trustedHtml"></div>
+			<a href ng-class="{disabled:isWaiting == true}" ng-disabled="{{isWaiting}}" ng-click="getMerchantDetails(payment);" class="btn action_btn sm-full">Pay</a>
+			<!--ng-click="getMerchantDetails(payment);"-->
+             <p style="color:green" ng-if="isWaiting">Your transaction is being processed. Please wait...</p>
+		</div>
+	</div>
+
+	<form action="#">
+
+	</form>
+
+
+	<script>
+	</script>
+
+</div>

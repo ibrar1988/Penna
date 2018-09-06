@@ -1,0 +1,111 @@
+<div ui-view autoscroll="true" ng-controller="loginuser" style="background: #fff;">
+
+	<div class="login_main">
+        <div id="footer" class="col-md-12 col-xs-12">
+		<div class="login_form_section">
+			<div class="loginheader">
+				<img ng-src="img/penna-logo.svg" width="100" alt="Penna Logo">
+				<h1>Welcome to Penna</h1>
+				<h4>Building Quality Relationships</h4>
+			</div>
+
+			<div>
+				<form name="myForm" ng-submit="login(user)">
+					<div class="form-group" ng-class="(err.email == true) ? 'has-error' : 'has-primary'">
+						<input type="email" ng-model="user.email" ng-focus="err.email = false;" name="email" class="form-control-custom input-cust-form" placeholder="Email" required />
+						<!-- ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" -->
+						<!-- <span ng-show="!myForm.email.$error.required && !myForm.email.$error.minlength && !myForm.email.$error.maxlength && myForm.email.$error.pattern && myForm.email.$dirty">Email should be valid </span> -->
+						<div class="errors">
+							<span ng-show="err.email">User name is required</span>
+						</div>
+					</div>
+					<div class="form-group " ng-class="(err.password == true) ? 'has-error' : 'has-primary'">
+						<input type="password" name="password" ng-focus="err.password = false;" ng-model="user.password" class="form-control-custom input-cust-form" placeholder="Password" required />
+						<div class="errors">
+							<span ng-show="err.password">Password is required</span>
+						</div>
+					</div>
+					<button type="submit" class="btn signin">Sign In</button>
+				</form>
+
+
+				<div class="forgotpass text-center">
+                    <a ui-sref="login.forgot-password" style="color: #feca08">Forgot Password? <u>Click Here</u></a>
+					<!--<a ui-sref="login.enquiry"> Enquiry</a> |
+<a ui-sref="login.register"> Sign Up</a>-->
+				</div>
+			</div>
+
+
+
+
+			<!--
+			<div >
+				<form name="myFormotp" ng-submit="otp(user)">
+					<div class="form-group loginform">
+						<input type="text" name="otp" ng-model="user.otp" class="form-control-custom input-cust-form" placeholder="OTP" my-length="20" required/>
+						ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+						<span style="color: red;" ng-show="myFormotp.otp.$error.required && myFormotp.otp.$dirty">Required</span>
+					</div>
+					<button class="btn signin" type="submit">enter otp</button>
+				</form>
+				<div class="forgotpass text-center">
+					<a ng-click="showLoginFields();"> Login</a>
+				</div>
+
+			</div>
+-->
+
+		</div>
+    </div>
+
+        <div id="footer" class="col-md-12 col-xs-12 text-center">
+                     <h5 class="title-widget" style="color: #ffffff;font-family: 'robotolight';">If you don't have credentials</h5>
+                    <p>
+                         <span>please contact us at</span>
+					                  <a style="color: #feca08" href="{{mailLink}}">caresupport@pennacement.com</a>
+                                       <span>for logon information</span>
+                     </p>
+
+                	</div>
+
+	</div>
+
+
+
+</div>
+
+
+
+
+<div class="add_family">
+	<script type="text/ng-template" id="productconf.html">
+		<div class="modal-body text-center saveconfirm">
+			<h4>Would you like to send in your Enquiry!!</h4>
+		</div>
+		<div class="modal-footer">
+			<a class="btn modal_grey" ng-click="ok()">Cancel</a>
+			<a class="btn modal_blue" ui-sref="login.pre-login-enquiry" ng-click="cancel()">Ok</a>
+		</div>
+	</script>
+</div>
+
+
+<!-- new code -->
+<script type="text/ng-template" id="TermsModal.html">
+	<div class="modal-header terms-header">
+		<h3 class="modal-title text-center" id="modal-title">Terms & Conditions</h3>
+	</div>
+	<div class="modal-body terms-modal-body" id="modal-body">
+		<div ng-include src="terms_link"> </div>
+	</div>
+	<div class="modal-footer">
+		<a class="btn modal_grey disagree" ng-click="userdisagreed();">I Disagree</a>
+		<a class="btn modal_blue agree" ng-click="userAgreed();">I Agree</a>
+
+		<!--<a class="btn modal_blue" ng-disabled="isDisabled"  ng-click="userAgreed();disableButton();">I Agree</a>
+        <a class="btn modal_grey" ng-disabled="isDisabled"  ng-click="userdisagreed();disableButton();">Disagree</a>   -->
+		<!--  <a class="btn modal_blue" ng-click="userAgreed();">I Agree</a>
+        <a class="btn modal_grey" ng-click="userdisagreed();">Disagree</a>-->
+	</div>
+</script>

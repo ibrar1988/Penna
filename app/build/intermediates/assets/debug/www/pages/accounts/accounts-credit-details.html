@@ -1,0 +1,57 @@
+<div class="single_tab_content" ng-controller="creditctrl" ng-init="credit()">
+
+	<h2 class="page-header">
+        <a href="" ui-sref="accounts" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-credit-details pull-left"></i> Outstanding Details
+    </h2>
+
+
+	<div class="sectioncard dashb_performance">
+
+		<h2 class="section-head text-center">  <b>{{date_split}} {{month2}} {{year_split}}</b>  </h2>
+		<div class="text-center">
+
+			<div class="single_status  clearfix" style="display:none">
+				<h4>Credit Limit</h4>
+				<!--  <div class="skill-lockup">
+                    <span class="skill-bar">
+                        <span class="skill-level  credit-limit"></span>
+                   </span>
+                </div>-->
+
+				<div class="skill-lockup">
+
+					<span class="skill-bar">
+
+                        <span class="skill-level  credit-limit"  ng-style="{ width: limit + '%' }"></span>
+
+					</span>
+
+				</div>
+
+				<h4 content="telephone=no"><strong> {{creditDetails.CrdtLimit - creditDetails.AvailableCl | rounded | INR}} / {{creditDetails.CrdtLimit | rounded | INR}} <!--Lakhs--></strong></h4>
+			</div>
+			<div class="single_status  clearfix" style="display:none">
+				<h4>Available credit Limit</h4>
+				<h4 content="telephone=no"><i class="fa fa-inr green-txt"></i><strong> {{creditDetails.AvailableCl | rounded | INR}}</strong></h4>
+			</div>
+			<div class="single_status  clearfix">
+				<h4>Outstanding Amount</h4>
+				<!--<h4 content="telephone=no"><strong><i class="fa fa-inr text-yellow"></i> {{(creditDetails.OsAmt && (creditDetails.OsAmt > 0)) ? (creditDetails.OsAmt | rounded) : 0 }}</strong></h4>-->
+				<h4 content="telephone=no"><strong><i class="fa fa-inr text-yellow"></i> {{(creditDetails.OsAmt) ? (creditDetails.OsAmt | rounded | INR) : 0 }}</strong></h4>
+
+			</div>
+			<div class="single_status  clearfix">
+				<h4>Over Due Amount</h4>
+				<!--{{creditDetails.OsOdAmt = ""}}-->
+				<!--<h4 content="telephone=no"><strong><i class="fa fa-inr txt-red"></i> {{(creditDetails.OsOdAmt && (creditDetails.OsOdAmt > 0)) ? (creditDetails.OsOdAmt | rounded) : 0 }} </strong></h4>-->
+				<h4 content="telephone=no"><strong><i class="fa fa-inr txt-red"></i> {{(creditDetails.OsOdAmt) ? (creditDetails.OsOdAmt | rounded | INR) : 0 }} </strong></h4>
+
+				<!--<h4 content="telephone=no" ng-if="creditDetails.OsOdAmt == ''"><strong><i class="fa fa-inr txt-red"></i> 0</strong></h4>-->
+
+				<p>Over due by: {{creditDetails.OsOdDays}} days</p>
+			</div>
+		</div>
+	</div>
+</div>

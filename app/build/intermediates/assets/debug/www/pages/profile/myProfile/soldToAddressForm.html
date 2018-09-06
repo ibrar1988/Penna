@@ -1,0 +1,144 @@
+<div class="modal-header">
+    <h2 class="modal-title">Sold To Address <small ng-show="soldToaddrs.indicatorStatus">Need To Approve</small></h2>
+</div>
+<div class="modal-body">
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.street1 == true) ? 'has-error' : 'has-primary' ">
+            <label>Street 1</label>
+            <input type="text" name="street1" ng-focus="err.street1=false;" ng-model="soldToaddrs.street1" class="form-control-custom" placeholder="" required ng-disabled="soldToaddrs.indicatorStatus" style="border-bottom:1px solid #ccc" />
+            <div class="errors">
+                <span ng-show="err.street1">Street 1 is required</span>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="single_info">
+        <div class="form-group" ng-class="(err.street2 == true) ? 'has-error' : 'has-primary' ">
+            <label>Street 2</label>
+            <input type="text" name="street2" ng-focus="err.street2=false;" ng-model="soldToaddrs.street2" class="form-control-custom" placeholder="" required ng-disabled="soldToaddrs.indicatorStatus" style="border-bottom:1px solid #ccc" />
+            <div class="errors">
+                <span ng-show="err.street2">Street 2 is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.street3 == true) ? 'has-error' : 'has-primary' ">
+            <label>Street 3</label>
+            <input type="text" name="street3" ng-focus="err.street3=false;" ng-model="soldToaddrs.street3" class="form-control-custom" placeholder="" required ng-disabled="soldToaddrs.indicatorStatus" style="border-bottom:1px solid #ccc" />
+            <div class="errors">
+                <span ng-show="err.street3">Street 3 is required</span>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.taluk == true) ? 'has-error' : 'has-primary' ">
+            <label>Taluk</label>
+            <input type="text" name="taluk" ng-model="soldToaddrs.taluk" class="form-control-custom" placeholder="" required ng-disabled="soldToaddrs.indicatorStatus" style="border-bottom:1px solid #ccc" />
+            <div class="errors">
+                <span ng-show="err.taluk">Taluk is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.city == true) ? 'has-error' : 'has-primary' ">
+            <label>City</label>
+            <select name="city" ng-model="soldToaddrs.city" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in cities| orderBy:'name'" ng-disabled="soldToaddrs.indicatorStatus" ng-change="err.city=false;" onchange="angular.element(this).scope().citySelected(this)">
+                <option value="" disabled="true">Select city</option>
+                <option value="" ng-if="false"></option>
+            </select>
+            <div class="errors">
+                <span ng-show="err.city">City is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.district == true) ? 'has-error' : 'has-primary' ">
+            <label>District</label>
+            <input type="text" name="District" ng-focus="err.district=false;" ng-model="soldToaddrs.district" class="form-control-custom" placeholder="" required ng-disabled="soldToaddrs.indicatorStatus" style="border-bottom:1px solid #ccc" />
+            <div class="errors">
+                <span ng-show="err.district">District is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.state == true) ? 'has-error' : 'has-primary' ">
+            <label>State</label>
+            <select name="state" ng-model="soldToaddrs.state" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in states| orderBy:'name'" ng-disabled="soldToaddrs.indicatorStatus" ng-change="err.state=false;" onchange="angular.element(this).scope().stateSelected(this)">
+                <option value="" disabled="true">Select state</option>
+                <option value="" ng-if="false"></option>
+            </select>
+            <div class="errors">
+                <span ng-show="err.state">State is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="(err.country == true) ? 'has-error' : 'has-primary' ">
+        <label>Country</label>
+        <select name="country" ng-model="soldToaddrs.country" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in countries| orderBy:'name'" ng-disabled="soldToaddrs.indicatorStatus" onchange="angular.element(this).scope().countrySelected(this)">
+            <option value="" disabled="true">Select country</option>
+            <option value="" ng-if="false"></option>
+        </select>
+        <div class="errors">
+            <span ng-show="err.country">country is required</span>
+        </div>
+    </div>
+
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.pin == true) ? 'has-error' : 'has-primary' ">
+            <label>Pin</label>
+            <input type="text" name="Name" ng-focus="err.pin=false;" ng-model="soldToaddrs.pin" class="form-control-custom" placeholder="" required ng-disabled="soldToaddrs.indicatorStatus" style="border-bottom:1px solid #ccc" />
+            <div class="errors" my-length="6">
+                <span ng-show="err.pin">Pin is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="(err.email == true) ? 'has-error' : 'has-primary' ">
+        <label>Email</label>
+        <input type="email" name="email" ng-model="soldToaddrs.email" class="form-control-custom" id="inputEmail" placeholder="" ng-focus="err.email=false;" required my-textlen="40" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
+        <div class="errors">
+            <span ng-show="err.email">Email is required</span>
+            <span ng-show="!myForm.email.$error.required && (myForm.email.$error.email || myForm.email.$error.pattern) && myForm.email.$dirty">invalid email</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="(err.mobileNumber == true || err.mobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+        <label>Mobile Number</label>
+        <input type="text" name="mobilenum" ng-model="soldToaddrs.mobileNumber" class="form-control-custom" placeholder="" id="mobilenum" maxlength="10" my-length="10" ng-focus="err.mobileNumber=false;err.mobileNumberLength=false;" required />
+        <div class="errors">
+            <span ng-show="err.mobileNumber">Mobile number is required</span>
+            <span ng-show="err.mobileNumberLength">Mobile number should be 10 digits</span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="(err.alternateMobileNumber == true || err.alternateMobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+        <label>Alternate Mobile Number</label>
+        <input type="text" name="altmobilenum" ng-model="soldToaddrs.alternateMobileNumber" class="form-control-custom" placeholder="" maxlength="10" my-length="10" required />
+        <div class="errors">
+            <span ng-if="err.alternateMobileNumber">Alternate mobile number is required</span>
+            <span ng-if="err.alternateMobileNumberLength">Alternate mobile number should be 10 digits</span>
+        </div>
+    </div>
+    <div class="single_info">
+        <div class="form-group" ng-class="(err.image == true) ? 'has-error' : 'has-primary' " ng-hide="soldToaddrs.indicatorStatus">
+            <label>Attachment</label>
+            <input type="file" id="soldToAddrsImg" accept="image/*" name="image" style=" width: 2px; height:2px" ng-model="image" ng-show="hide" onchange="angular.element(this).scope().imageSelected(this)" valid-file required>
+            <a href="" name="image" ng-click="mobileAttachUpload()">Upload</a>
+            <div class="pull-right" ng-show="image">
+                <small class="text-primary">Image uploaded successfully</small>
+            </div>
+            <div class="errors">
+                <span ng-show="err.image">Attachment is required</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+    <a class="btn modal_blue" ng-click="save()">Save</a>
+</div>

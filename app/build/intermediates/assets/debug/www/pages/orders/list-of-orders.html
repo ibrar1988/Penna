@@ -1,0 +1,160 @@
+<div class="single_tab_content" ng-controller="listorderctrl">
+	<h2 class="page-header">
+        <a ng-click="order_back()" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-orderslist pull-left"></i> List of Orders
+        <div class="pod-main-actions pull-right">
+          <!--<a href="" class="pull-right"><i class="icon_calendar"></i></a>-->
+          <!--  <a href="" ng-click="orderByField='CreateDate'; reverseSort = !reverseSort"  class="pull-right"><i class="pci icon-filter"></i></a>-->
+              <a style="border-right: none;" href="" ng-click="orderByField(orderlist)"  class="pull-right"><i class="pci icon-filter" title="Sort" ng-if="orderslist.length !=0"></i></a>
+        </div>
+    </h2>
+
+	<div class="dashb_performance">
+		<div class="timeline" ng-show="orderslist.length !=0">
+			<h4>Recent</h4>
+		</div>
+		<!-- <div class="all_pods" ng-repeat="orderlist in orderslist | orderBy:orderByField:reverseSort">-->
+		<!--  <div class="all_pods" ng-repeat="orderlist in orderslist track by $index">-->
+		<div class="all_pods" ng-repeat="orderlist in orderslist.slice(((invoiceCurrpage-1)*itemsPerPage), ((invoiceCurrpage)*itemsPerPage))">
+			<div class="single_pod clearfix">
+				<i class="custom-list">{{((invoiceCurrpage-1)*10)+($index+1)}}</i>
+				<div class="pending_data">
+					<a href="" ng-click="detailsorder(orderlist)">
+						<p><span class="highlight">Order Number - {{orderlist.PoNumber}}</span> <span style="color: red" ng-if="orderlist.createdAt == 'CARE PORTAL'">(Created from CARE)</span></p>
+						<!--<p ng-if="orderlist.POLine.length == 1">{{orderlist.POLine.length}} Order Line</p>
+<p ng-if="orderlist.POLine.length > 1">{{orderlist.POLine.length}} Order Lines</p>-->
+						<p>Total Quantity: <strong>{{orderlist.totalqty}} MT</strong> | Delivered: <strong>{{orderlist.deliveredQty}} MT</strong></p>
+						<!---->
+						<!--<p>{{orderlist.CreateDate}}</p>-->
+						<p>Order Placed: {{orderlist.SforderDate | date : "dd MMMM y"}}
+                         {{orderlist.POLine[0].orderStatus | showorderstatus}}</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="text-center" ng-show="orderslist.length >20 || orderslist.length !=0">
+
+			<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="orderslist.length" ng-model="invoiceCurrpage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage(invoiceCurrpage);" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+
+			<!--max-size="maxSize" class="pagination-sm" boundary-links="true"-->
+		</div>
+
+
+	</div>
+
+
+	<div class="sectioncard" ng-show="orderslist.length ==0 && orderslist_pre.length == 0">
+
+		<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no Orders available for current month".</h5>
+
+	</div>
+
+
+	<div class="sectioncard" ng-show="orderslist_pre.length !=0">
+		<h4 ng-show="date1 != null" style="padding-top:10px;padding-bottom:10px;padding-left:10px">{{date1}} - {{date2}}
+
+            <a style="border-right: none;" href="" ng-click="orderByFieldsec()" class="pull-right"><i class="pci icon-filter" title="Sort" ng-if="orderslist_pre.length !=0"></i></a>
+        </h4>
+
+	</div>
+
+	<div class="dashb_performance" ng-show="orderslist_pre.length !=0">
+		<!-- <div class="all_pods" ng-repeat="orderlist in orderslist_pre">-->
+		<div class="all_pods" ng-repeat="orderlist in orderslist_pre.slice(((invoiceCurrpage1-1)*itemsPerPage1), ((invoiceCurrpage1)*itemsPerPage1))">
+			<div class="single_pod clearfix">
+				<i class="custom-list">{{((invoiceCurrpage1-1)*10)+($index+1)}}</i>
+				<div class="pending_data">
+					<a href="" ng-click="detailsorder(orderlist)">
+						<p><span class="highlight">Order Number - {{orderlist.PoNumber}}</span>  <span style="color: red" ng-if="orderlist.createdAt == 'CARE PORTAL'">(Created from CARE)</span></p>
+						<!--<p>{{orderlist.POLine.length}} Order Line</p>-->
+						<p>Total Quantity: <strong>{{orderlist.totalqty}} MT</strong> | Delivered: <strong>{{orderlist.deliveredQty}} MT</strong></p>
+						<p>Order Placed: {{orderlist.SforderDate | date : "dd MMMM y"}}
+                         {{orderlist.POLine[0].orderStatus | showorderstatus}}</p>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="text-center" ng-show="orderslist_pre.length >20 || orderslist_pre.length !=0">
+
+			<uib-pagination class="pagination pagination-sm" max-size="maxSize1" total-items="orderslist_pre.length" ng-model="invoiceCurrpage1" max-size="maxSize1" boundary-links="true" items-per-page="itemsPerPage1" ng-click="getCurrentPage1();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+
+			<!--max-size="maxSize" class="pagination-sm" boundary-links="true"-->
+		</div>
+
+	</div>
+
+	<div class="sectioncard" ng-show="orderslist.length ==0 && orderslist_pre.length == 0">
+
+		<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no Orders available for previous quarter".</h5>
+
+	</div>
+
+
+	<!--  <div class="dashb_performance">
+        <div class="timeline">
+            <h4>Jan - March, 2016(5)</h4>
+        </div>
+        <div class="all_pods">
+            <div class="single_pod clearfix">
+                <i class="custom-list">1</i>
+                <div class="pending_data">
+                    <a ui-sref="orders.list-of-orders-detail">
+                        <p><strong>Order Number - 15462598746</strong></p>
+                        <p>5 Sub-orders</p>
+                        <p>Total Quantity: <strong>100 MT</strong> | Delivered: <strong>80 MT</strong></p>
+                        <p>Order Placed: 24<sup>th</sup> February, 2016</p>
+                    </a>
+                </div>
+            </div>
+            <div class="single_pod clearfix">
+                <i class="custom-list">2</i>
+                <div class="pending_data">
+                    <a ui-sref="orders.list-of-orders-detail">
+                        <p><strong>Order Number - 15462598746</strong></p>
+                        <p>2 Sub-orders</p>
+                        <p>Total Quantity: <strong>100 MT</strong> | Delivered: <strong>80 MT</strong></p>
+                        <p>Order Placed: 19<sup>th</sup> February, 2016</p>
+                    </a>
+                </div>
+            </div>
+            <div class="single_pod clearfix">
+                <i class="custom-list">3</i>
+                <div class="pending_data">
+                    <a ui-sref="orders.list-of-orders-detail">
+                        <p><strong>Order Number - 15462598746</strong></p>
+                        <p>3 Sub-orders</p>
+                        <p>Total Quantity: <strong>100 MT</strong> | Delivered: <strong>80 MT</strong></p>
+                        <p>Order Placed: 15<sup>th</sup> February, 2016</p>
+                    </a>
+                </div>
+            </div>
+            <div class="single_pod clearfix">
+                <i class="custom-list">4</i>
+                <div class="pending_data">
+                    <a ui-sref="orders.list-of-orders-detail">
+                        <p><strong>Order Number - 15462598746</strong></p>
+                        <p>2 Sub-orders</p>
+                        <p>Total Quantity: <strong>100 MT</strong> | Delivered: <strong>80 MT</strong></p>
+                        <p>Order Placed: 14<sup>th</sup> February, 2016</p>
+                    </a>
+                </div>
+            </div>
+            <div class="single_pod clearfix">
+                <i class="custom-list">5</i>
+                <div class="pending_data">
+                    <a ui-sref="orders.list-of-orders-detail">
+                        <p><strong>Order Number - 15462598746</strong></p>
+                        <p>3 Sub-orders</p>
+                        <p>Total Quantity: <strong>100 MT</strong> | Delivered: <strong>80 MT</strong></p>
+                        <p>Order Placed: 12<sup>th</sup> February, 2016</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

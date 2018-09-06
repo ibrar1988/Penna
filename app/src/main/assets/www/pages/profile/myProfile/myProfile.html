@@ -1,0 +1,409 @@
+<style>
+	.panel-group {
+		margin-bottom: 0px;
+	}
+
+	.panel-default > .panel-heading {
+		color: #333;
+		background: #FFD63E;
+		border-color: #ddd;
+	}
+
+	uib-accordion.accordion_child .panel-default > .panel-heading {
+		color: #333;
+		background: #Fff;
+		border-color: #ddd;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.ship_add_main .panel-title a span,
+	.custom-panel .panel-title a span {
+		font-size: 16px;
+		font-weight: 400;
+	}
+</style>
+
+
+<div class="single_tab_content">
+
+	<h2 class="page-header">
+        <a href="#/profile" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a>  <i class="pci icon-myprofile"></i> My Profile 
+    </h2>
+
+
+	<div class="sectioncard col-xs-12 noPad">
+		<h2 class="section-head">Company Details</h2>
+		<div class="">
+			<div class="col-xs-12 noPad">
+				<div class="padL20">
+					<div class="single_info">
+						<h3>Company Name</h3>
+						<p>{{usersprofileList.companyName}}</p>
+					</div>
+
+					<div class="single_info" style="display:none">
+						<h3>Nature of Firm</h3>
+						<p>{{usersprofileList.natureOfFirm}}</p>
+					</div>
+					<div class="single_info">
+						<h3>Penna Customer Number</h3>
+						<p>{{usersprofileList.sapCustomerNumber}}</p>
+					</div>
+				</div>
+				<div class="col-xs-12 noPad">
+					<div class="padL10 single_info">
+						<h3> <b><i class="pci-sm icon-address pull-left"></i>Address</b> </h3>
+					</div>
+					<div class=" col-xs-12 pad20 noPadT single_address " ng-repeat="soldadd in usersprofileList.soldToAddress" style="border:none">
+						<!--<div class="col-xs-1 noPad">
+    <span class="text-center">{{$index+1}}</span>
+</div>-->
+						<div class="col-xs-10 noPadL">
+							<small class="lable">Street 1</small>
+							<p class="lableVal"> {{soldadd.street1}} </p>
+
+							<small class="lable" style="display:none !important"> Street 2</small>
+							<p class="lableVal" style="display:none !important"> {{soldadd.street2}} </p>
+
+							<small class="lable" style="display:none !important">Street 3</small>
+							<p class="lableVal" style="display:none !important"> {{soldadd.street3}} </p>
+
+							<small class="lable">Taluk</small>
+							<p class="lableVal"> {{soldadd.taluk}} </p>
+
+							<small class="lable">City</small>
+							<p class="lableVal"> {{soldadd.city}} </p>
+
+							<small class="lable">District</small>
+							<p class="lableVal"> {{soldadd.district}} </p>
+
+							<small class="lable">State</small>
+							<p class="lableVal"> {{soldadd.state}} </p>
+
+							<small class="lable">Country</small>
+							<p class="lableVal"> {{soldadd.country}} </p>
+
+							<small class="lable">Pin</small>
+							<p class="lableVal"> {{soldadd.pin}} </p>
+
+							<small class="lable">Email</small>
+							<p class="lableVal"> {{soldadd.email}} </p>
+
+							<small class="lable">Mobile number</small>
+							<p class="lableVal"> {{soldadd.mobileNumber}} </p>
+
+							<small class="lable">Alternate mobile number</small>
+							<p class="lableVal"> {{soldadd.alternateMobileNumber}} </p>
+
+						</div>
+						<div class="col-xs-1  single_info " style="display:none">
+							<div class="pull-right">
+								<button class=" btn btn-xs btn-default rounded" uib-tooltip='Need To Approve' tooltip-placement="left-bottom" tooltip-enable="soldadd.indicatorStatus" ng-click="soldToAddress(soldadd);"><i class="fa icon_pencil-edit"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 noPad" style="display:none !important">
+					<div class="padL10 single_info">
+						<h3> <b><i class="pci-sm icon-address pull-left"></i> Billing Address</b>
+                            <div class="pull-right">
+                             <!-- ng-hide="usersprofileList.billingIndicator ||  usersprofileList.otherBillingIndicatorStatus" -->
+                                <button class=" btn btn-xs btn-default rounded " ng-click="billingAddress();" style="margin-right: 20px; padding: 3px 6px 1px 6px;">
+                                    <span class="icon_plus_alt2"></span>
+                                </button>
+                            </div>
+                        </h3>
+					</div>
+
+					<div class=" col-xs-12 pad20 noPadT single_address noMar" ng-repeat="billadd in usersprofileList.billingAddress">
+						<div class="col-xs-1 noPad">
+							<span class="text-center">{{$index+1}}</span>
+						</div>
+						<div class="col-xs-10 noPadL">
+							<small class="lable">Street 1</small>
+							<p class="lableVal"> {{billadd.street1}} </p>
+
+							<small class="lable"> Street 2</small>
+							<p class="lableVal"> {{billadd.street2}} </p>
+
+							<small class="lable">Street 3</small>
+							<p class="lableVal"> {{billadd.street3}} </p>
+
+							<small class="lable">City</small>
+							<p class="lableVal"> {{billadd.city}} </p>
+
+							<small class="lable">State</small>
+							<p class="lableVal"> {{billadd.state}} </p>
+
+							<small class="lable">Country</small>
+							<p class="lableVal"> {{billadd.country}} </p>
+
+							<small class="lable">Email</small>
+							<p class="lableVal"> {{billadd.email}} </p>
+
+							<small class="lable">Mobile number</small>
+							<p class="lableVal"> {{billadd.mobileNumber}} </p>
+
+							<small class="lable">Alternate mobile number</small>
+							<p class="lableVal"> {{billadd.alternateMobileNumber}} </p>
+
+						</div>
+						<div class="col-xs-1  single_info " ng-init="approve= (!billadd.indicatorStatus && usersprofileList.otherBillingIndicatorStatus) ? 'Other address need to approve' : 'Need To Approve'">
+							<div class="pull-right">
+								<button class=" btn btn-xs btn-default rounded" uib-tooltip='{{approve}}' tooltip-placement="left-bottom" tooltip-popup-close-delay="1500" tooltip-enable="billadd.indicatorStatus" ng-click="billingAddress(billadd);"><i class="fa icon_pencil-edit"></i></button>
+								<!-- || usersprofileList.otherBillingIndicatorStatus ||  usersprofileList.billingIndicator -->
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="sectioncard col-xs-12 noPad">
+		<div class="ship_add_main">
+			<uib-accordion>
+				<uib-accordion-group is-open="status.open">
+					<uib-accordion-heading>
+						Individual/Partner Profile
+						<i class="pull-right glyphicon arrow_carrot-right" ng-if="!status.open" title="Expand"></i>
+						<i class="pull-right glyphicon arrow_carrot-down" ng-if="status.open" title="Collapse"></i>
+						<a class="editicon" href="" ng-click="$event.stopPropagation();individualPartner();" data-toggle="tooltip" title="Add New">
+							<i class="pull-right" ng-class="{'icon_plus_alt2': !status.open}"></i>
+						</a>
+
+						<a class="editicon" href="" ng-click="$event.stopPropagation();individualPartner();" data-toggle="tooltip" title="Add New">
+							<i class="pull-right" ng-class="{'icon_plus_alt2': status.open,}"></i>
+						</a>
+
+					</uib-accordion-heading>
+
+
+					<uib-accordion class="accordion_child" close-others="false">
+						<uib-accordion-group is-open="status1.open" ng-repeat="userpro in usersprofileList.getPartners track by $index">
+							<uib-accordion-heading>
+								{{$index+1}}) {{userpro.name}}
+								<i class="pull-right glyphicon arrow_carrot-right" ng-if="!status1.open" title="Expand"></i>
+								<i class="pull-right glyphicon arrow_carrot-down" ng-if="status1.open" title="Collapse"></i>
+								<a class="editicon" href="" ng-click="$event.stopPropagation();individualPartner(userpro);" data-toggle="tooltip" title="Edit">
+									<i class="pull-right" ng-class="{'fa icon_pencil-edit': !status1.open}"></i>
+								</a>
+
+								<a class="editicon" href="" ng-click="$event.stopPropagation();individualPartner(userpro);" data-toggle="tooltip" title="Edit">
+									<i class="pull-right" ng-class="{'fa icon_pencil-edit': status1.open,}"></i>
+								</a>
+							</uib-accordion-heading>
+							<div class="col-xs-12 noPadL">
+								<small class="lable">Proprietor Name</small>
+								<p class="lableVal"> {{userpro.name}} </p>
+
+								<small class="lable"> Mobile Number</small>
+								<p class="lableVal"> {{userpro.mobileNumber}} </p>
+
+								<small class="lable">Alternate Mobile Number</small>
+								<p class="lableVal"> {{userpro.alternateNumber}} </p>
+
+								<small class="lable">Email</small>
+								<p class="lableVal"> {{userpro.email}} </p>
+
+								<small class="lable">SAP Customer Number</small>
+								<p class="lableVal"> {{userpro.sapCustomerNumber}} </p>
+
+								<small class="lable">Home Address</small>
+								<p class="lableVal"> {{userpro.address}} </p>
+							</div>
+						</uib-accordion-group>
+					</uib-accordion>
+
+
+
+
+				</uib-accordion-group>
+			</uib-accordion>
+		</div>
+
+	</div>
+
+	<div class="sectioncard col-xs-12 noPad">
+		<div class="ship_add_main">
+			<uib-accordion>
+				<uib-accordion-group is-open="status2.open">
+					<uib-accordion-heading>
+						Family Member Details
+						<i class="pull-right glyphicon arrow_carrot-right" ng-if="!status2.open" title="Expand"></i>
+						<i class="pull-right glyphicon arrow_carrot-down" ng-if="status2.open" title="Collapse"></i>
+						<a class="editicon" href="" ng-click="$event.stopPropagation();familyMember();" data-toggle="tooltip" title="Add New">
+							<i class="pull-right" ng-class="{'icon_plus_alt2': !status2.open}"></i>
+						</a>
+
+						<a class="editicon" href="" ng-click="$event.stopPropagation();familyMember();" data-toggle="tooltip" title="Add New">
+							<i class="pull-right" ng-class="{'icon_plus_alt2': status2.open,}"></i>
+						</a>
+
+					</uib-accordion-heading>
+
+
+					<uib-accordion class="accordion_child" close-others="false">
+						<uib-accordion-group is-open="status3.open" ng-repeat="userfam in usersprofileList.getFamilymembers">
+							<uib-accordion-heading>
+								{{$index+1}}) {{userfam.familyName}}
+								<i class="pull-right glyphicon arrow_carrot-right" ng-if="!status3.open" title="Expand"></i>
+								<i class="pull-right glyphicon arrow_carrot-down" ng-if="status3.open" title="Collapse"></i>
+								<a class="editicon" href="" ng-click="$event.stopPropagation();familyMember(userfam);" data-toggle="tooltip" title="Edit">
+									<i class="pull-right" ng-class="{'fa icon_pencil-edit': !status3.open}"></i>
+								</a>
+
+								<a class="editicon" href="" ng-click="$event.stopPropagation();familyMember(userfam);" data-toggle="tooltip" title="Edit">
+									<i class="pull-right" ng-class="{'fa icon_pencil-edit': status3.open,}"></i>
+								</a>
+
+								<a class="editicon" href="" ng-click="$event.stopPropagation();user_deleteReferer(userfam,'FamilyMember');" data-toggle="tooltip" title="Delete">
+									<i class="pull-right" ng-class="{'fa fa-trash': !status3.open}" style="
+    padding-top: 5px;
+"></i>
+								</a>
+
+								<a class="editicon" href="" ng-click="$event.stopPropagation();user_deleteReferer(userfam,'FamilyMember');" data-toggle="tooltip" title="Delete">
+									<i class="pull-right" ng-class="{'fa fa-trash': status3.open,}" style="
+    padding-top: 5px;
+"></i>
+								</a>
+							</uib-accordion-heading>
+							<div class="col-xs-12 noPadL">
+								<small class="lable">Name</small>
+								<p class="lableVal"> {{userfam.familyName}} </p>
+
+								<small class="lable"> Marital Status</small>
+								<p class="lableVal"> {{userfam.maritalStatus}} </p>
+
+								<!--  <pre>{{userfam.maritalStatus}}</pre>ng-show="userfam.anniversary"-->
+
+								<small class="lable" ng-show="userfam.maritalStatus == 'Married'">Anniversary</small>
+								<p class="lableVal" ng-show="userfam.maritalStatus == 'Married'"> <span>{{userfam.anniversary | dateFormatFilter}}</span> </p>
+
+								<small class="lable">Relation</small>
+								<p class="lableVal"> {{userfam.relation}} </p>
+
+								<small class="lable">Date of Birth</small>
+								<p class="lableVal"> {{userfam.dateOfBirth | dateFormatFilter}} </p>
+							</div>
+						</uib-accordion-group>
+					</uib-accordion>
+
+
+
+
+				</uib-accordion-group>
+			</uib-accordion>
+		</div>
+
+	</div>
+
+
+	<div class="sectioncard col-xs-12 noPad">
+		<div class="ship_add_main">
+			<uib-accordion>
+				<uib-accordion-group is-open="status4.open">
+					<uib-accordion-heading>
+						Reference
+						<i class="pull-right glyphicon arrow_carrot-right" ng-if="!status4.open" title="Expand"></i>
+						<i class="pull-right glyphicon arrow_carrot-down" ng-if="status4.open" title="Collapse"></i>
+						<a class="editicon" href="" ng-click="$event.stopPropagation();userReferer();" data-toggle="tooltip" title="Add New">
+							<i class="pull-right" ng-class="{'icon_plus_alt2': !status4.open}"></i>
+						</a>
+
+						<a class="editicon" href="" ng-click="$event.stopPropagation();userReferer();" data-toggle="tooltip" title="Add New">
+							<i class="pull-right" ng-class="{'icon_plus_alt2': status4.open,}"></i>
+						</a>
+
+					</uib-accordion-heading>
+
+
+					<uib-accordion class="accordion_child" close-others="false">
+						<uib-accordion-group is-open="status5.open" ng-repeat="reference in usersprofileList.getReferences">
+							<uib-accordion-heading>
+								{{$index+1}}) {{reference.name}}
+								<i class="pull-right glyphicon arrow_carrot-right" ng-if="!status5.open" title="Expand"></i>
+								<i class="pull-right glyphicon arrow_carrot-down" ng-if="status5.open" title="Collapse"></i>
+								<a class="editicon" href="" ng-click="$event.stopPropagation();userReferer(reference);" data-toggle="tooltip" title="Edit">
+									<i class="pull-right" ng-class="{'fa icon_pencil-edit': !status5.open}"></i>
+								</a>
+
+								<a class="editicon" href="" ng-click="$event.stopPropagation();userReferer(reference);" data-toggle="tooltip" title="Edit">
+									<i class="pull-right" ng-class="{'fa icon_pencil-edit': status5.open,}"></i>
+								</a>
+
+								<a class="editicon" href="" ng-click="$event.stopPropagation();user_deleteReferer(reference,'Reference');" data-toggle="tooltip" title="Delete">
+									<i class="pull-right" ng-class="{'fa fa-trash': !status5.open}" style="
+    padding-top: 5px;
+"></i>
+								</a>
+
+								<a class="editicon" href="" ng-click="$event.stopPropagation();user_deleteReferer(reference,'Reference');" data-toggle="tooltip" title="Delete">
+									<i class="pull-right" ng-class="{'fa fa-trash': status5.open,}" style="
+    padding-top: 5px;
+"></i>
+								</a>
+							</uib-accordion-heading>
+							<div class="col-xs-12 noPadL">
+								<small class="lable">Name</small>
+								<p class="lableVal"> {{reference.name}} </p>
+
+								<small class="lable"> Mobile Number</small>
+								<p class="lableVal"> {{reference.mobileNumber}} </p>
+
+								<small class="lable"> Alternate Mobile Number</small>
+								<p class="lableVal"> {{reference.alternateMobileNumber}} </p>
+
+								<small class="lable">Email</small>
+								<p class="lableVal"> <span>{{reference.email}}</span> </p>
+
+								<small class="lable">Profession</small>
+								<p class="lableVal"> {{reference.profession}} </p>
+
+								<small class="lable"> Home Address</small>
+								<p class="lableVal"> {{reference.street1}} </p>
+								<p class="lableVal"> {{reference.street2}} </p>
+								<p class="lableVal"> {{reference.street3}} </p>
+								<p class="lableVal"> {{reference.taluk}} </p>
+								<p class="lableVal"> {{reference.city}} </p>
+								<p class="lableVal"> {{reference.district}} </p>
+								<p class="lableVal"> {{reference.state}} </p>
+								<p class="lableVal"> {{reference.pin}} </p>
+							</div>
+						</uib-accordion-group>
+					</uib-accordion>
+
+
+
+
+				</uib-accordion-group>
+			</uib-accordion>
+		</div>
+
+	</div>
+
+</div>
+
+
+<!-- new code -->
+<script type="text/ng-template" id="user_deleteReferer.html">
+	<div class="modal-header terms-header">
+		<h3 class="modal-title text-center" id="modal-title"> Confirmation  </h3>
+	</div>
+	<div class="modal-body terms-modal-body" id="modal-body">
+		<h3 class="modal-title text-center" id="modal-title">Are you sure you want to delete this
+		<span ng-if="type1 =='FamilyMember'">Family Member ?</span>
+		<span ng-if="type1 =='Reference'">Reference ?</span>
+</div>
+	<div class="modal-footer">
+		<a class="btn modal_grey disagree" ng-click="no_remove();">No</a>
+		<a class="btn modal_blue agree" ng-click="yes_remove();">Yes</a>
+			</div>
+</script>

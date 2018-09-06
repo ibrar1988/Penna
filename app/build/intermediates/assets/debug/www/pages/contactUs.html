@@ -1,0 +1,137 @@
+<div style="padding-top:1px">
+	<div class="sectioncard" style="margin: 10px;" ng-controller="contactUsCtrl">
+		<!-- defined in main controller -->
+		<a href="" ng-click="others_rediret()" class="goback">
+			<i class="fa fa-angle-left" style="padding-top: 9px;"></i></a>
+		<i class="pci icon-contact-us pull-left" style="margin-top: 9px;"></i>
+		<h2 class="section-head">Contact Us</h2>
+		<div class="card clearfix">
+
+			<div class="form-group" style="margin-left: 7px">
+				<h4>Your dedicated Penna Sales Officer:</h4>
+				<hr id="hr">
+
+				<span>Mr.&nbsp;{{salesRepName}}</span>
+				<br>
+				<a href="mailto:{{salesRepEmail}}?subject=From CareApp">{{salesRepEmail}}</a>
+
+				<br>
+				<p ng-show="!ifMobile">{{salesRepNumber}}</p>
+				<a href="JavaScript:void(0);" ng-show="ifMobile" ng-href="tel:{{salesRepNumber}}">{{salesRepNumber}}</a>
+
+			</div>
+			<br>
+
+			<div class="form-group" style="margin-left: 7px">
+				<h4>Other Contact Numbers:</h4>
+				<hr id="hr">
+				<h5>Andhra Pradesh/Telangana:</h5>
+				<p ng-show="!ifMobile">+91 7660940777 </p>
+				<p><a href="JavaScript:void(0);" ng-show="ifMobile" ng-href="tel:7660940777 ">+91 7660940777 </a></p>
+				<p ng-show="!ifMobile">+91 9912828800</p>
+				<p><a href="JavaScript:void(0);" ng-show="ifMobile" ng-href="tel:9912828800">+91 9912828800</a></p>
+				<h5>TamiNadu/Kerala/Pondicherry :</h5>
+				<p ng-show="!ifMobile">+91 9789257189</p>
+				<a href="JavaScript:void(0);" ng-show="ifMobile" ng-href="tel:9789257189">+91 9789257189</a>
+				<h5>Karnataka/Goa/Maharastra :</h5>
+				<p ng-show="!ifMobile">+91 9480811974</p>
+				<a href="JavaScript:void(0);" ng-show="ifMobile" ng-href="tel:9480811974">+91 9480811974</a>
+				<br/>
+				<div>
+					<span>Mail us at:</span>
+					<a href="{{mailLink}}">caresupport@pennacement.com</a>
+					<br>
+					<span>Visit us at:</span>
+					<a ng-show="!ifMobile" target="_blank" href="http://www.pennacement.com">www.pennacement.com</a>
+					<a ng-show="ifMobile" ng-click="openPennaSite()">www.pennacement.com</a>
+				</div>
+			</div>
+			<br/>
+
+			<div class="form-group" style="margin-left: 7px">
+				<h4>Corporate Address:</h4>
+				<hr id="hr">
+				<h5>PENNA CEMENT INDUSTRIES LIMITED</h5>
+				<h5> H.No. 8-2-268/A/1/S & S1,</h5>
+				<h5>Plot No. 705, Lakshmi Nivas,</h5>
+				<h5>Road No 3, Banjara Hills,</h5>
+				<h5>Hyderabad – 500034</h5>
+			</div>
+			<br>
+			<p ng-show="ifMobile" style="font-size: 10px;margin: 0 0 3px;">Simply click on phone number to call
+			</p>
+			<hr id="hr1" ng-show="ifMobile">
+			<div class="form-group" style="margin-left: 7px" ng-show="ifMobile">
+				<p style="font-size: 10px">Version of CARE App:{{version}}</p>
+			</div>
+
+		</div>
+
+		<!-- Modal -->
+		<div class="container-fluid">
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="row ">
+								<div class="col-md-8">
+									<div class="well well-sm">
+										<form>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="name">Name</label>
+														<input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+													</div>
+
+													<div class="form-group">
+														<label for="email">Email Address</label>
+														<div class="input-group">
+															<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+															</span>
+															<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label for="subject">Subject</label>
+														<select id="subject" name="subject" class="form-control" required="required">
+															<option value="na" selected="">Choose One:</option>
+															<option value="service">General Customer Service</option>
+															<option value="suggestions">Suggestions</option>
+															<option value="product">Product Support</option>
+														</select>
+													</div>
+
+												</div>
+
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="name">Message</label>
+														<textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+													</div>
+												</div>
+
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+														Send Message</button>
+												</div>
+
+											</div>
+										</form>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

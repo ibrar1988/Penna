@@ -1,0 +1,27 @@
+
+<div class="modal-header">
+    <h3 class="modal-title" >Add Ship to Address</h3>
+</div>
+<div class="modal-body" id="">
+    <div class="container-fluid">
+        <div class="row"></div>
+        <div class="row">
+            <div id="panel" class="col-sm-6 col-lg-6 form-group" ng-show='interNet'>
+                <label>Search Location</label>
+                <input id="city_country"  type="textbox"  class="form-control-custom" placeholder="Search for Address or Area or City" >
+
+                <div id="addressType"></div>            
+                <div id="mapCanvas" class="mapCanvas"></div>
+            </div>
+            <div class="" ng-class="(page=='add' && interNet) ? 'col-sm-6 col-lg-6' : 'col-sm-12 col-lg-12'">
+                <form name="myForm">
+                    <div ng-include="'pages/profile/shipToAddress/shipToAddressFrom.html'"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">     
+    <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+    <a class="btn modal_blue" ng-click="addshipdelt()">Add</a>
+</div>

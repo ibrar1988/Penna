@@ -1,0 +1,28 @@
+<div class="single_tab_content" ng-controller="montpartypdfctrl">
+	<h2 class="page-header">
+        <a ui-sref="accounts.monthparty" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-invoices pull-left"></i> Monthly Party Confirmation
+        <a ng-href="{{pdfURL}}" class="pull-right" download><i class="icon_download"></i></a>
+    </h2>
+
+	<div class="sectioncard">
+
+		<div class="card">
+
+
+			<!--<pre>{{pdfURL}}</pre>-->
+			<div class="card">
+
+				<div class="card invoice_main">
+					<!--<pdf src="pdfURL"></pdf>-->
+					<object data="{{pdfURL}}" type="application/pdf" style="width:100%; height:1000px" />
+
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,95 @@
+<div class="single_tab_content" ng-controller="dashbordctrl">
+
+    <h2 class="page-header">
+        <a ng-click="gotoDashBoard();" href="#" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-order-status pull-left"></i> Order Status
+    </h2>
+
+    <div class="dashb_performance">
+        <ul class="all_pods">
+
+            <li class="single_pod clearfix" ng-repeat="listoforder in listoforders">
+                <i class="custom-list">{{$index + 1}}</i>
+                <div class="pending_data" ng-click="detailsorder(listoforder)">
+                    <a href="" ng-show="listoforder.POLine.length == 0">
+                        <p><strong>Order Number - {{listoforder.PoNumber}}</strong></p>
+                    </a>
+                    <a href="" ng-show="listoforder.POLine.length > 0">
+                        <p><strong>Order Number - {{listoforder.PoNumber}}</strong></p>
+                    </a>
+                    <!-- <p>{{listoforder.POLine.length}} Order Line</p>-->
+                   <!--<p ng-if="listoforder.POLine.length == 1">{{listoforder.POLine.length}} Order Line</p>
+<p ng-if="listoforder.POLine.length > 1">{{listoforder.POLine.length}} Order Lines</p>-->
+                    <p>Total Quantity: <strong>{{listoforder.totalqty}} MT</strong> | Delivered: <strong>{{listoforder.deliveredQty}} MT</strong></p>
+                    <p>Order Placed: {{listoforder.SforderDate| date : "dd MMMM y"}}</p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="sectioncard text-center" ng-show="listoforders.length == '0'">
+        <h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no orders available".</h5>
+    </div>
+
+
+</div>
+
+
+<!-- ADD MORE Modal -->
+
+<div class="add_family">
+    <script type="text/ng-template" id="orderstat-modal.html">
+        <div class="modal-header">
+        <h3 class="modal-title">Add More</h3>
+        </div>
+        <div class="modal-body">
+        <form role="form">
+        <fieldset>
+        <div class="form-group">
+        <label>Order number</label>
+        <p>70462598746</p>
+        </div>
+        <div class="form-group">
+        <label>Quantity ordered</label>
+        <p>120 MT</p>
+        </div>
+        <div class="form-group">
+        <label>Fullfilled Quantity</label>
+        <p>100 MT</p>
+        </div>
+        <div class="form-group">
+        <label>Add More(Max. 20 MT)</label>
+        <select class="form-control-custom">
+        <option value="Hyderabad">10 MT</option>
+        <option value="Bangalore">20 MT</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Select Ship Address</label>
+        <select class="form-control-custom">
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Bangalore">Bangalore</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Date</label>
+        <input type="date" class="form-control-custom" placeholder="">
+        </div>
+        <div class="form-group">
+        <label>Delivery Type</label>
+        <select class="form-control-custom">
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Bangalore">Bangalore</option>
+        </select>
+        </div>
+        </fieldset>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+        <a class="btn modal_blue" ng-click="ok()">Add</a>
+        </div>
+    </script>
+</div>

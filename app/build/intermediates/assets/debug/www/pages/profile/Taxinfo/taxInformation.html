@@ -1,0 +1,218 @@
+<style>
+	.edit-icon {
+		font-size: 12px;
+		cursor: pointer;
+	}
+</style>
+
+
+<div class="scrollable" ng-controller="taxinfoctrl">
+	<div class="scrollable-content">
+		<div class="single_tab_content">
+			<h2 class="page-header"><a href="#/profile" class="goback">
+                    <i class="fa fa-angle-left"></i></a>  <i class="pci icon-taxinfo pull-left"></i>Tax Information </h2>
+			<div class="sectioncard">
+				<div class="card">
+					<div class="single_info clearfix">
+						<div class="col-xs-9">
+							<h3>GST Number  <!-- <span ng-show="taxinfo.CSTorGSTNumber_image_Indicator" style="font-size:8px;padding-left:15px">(Needs approval)</span>
+                                <span class="icon_pencil-edit edit-icon" ng-hide="taxinfo.CSTorGSTNumber" ng-click="editfiled('cstno')"></span>
+                                  <span class="icon_floppy edit-icon" ng-show="cstno" ng-click="savetaxinfo('CSTorGSTNumber',taxinfo.CSTorGSTNumber)"></span>-->
+                                <span class="pull-right" ng-show="taxinfo.CSTorGSTNumber_image" data-toggle="tooltip" title="Show Image">
+                                  <img ng-src="{{prePath}}{{taxinfo.CSTorGSTNumber_image}}" class="img-thumbnail" alt="tin" height="50px" width="50px" ng-click="imgmodel(taxinfo.CSTorGSTNumber_image)">
+                                </span></h3>
+							<p ng-hide="cstno">{{taxinfo.CSTorGSTNumber | uppercase}}</p>
+							<div class="row" ng-show="cstno">
+								<div class="col-md-3 col-md-5">
+									<input type="text" class="form-control col-md-4 col-xs-6  marL15" id="exampleInputName2" placeholder="CST/GST" ng-model="taxinfo.CSTorGSTNumber" onchange="angular.element(this).scope().update('cstno1')">
+								</div>
+							</div>
+						</div>
+						<form id="csvForm" ng-hide="taxinfo.CSTorGSTNumber_image">
+							<div class="col-xs-3">
+								<!--<span class="pull-right icon_image" ng-show="taxinfo.CSTorGSTNumber_image_Indicator"></span>-->
+								<span ng-hide="taxinfo.CSTorGSTNumber_image">
+                                <input type="file" class="CSTorGSTNumber " id="CSTorGSTNumber" accept="image/*" name="image" style="display: none;" ng-model="image" required onchange="angular.element(this).scope().imageSelected('CSTorGSTNumber')">
+                                <a href="" onclick="document.getElementById('CSTorGSTNumber').click(); return false" class="cusupload pull-right" name="image" ng-show="cstno"  ng-click="uploadMobileImage('CSTorGSTNumber',taxinfo.CSTorGSTNumber);">Upload</a>
+                                <a href="" id="upload" onclick="document.getElementById('CSTorGSTNumber').click(); return false" class="cusupload pull-right" name="image" ng-show="taxinfo.CSTorGSTNumber !=''"  ng-click="uploadMobileImage('CSTorGSTNumber',taxinfo.CSTorGSTNumber);" ng-hide="cstno">Upload</a>
+                                </span>
+							</div>
+							<div class="pull-right" ng-show="taxImages.CSTorGSTNumber">
+								<small class="text-primary">Image uploaded successfully</small>
+							</div>
+					</div>
+
+
+					<div class="single_info clearfix" style="display:none">
+						<div class="col-xs-9">
+							<!--<h3>TIN <span class=" pull-right icon_image " ng-show="taxinfo.tin_image "></span>
+                            </h3>-->
+							<h3>TIN {{taxinfo.tin_data | uppercase}}
+                                <!--<span ng-show="taxinfo.tin_image_Indicator" style="font-size:8px;padding-left:15px">(Needs approval)</span>
+
+                                <span class="icon_pencil-edit edit-icon" ng-hide="taxinfo.tin" ng-click="editfiled('tin')"></span>
+                                 <span class="icon_floppy edit-icon" ng-show="tin" ng-click="savetaxinfo('tin',taxinfo.tin)"></span>-->
+                                 <span class="pull-right" ng-show="taxinfo.tin_image" data-toggle="tooltip" title="Show Image">
+
+
+                                <img ng-src=" {{prePath}}{{taxinfo.tin_image}}" class="img-thumbnail" alt="tin" height="50px" width="50px" ng-click="imgmodel(taxinfo.tin_image)">
+                            </span>
+                            </h3>
+
+							<p ng-hide="tin_data">{{tax_tin.tin_data | uppercase}}</p>
+							<div class="row" ng-show="tin">
+								<div class="col-md-3 col-md-5">
+									<input type="text" class="form-control col-md-4 col-xs-6  marL15" id="exampleInputName4" placeholder="TIN" ng-model="taxinfo.tin" ng-keyup="presskey()" onchange="angular.element(this).scope().update('tin1')">
+								</div>
+							</div>
+						</div>
+
+						<form id="csvForm " ng-hide="taxinfo.tin_image ">
+							<div class="col-xs-3 ">
+								<!--<span class="pull-right icon_image" ng-show="taxinfo.tin_image_Indicator"></span>-->
+								<span ng-hide="taxinfo.tin_image">
+                                <input type="file" class="tin" id="tin" accept="image/*" name="image" style=" display: none" ng-model="image" onchange="angular.element(this).scope().imageSelected('tin')" required>
+                                <a href="" onclick="document.getElementById('tin').click(); return false" class="cusupload pull-right" name="image" ng-click="uploadMobileImage('tin',taxinfo.tin);" ng-show="tin" >Upload</a>
+                                <a href="" id="upload2" onclick="document.getElementById('tin').click(); return false" class="cusupload pull-right" name="image" ng-click="uploadMobileImage('tin',taxinfo.tin);" ng-show="taxinfo.tin != '' "  ng-hide="tin">Upload</a>
+                                </span>
+							</div>
+							<div class="pull-right" ng-show="taxImages.tin">
+								<small class="text-primary">Image uploaded successfully</small>
+							</div>
+						</form>
+
+
+					</div>
+
+					<div class="single_info clearfix">
+						<div class="col-xs-9">
+							<h3>PAN Card Number   <!-- <span ng-show="taxinfo.pan_image_Indicator" style="font-size:8px;padding-left:15px">(Needs approval)</span>
+                                <span class="icon_pencil-edit edit-icon" ng-hide="taxinfo.pan" ng-click="editfiled('pan')"></span> 
+                                  <span class="icon_floppy edit-icon" ng-show="pan" ng-click="savetaxinfo('pan',taxinfo.pan)"></span>-->
+
+                                <span class="pull-right" ng-show="taxinfo.pan_image" data-toggle="tooltip" title="Show Image">
+                                 <img ng-src="{{prePath}}{{taxinfo.pan_image}}" class="img-thumbnail" alt="tin" height="50px" width="50px" ng-click="imgmodel(taxinfo.pan_image)">
+                                </span></h3>
+							<p ng-hide="pan">{{taxinfo.pan | uppercase}}</p>
+							<div class="row" ng-show="pan">
+								<div class="col-md-3 col-md-5">
+									<input type="text" class="form-control col-md-4 col-xs-6  marL15" id="exampleInputName3" placeholder="PAN Card Number" ng-model="taxinfo.pan" onchange="angular.element(this).scope().update('pan1')">
+								</div>
+							</div>
+						</div>
+						<form id="csvForm" ng-hide="taxinfo.pan_image">
+							<div class="col-xs-3">
+								<!--<span class="pull-right icon_image" ng-show="taxinfo.pan_image_Indicator"></span>-->
+								<span ng-hide="taxinfo.pan_image">
+                                <input type="file" class="pan" id="pan" accept="image/*" name="image" style=" display: none" ng-model="image" valid-file required  onchange="angular.element(this).scope().imageSelected('pan')">
+                                <a href="" onclick="document.getElementById('pan').click(); return false" class="cusupload pull-right" name="image" ng-show="pan"  ng-click="uploadMobileImage('pan',taxinfo.pan);">Upload</a>
+                                <a href="" id="upload1" onclick="document.getElementById('pan').click(); return false" class="cusupload pull-right" name="image" ng-show="taxinfo.pan !=''"  ng-click="uploadMobileImage('pan',taxinfo.pan);" ng-hide="pan">Upload</a>
+								</span>
+
+
+							</div>
+							<div class="pull-right" ng-show="taxImages.pan">
+								<small class="text-primary">Image uploaded successfully</small>
+							</div>
+						</form>
+
+
+					</div>
+
+
+					<div class="single_info clearfix">
+						<div class="col-xs-9">
+							<!--<h3>TIN <span class=" pull-right icon_image " ng-show="taxinfo.tin_image "></span>
+                            </h3>-->
+							<h3>TIN
+                                <!--<span ng-show="taxinfo.tin_image_Indicator" style="font-size:8px;padding-left:15px">(Needs approval)</span>
+                                
+                                <span class="icon_pencil-edit edit-icon" ng-hide="taxinfo.tin" ng-click="editfiled('tin')"></span>
+                                 <span class="icon_floppy edit-icon" ng-show="tin" ng-click="savetaxinfo('tin',taxinfo.tin)"></span>-->
+                                 <span class="pull-right" ng-show="taxinfo.tin_image" data-toggle="tooltip" title="Show Image">
+                                
+                              
+                                <img ng-src=" {{prePath}}{{taxinfo.tin_image}}" class="img-thumbnail" alt="tin" height="50px" width="50px" ng-click="imgmodel(taxinfo.tin_image)">
+                            </span>   
+                            </h3>
+
+							<p ng-hide="tin">{{taxinfo.tin_data | uppercase}}</p>
+							<div class="row" ng-show="tin">
+								<div class="col-md-3 col-md-5">
+									<input type="text" class="form-control col-md-4 col-xs-6  marL15" id="exampleInputName4" placeholder="TIN" ng-model="taxinfo.tin" ng-keyup="presskey()" onchange="angular.element(this).scope().update('tin1')">
+								</div>
+							</div>
+						</div>
+
+						<form id="csvForm " ng-hide="taxinfo.tin_image ">
+							<div class="col-xs-3 ">
+								<!--<span class="pull-right icon_image" ng-show="taxinfo.tin_image_Indicator"></span>-->
+								<span ng-hide="taxinfo.tin_image">
+                                <input type="file" class="tin" id="tin" accept="image/*" name="image" style=" display: none" ng-model="image" onchange="angular.element(this).scope().imageSelected('tin')" required>
+                                <a href="" onclick="document.getElementById('tin').click(); return false" class="cusupload pull-right" name="image" ng-click="uploadMobileImage('tin',taxinfo.tin);" ng-show="tin" >Upload</a>
+                                <a href="" id="upload2" onclick="document.getElementById('tin').click(); return false" class="cusupload pull-right" name="image" ng-click="uploadMobileImage('tin',taxinfo.tin);"   ng-hide="tin">Upload</a> <!--ng-show="taxinfo.tin != '' "-->
+                                </span>
+							</div>
+							<div class="pull-right" ng-show="taxImages.tin">
+								<small class="text-primary">Image uploaded successfully</small>
+							</div>
+						</form>
+
+
+					</div>
+
+
+					<!--<div class="single_info clearfix ">
+	<div class="col-xs-9 ">
+		<h3>Service Number
+                                <span ng-show="taxinfo.service_number_image_Indicator" style="font-size:8px;padding-left:15px">(Needs approval)</span>
+                            <span class="icon_pencil-edit edit-icon" ng-hide="taxinfo.service_Number" ng-click="editfiled('serviceno')"></span>
+                                 <span class="icon_floppy edit-icon" ng-show="serviceno" ng-click="savetaxinfo('service_Number',taxinfo.service_Number)"></span>
+                                        <span class="pull-right  " ng-show="taxinfo.service_number_image " data-toggle="tooltip" title="Show Image">     <img ng-src="{{prePath}}{{taxinfo.service_number_image}}" class="img-thumbnail" alt="tin" height="50px" width="50px" ng-click="imgmodel(taxinfo.service_number_image)">
+                                </span></h3>
+		<p ng-hide="serviceno">{{taxinfo.service_Number}}</p>
+		<div class="row" ng-show="serviceno">
+			<div class="col-md-3 col-md-5">
+				<input type="text" class="form-control col-md-4 col-xs-6 marL15" id="exampleInputName5" placeholder="service Number" ng-model="taxinfo.service_Number" onchange="angular.element(this).scope().update('serviceno1')">
+			</div>
+		</div>
+	</div>
+	<form id="csvForm" ng-hide="taxinfo.service_number_image">
+		<div class="col-xs-3 ">
+			<span class="pull-right icon_image" ng-show="taxinfo.service_number_image_Indicator"></span>
+			<span ng-hide="taxinfo.service_number_image_Indicator">
+                                <input type="file" class="service_Number" id="service_Number" accept="image/*" name="image" style=" display: none" ng-model="image" onchange="angular.element(this).scope().imageSelected('service_Number')" required>
+                                <a href="" onclick="document.getElementById('service_Number').click(); return false" class="cusupload pull-right" name="image"  ng-show="serviceno"  ng-click="uploadMobileImage('service_Number',taxinfo.service_Number);">Upload</a>
+                           <a href="" id="upload3" onclick="document.getElementById('service_Number').click(); return false" class="cusupload pull-right" name="image" ng-show="taxinfo.service_Number !=''" ng-click="uploadMobileImage('service_Number',taxinfo.service_Number);">Upload</a>
+                                </span>
+		</div>
+		<div class="pull-right" ng-show="taxImages.service_Number">
+			<small class="text-primary">Image uploaded successfully</small>
+		</div>
+	</form>
+
+</div>-->
+					<div class="single_info">
+						<h3>Payment Terms
+                           <!-- <span ng-show="taxinfo.payment_Terms_Indicator" style="font-size:8px;padding-left:15px">(Needs approval)</span>
+                            <span class="icon_pencil-edit edit-icon" ng-hide="taxinfo.payment_Terms" ng-click="editfiled('payment')"></span>
+                         <span class="icon_floppy edit-icon" ng-show="payment" ng-click="savetaxinfo('payment',taxinfo.payment_Terms)"></span>-->
+                        </h3>
+						<p ng-hide="payment">{{taxinfo.payment_Terms}}</p>
+						<div class="row" ng-show="payment">
+							<div class="col-md-3 col-md-5">
+								<input type="text" class="form-control col-md-4 col-xs-6  marL15" id="exampleInputName6" placeholder="Payment Terms" ng-model="taxinfo.payment_Terms" onchange="angular.element(this).scope().update('payment1')">
+							</div>
+						</div>
+					</div>
+					<!--
+                    <div class="single_info ">
+                        <h3>Account Number</h3>
+                        <p>{{taxinfo.payment_Terms}}</p>
+                    </div>
+                     -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

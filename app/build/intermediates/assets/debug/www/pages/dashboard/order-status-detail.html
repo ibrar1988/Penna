@@ -1,0 +1,82 @@
+<div class="single_tab_content" ng-controller="dashbordctrl" ng-init="orders()">
+
+    <h2 class="page-header">
+        <a ui-sref="dashboard.order-statuses" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-order-status pull-left"></i> Order Statuses
+        
+        <a href="" class="pull-right" ng-controller="addOrders" ng-click="open()"><i class="icon_plus_alt2"></i></a>
+    </h2>
+
+   <!--<div class="sectioncard">
+    <div class="card">
+        <ul class="order-status-list">
+            <li ng-repeat="listoforder in listoforders">
+                <p><strong>1234abc</strong></p>
+                <p>Order Status - <span ng-class="{'text-yellow':listoforder.orderStatus=='Dispached',
+                                                    'txt- red':listoforder.orderStatus=='Process',
+                                                    'green-txt':listoforder.orderStatus=='Delivered'}"><strong>
+                {{listoforder.orderStatus}}</strong></span></p>
+                <p>EDD - {{listoforder.poLines[0].expectedDateOfDelivery | dateFormatFilter}}</p>
+                <p><a ui-sref="orders.invoice">Invoice</a> <a ui-sref="orders.orders-details">Details</a></p>
+            </li>
+        </ul>
+    </div>
+</div>-->
+</div>
+
+
+<div class="add_family">
+    <script type="text/ng-template" id="orderstat-modal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Add More</h3>
+        </div>
+        <div class="modal-body">
+            <form role="form">
+                <fieldset>
+                    <div class="form-group">
+                        <label>Order number</label>
+                        <p>70462598746</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Ordered Quantity</label>
+                        <p>120 MT</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Balance Quantity</label>
+                        <p>100 MT</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Order More</label>
+                        <select class="form-control-custom  select-drop">
+                            <option value="Hyderabad">10 MT</option>
+                            <option value="Bangalore">20 MT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Ship Address</label>
+                        <select class="form-control-custom select-drop">
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date <i class="pull-right icon_calendar"></i></label>
+                        <input type="date" class="form-control-custom" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Type</label>
+                        <select class="form-control-custom select-drop">
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+            <a class="btn modal_blue" ng-click="ok()">Add</a>
+        </div>
+    </script>
+</div>

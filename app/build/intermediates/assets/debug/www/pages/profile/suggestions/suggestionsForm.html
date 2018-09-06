@@ -1,0 +1,56 @@
+<div class="modal-header penna-modal-header">
+    <h3 class="modal-title">Raise Service Request</h3>
+</div>
+
+<div class="modal-body">
+    <form role="form" id="imageForm" name="addService_form" novalidate>
+        <fieldset>
+            <div class="form-group" ng-show="suggests.requestNumber">
+                <label>Request Number</label>
+                <p> {{suggests.requestNumber}}</p>
+            </div>
+            <div class="form-group" ng-class="(err.complaint_type == true) ? 'has-error' : 'has-primary' ">
+                <label>Suggestion Type</label>
+                <select ng-model="suggests.complaint_type" class="form-control-custom select-drop" name="comptype" ng-options="item.name as item.name for item in complat" ng-focus="err.complaint_type=false;">
+                    <option value="" disabled="true">Suggestion Type</option>
+                    <option value="" ng-if="false"></option>
+                </select>
+                <div class="errors">
+                    <span ng-show="err.complaint_type">Suggestion Type is required</span>
+                </div>
+            </div>
+
+
+            <div class="form-group" ng-class="(err.complaintText == true) ? 'has-error' : 'has-primary' ">
+                <label>Suggestion</label>
+                <textarea ng-model="suggests.complaintText" name="complaint" class="form-control-custom" placeholder="" ng-focus="err.complaintText=false;"></textarea>
+                <!-- <input type="text" ng-model="suggests.complaintText" name="complaint" class="form-control-custom" placeholder="" ng-focus="err.complaintText=false;"> -->
+                <div class="errors">
+                    <span ng-show="err.complaintText">Suggestion Text is required</span>
+                </div>
+            </div>
+
+
+            <div class="form-group" ng-class="(err.suggestionImage == true) ? 'has-error' : 'has-primary' ">
+                <label>Attachment
+                    <!--<span class="success">{{notification1}}</span>--></label>
+
+                <input type="file" class="addsuggAttachInput" id="addsuggAttachInput" accept="image/*" name="image" style=" width: 2px; height:2px" ng-model="image" ng-show="hide" ng-change="err.suggestionImage=false;imageSelected()" valid-file required onchange="angular.element(this).scope().imageSelected(this)">
+                <a href="" name="image" ng-click="err.suggestionImage=false;mobileUploadAttachment()">Upload</a>
+                <div class="pull-right" ng-show="suggests.suggestionImage">
+                    <small class="text-primary">Image uploaded successfully</small>
+                </div>
+                <!--<div class="errors">
+	<span ng-show="err.suggestionImage">Attachment is required</span>
+</div>-->
+            </div>
+
+
+
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+    <a class="btn modal_blue" ng-click="addsuggmodel(suggests)">Raise Request</a>
+</div>

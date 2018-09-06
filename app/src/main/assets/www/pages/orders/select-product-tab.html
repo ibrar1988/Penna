@@ -1,0 +1,63 @@
+<div class="" ng-controller="OrderDetails" ng-init="getproducts()">
+	<div class="view_bar">
+		<h4 class="pull-left nomrg"><i class="fa icon_tags_alt pull-left"></i> Please click on the bag for Product Selection</h4>
+		<!-- These two buttons switch the layout -->
+		<a class="list-icon" ng-class="{active: layout == 'list'}" ng-click="layout = 'list'">
+			<i class="fa fa-bars"></i></a>
+		<a class="grid-icon" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'">
+			<i class="fa fa-square-o"></i></a>
+	</div>
+
+
+
+
+
+	<div class="grid sectioncard" ng-show="layout == 'grid'">
+		<div class="card products_grid_slide">
+
+			<uib-carousel active="active" interval="2000" no-wrap="noWrapSlides">
+				<uib-slide ng-repeat="productlist in slides" index="$index">
+					<a href="" ng-click="getcreateorder(productlist)">
+						<img ng-src="{{productlist.image}}" class="grid_thumb" />
+						<div class="grid_product_desc">
+							<h4>Penna Power - {{productlist.productName}}</h4>
+							<!--<p>MRP. {{productlist.price}} per bag</p>-->
+							<div class="grid_product_det">
+								<p><strong>Product details :</strong></p>
+								<p class="product-PPC">{{productlist.productDescription}}
+									<a href=""></a>
+								</p>
+							</div>
+						</div>
+					</a>
+				</uib-slide>
+			</uib-carousel>
+
+
+		</div>
+	</div>
+
+
+
+
+	<ul ng-show="layout == 'list'" class="list">
+		<!-- A compact view smaller photos and titles -->
+		<li ng-repeat="productlist in product_lists">
+			<a href="" ng-click="getcreateorder(productlist)">
+				<div class="list_product_image"><img ng-src="{{productlist.image}}" /></div>
+				<div class="list_product_desc">
+					<h4>Penna Power - {{productlist.productName}}</h4>
+					<!--<p>MRP.{{productlist.price}} per bag</p>-->
+					<div class="list_product_det">
+						<p><strong>Product details :</strong></p>
+						<p>{{productlist.productDescription}}
+							<a href=""></a>
+						</p>
+					</div>
+				</div>
+			</a>
+		</li>
+
+	</ul>
+
+</div>

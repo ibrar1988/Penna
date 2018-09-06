@@ -1,0 +1,16 @@
+<div class="sectioncard" ng-controller="conformctrl">
+	<div class="card quote_notification" ng-show="success.statusCode=='200'">
+		<i class="success_note"></i>
+		<div class="quote_description">
+			<p>Order is under processing , Your Order Reference number is {{success.orderno}}</p>
+			<p ng-show="success.statusCode!='200'"></p>
+		</div>
+	</div>
+
+	<div class="card quote_notification" ng-show="success.statusCode!='200'">
+		<i class="success_note"></i>
+		<div class="quote_description">
+			<p>There Is No conformation Order Details</p>
+		</div>
+	</div>
+</div>

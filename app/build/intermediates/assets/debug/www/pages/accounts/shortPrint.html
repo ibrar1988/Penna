@@ -1,0 +1,159 @@
+<style>
+    /*@media only screen and (max-width: 730px) {
+        .table-card {
+            width: 85%;
+        }
+    }*/
+    /*   @media only screen and (min-width:500px) and (max-width: 730px) {
+        .table-card {
+            width: 85%;
+        }
+    }
+
+    @media only screen and (min-width:300px) and (max-width: 490px) {
+        .table-card {
+            width: 85%;
+        }
+    }*/
+</style>
+
+<div class="modal-header penna-modal-header" ng-show="shorthide">
+    <h3 class="modal-title">Party Confirmation
+   <!--<a href="" ng-click="printContent('div1')" class="pull-right"><i class="icon_printer"></i></a>-->
+    </h3>
+</div>
+
+<div class="modal-header penna-modal-header" ng-hide="shorthide">
+    <h3 class="modal-title">Party Confirmation
+     <a href="" ng-click="printContent('div2')" class="pull-right"><i class="icon_printer"></i></a>
+    </h3>
+</div>
+
+<!--<div ng-show="shorthide">
+    <h1>hiiiiiiiiiiiiiiii short<i></i></h1>
+</div>
+
+<div ng-hide="shorthide">
+    <h1>hiiiiiiiiiiiiiiii long<i></i></h1>
+</div>-->
+
+<div class="modal-body">
+
+
+    <div class="list" id="div1" ng-show="shorthide">
+        <div class="sectioncard">
+            <div class="card table-card">
+                <div class="invoice_details">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-condensed table-hover confmtable">
+                            <thead>
+                                <tr class="couser">
+                                    <th>Invoice No</th>
+                                    <th>Type of Transaction</th>
+                                    <th>Payment Type</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="patyconfs in shortinvoice" class="couser">
+                                    <td>
+                                        <span ng-show="patyconfs.invoiceNumber !==''">{{patyconfs.sapInvoiceNum}}</span>
+                                    </td>
+                                    <td>
+                                        <span ng-hide="patyconfs.ind=='B' || patyconfs.ind=='C'">Invoice</span>
+
+                                    </td>
+                                    <td>
+
+                                        <span ng-hide="patyconfs.chkPmtType=='CC' || patyconfs.chkPmtType=='DD' || patyconfs.chkPmtType=='DT' || patyconfs.chkPmtType=='CD'">N/A</span>
+                                    </td>
+                                    <td>
+                                        <span ng-hide="patyconfs.ind=='B' || patyconfs.ind=='C'">{{patyconfs.dateTime | date:"dd/MM/yyyy"}}</span>
+
+                                    </td>
+                                    <td>
+                                        <span ng-hide="patyconfs.ind=='B' || patyconfs.ind=='C'">{{patyconfs.amount | INR}}</span>
+
+                                    </td>
+                                    <td>
+                                        <span ng-show="patyconfs.salesOrder !==''">Order Date:{{patyconfs.orderDate | date:"dd/MM/yyyy"}}, Order: {{patyconfs.salesOrder}}</span>
+                                    </td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-----------shortcheck------------------>
+
+
+
+
+
+        <div class="sectioncard">
+            <div class="card ">
+                <div class="invoice_details" id="div1">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-condensed table-hover confmtable">
+                            <thead>
+                                <tr class="couser">
+                                    <th>Payment</th>
+                                    <th>Type of Transaction</th>
+                                    <th>Payment Type</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="patyconfl in shortcheck" class="couser">
+                                    <td>
+
+                                        <span ng-show="patyconfl.invoiceNo ==''">{{patyconfl.chkCheckNo}}</span>
+                                    </td>
+                                    <td>
+                                        <span ng-show="patyconfl.ind=='B' || patyconfl.ind=='C'">Payment</span>
+                                        <!--<span ng-show="patyconfl.ind=='C'">Payment</span>-->
+                                    </td>
+                                    <td>
+                                        <span>{{patyconfl.chkPmtType}}</span>
+                                        <!-- <span ng-show="patyconfl.chkPmtType=='DD'">Demand Draft</span>
+                                        <span ng-show="patyconfl.chkPmtType=='DT'">RTGS</span>
+                                        <span ng-show="patyconfl.chkPmtType=='CD'">Cash</span>-->
+
+                                    </td>
+                                    <td>
+                                        <span ng-show="patyconfl.ind=='B' || patyconfl.ind=='C'">{{patyconfl.chkDate | date:"dd/MM/yyyy"}}</span>
+                                    </td>
+                                    <td>
+                                        <span ng-show="patyconfl.ind=='B' || patyconfl.ind=='C'">{{patyconfl.chkAmount}}</span>
+                                    </td>
+                                    <td>
+
+                                        <span ng-show="patyconfl.salesOrder ==''">{{patyconfl.chkPmtDscr}}</span></td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal-footer">
+    <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+    <a class="btn modal_blue" ng-show="shorthide" ng-click="printContent('div1')">Print</a>
+    <a class="btn modal_blue" ng-hide="shorthide" ng-click="printContent('div2')">Print</a>
+</div>

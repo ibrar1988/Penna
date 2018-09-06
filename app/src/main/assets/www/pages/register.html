@@ -1,0 +1,50 @@
+<div class="login_main">
+    <div class="register_form_section">
+        <div class="loginheader">
+            <img ng-src="img/Penna-Logo.png" alt="Penna Logo">
+            <h1>Register Here!</h1>
+        </div>
+        <form class="loginform" name="myForm">
+            <div class="form-group" ng-class="(err.userName == true) ? 'has-error' : 'has-primary' ">
+                <input type="text" ng-model="register.userName" ng-focus="err.userName=false;" name="username" class="form-control-custom" placeholder="User Name" required onlytext-andspace="30"/>
+                <div class="errors">
+                    <span ng-show="err.userName">User name is required</span>
+                </div>
+            </div>
+            <div class="form-group" ng-class="(err.email == true) ? 'has-error' : 'has-primary' ">
+                <input type="email" name="email" ng-focus="err.email=false;" ng-model="register.email" class="form-control-custom" placeholder="E-mail Address" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required my-textlen="40" />
+                <div class="errors">
+                    <span ng-show="err.email">Email is required</span>
+                    <span ng-show="!myForm.email.$error.minlength &&  (myForm.email.$error.email || myForm.email.$error.pattern) && myForm.email.$dirty">Email should be valid </span>
+                </div>
+
+            </div>
+            <div class="form-group" ng-class="(err.mobileNumber == true || err.mobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+                <input type="text" name="altmobilenum" ng-focus="err.mobileNumber=false;err.mobileNumberLength=false;" ng-model="register.mobileNumber" class="form-control-custom" placeholder="Mobile Number" required my-length="10"/>
+                <div class="errors">
+                    <span ng-show="err.mobileNumber">Mobile number is required</span>
+                    <span ng-show="err.mobileNumberLength">Mobile number should be 10 digits</span>
+                </div>
+            </div>
+            <div class="form-group" ng-class="(err.password == true) ? 'has-error' : 'has-primary' ">
+                <input type="password" name="password" ng-focus="err.password=false;" ng-model="register.password" class="form-control-custom" placeholder="Password" required my-textlen="15"/>
+                <div class="errors">
+                    <span ng-show="err.password">Password is required</span>
+                </div>
+            </div>
+            <div class="form-group"  ng-class="(err.conformPass == true) ? 'has-error' : 'has-primary' ">
+                <input type="password" name="confpassword" ng-focus="err.conformPass=false;" ng-model="register.conformPass" class="form-control-custom" placeholder="Confirm Password" required my-textlen="15"/>
+                <div class="errors">
+                    <span ng-show="err.conformPass">Confirm password is required</span>
+                    <span ng-show="register.password && register.conformPass && register.password != register.conformPass">Confirm password should match</span>
+                </div>
+            </div>
+        </form>
+
+        <button class="btn signin" ng-click="reguser(register)">Proceed</button>
+
+        <div class="forgotpass text-center">
+            <p>Already have an account?<a ui-sref="login"> Sign In</a></p>
+        </div>
+    </div>
+</div>

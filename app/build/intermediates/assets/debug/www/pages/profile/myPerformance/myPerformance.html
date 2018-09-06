@@ -1,0 +1,765 @@
+<style type="text/css">
+    ul.ulclass {
+        background: #fff;
+        display: inline-block;
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    .list-group-item1 {
+        position: relative;
+        display: block;
+        padding: 13px 15px;
+        margin-bottom: -1px;
+        background-color: #fff;
+        line-height: 16px;
+    }
+    
+    .paddingleft {
+        padding-left: 4px;
+    }
+
+     canvas {
+            position: absolute;
+        }
+
+    @media screen and (max-width: 980px) {
+        canvas {
+           /* width: 150px !important;
+            height: 150px !important;*/
+            position: absolute;
+        }
+    }
+
+
+.donut-inner {
+   margin-top: 55px;
+   margin-bottom: 100px;
+    margin-left: 67px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.donut-inner h5 {
+   margin-bottom: 0px;
+   margin-top: 0;
+}
+.donut-inner span {
+   font-size: 12px;
+}
+
+
+
+</style>
+<div class="scrollable" ng-controller="myperformancectrl">
+    <div class="scrollable-content">
+        <div class="single_tab_content">
+            <h3 class="page-header"><a href="" ng-click="myperformance();" class="goback"> <!--href="#/profile"-->
+                <i class="fa fa-angle-left"></i></a>  <i class="pci icon-my-performance pull-left"></i> My Performance
+                <!-- <i class="icon_calendar pull-right"></i> -->
+                </h3>
+            <div class="my_performance_tabs">
+                <uib-tabset>
+                    <uib-tab heading="Monthly">
+
+
+                       <!--<pre>{{out_stand.CreditLimit[0]}}</pre>-->
+
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head padding-10l"><span>{{months.sales[0].monthName}} </span></h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{months.sales[0].monthVal | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 class="padding-10l"><i class="fa fa-inr"></i><strong> {{months.payment[0].monthVal | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Month1.outStandingAmount" class="padding-10l"><i class="fa fa-inr"></i><strong>{{CreditDetails_Month1.outStandingAmount | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Month1.outStandingAmount" class="padding-10l"><i class="fa fa-inr"></i><strong class="paddingleft">0 </strong></h4>
+                                    </div>
+                               </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Month1.overDueAmopunt" class="padding-10l"><i class="fa fa-inr"></i><strong>{{CreditDetails_Month1.overDueAmopunt | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Month1.overDueAmopunt" class="padding-10l"><i class="fa fa-inr"></i><strong class="paddingleft">0 </strong></h4>
+                                        <p ng-show="CreditDetails_Month1.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Month1.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Month1.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                             <canvas id="doughnutChart" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas66 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty != '0'">({{rounddata(da.value/total_quanty*100)}}%)</span>
+                                                    <span ng-if="total_quanty == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head"><span>{{months.sales[1].monthName}} </span></h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{months.sales[1].monthVal | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{months.payment[1].monthVal | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Month2.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Month2.outStandingAmount | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Month2.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Month2.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Month2.overDueAmopunt | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Month2.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                        <p ng-show="CreditDetails_Month2.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Month2.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Month2.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty1 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty1)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart1" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                             <canvas id="doughnutChart1" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty1)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas77 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty1">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty1">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty1 != '0'">({{rounddata(da.value/total_quanty1*100)}}%)</span>
+                                                    <span ng-if="total_quanty1 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head"><span>{{months.sales[2].monthName}} </span></h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{months.sales[2].monthVal | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{months.payment[2].monthVal | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Month3.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Month3.outStandingAmount | rounded | INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Month3.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Month3.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Month3.overDueAmopunt | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Month3.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                        <p ng-show="CreditDetails_Month3.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Month3.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Month3.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty2 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty2)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart11" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                                                       <canvas id="doughnutChart11" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty2)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas177 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty2">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty2">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty2 != '0'">({{rounddata(da.value/total_quanty2*100)}}%)</span>
+                                                    <span ng-if="total_quanty2 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </uib-tab>
+
+                    <uib-tab heading="Quarterly">
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head"><span>{{month03}}  <span>{{year03}}</span> <span>{{qyear03}}</span></h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val" ng-repeat="(key,pre) in present_quarter1[0]">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{pre | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{value_payment3 | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Quarter1.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Quarter1.outStandingAmount | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Quarter1.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Quarter1.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Quarter1.overDueAmopunt | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Quarter1.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                        <p ng-show="CreditDetails_Quarter1.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Quarter1.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Quarter1.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty3 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty3)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart2" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                             <canvas id="doughnutChart2" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty3)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas88 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty3">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty3">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty3 != '0'">({{rounddata(da.value/total_quanty3*100)}}%)</span>
+                                                      <span ng-if="total_quanty3 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head"><span>{{month04}}  <span>{{year04}}</span> <span>{{qyear04}}</span></h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val" ng-repeat="(key,pre) in present_quarter2[1]">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{pre | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong>  {{value_payment4 | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Quarter2.outStandingAmount"><i class="padding-10l fa fa-inr"></i><strong>{{CreditDetails_Quarter2.outStandingAmount | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Quarter2.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Quarter2.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Quarter2.overDueAmopunt | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Quarter2.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0</strong></h4>
+                                        <p ng-show="CreditDetails_Quarter2.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Quarter2.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Quarter2.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty4 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty4)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart3" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                             <canvas id="doughnutChart3" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty4)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas99 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty4">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty4">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span  ng-if="total_quanty4 != '0'">({{rounddata(da.value/total_quanty4*100)}}%)</span>
+                                                     <span ng-if="total_quanty4 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head"><span>{{month004}}  <span>{{year004}}</span> <span>{{qyear004}}</span></h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val" ng-repeat="(key,pre) in present_quarter3[2]">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{pre | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong>  {{value_payment05 | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Quarter3.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Quarter3.outStandingAmount | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Quarter3.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class=""> 0</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Quarter3.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Quarter3.overDueAmopunt | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Quarter3.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                        <p ng-show="CreditDetails_Quarter3.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Quarter3.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Quarter3.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty5 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty5)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart13" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                             <canvas id="doughnutChart13" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty5)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas199 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty5">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty5">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty5 != '0'">({{rounddata(da.value/total_quanty5*100)}}%)</span>
+                                                    <span ng-if="total_quanty5 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </uib-tab>
+
+                    <uib-tab heading="Yearly">
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head" ng-hide="present_year5[0]"></h2>
+                            <h2 class="section-head" ng-repeat="(key,pre) in present_year5[0]">{{key}}</h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+
+                                    </div>
+                                    <div class="col-xs-8 perform_val" ng-repeat="(key,pre) in present_year5[0]">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{pre | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{value_payment5 | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Year1.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Year1.outStandingAmount | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Year1.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1">
+                                        <h4 ng-show="CreditDetails_Year1.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Year1.overDueAmopunt | rounded |INR}} </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Year1.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0 </strong></h4>
+                                        <p ng-show="CreditDetails_Year1.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Year1.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Year1.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty6 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty6)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart4" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                             <canvas id="doughnutChart4" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty6)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas109 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty6">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty6">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty6 != '0'">({{rounddata(da.value/total_quanty6*100)}}%)</span>
+                                                     <span ng-if="total_quanty6 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head" ng-hide="present_year6[0]"></h2>
+                            <h2 class="section-head" ng-repeat="(key,pre) in present_year6[1]">{{key}}</h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val" ng-repeat="(key,pre) in present_year6[1]">
+
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{pre | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{value_payment6 | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Year2.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong> {{CreditDetails_Year2.outStandingAmount | rounded |INR}}   </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Year2.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0   </strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Year2.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Year2.overDueAmopunt | rounded |INR}}  </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Year2.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0  </strong></h4>
+                                        <p ng-show="CreditDetails_Year2.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Year2.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Year2.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty7 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty7)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart5" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                              <canvas id="doughnutChart5" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty7)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas119 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty7">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty7">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty7 != '0'">({{rounddata(da.value/total_quanty7*100)}}%)</span>
+                                                    <span ng-if="total_quanty7 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sectioncard my_perhigh">
+                            <h2 class="section-head" ng-hide="present_year7[0]"></h2>
+                            <h2 class="section-head" ng-repeat="(key,pre) in present_year7[2]">{{key}}</h2>
+                            <div class="card">
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Sales</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val" ng-repeat="(key,pre) in present_year7[2]">
+
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{pre | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Payments</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4><i class="fa fa-inr padding-10l"></i><strong> {{value_payment7 | rounded |INR}}</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Outstanding Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Year3.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong> {{CreditDetails_Year3.outStandingAmount | rounded |INR}}   </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Year3.outStandingAmount"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="performace_stat clearfix" style="display:none">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Over Due Amount</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val">
+                                        <h4 ng-show="CreditDetails_Year3.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong>{{CreditDetails_Year3.overDueAmopunt | rounded |INR}}  </strong></h4>
+                                        <h4 ng-hide="CreditDetails_Year3.overDueAmopunt"><i class="fa fa-inr padding-10l"></i><strong class="paddingleft">0  </strong></h4>
+                                        <p ng-show="CreditDetails_Year3.overDueDays" class="padding-10l">Over Due by {{CreditDetails_Year3.overDueDays}} days</p>
+                                        <p ng-hide="CreditDetails_Year3.overDueDays" class="padding-10l">Over Due by 0 days</p>
+                                    </div>
+                                </div>
+                                <div class=" performace_stat clearfix">
+                                    <div class="col-xs-4 perform_type">
+                                        <h4>Product Mix</h4>
+                                    </div>
+                                    <div class="col-xs-8 perform_val perform_val1" style="padding-left: 5px !important">
+                                        <div class="col-md-4 col-xs-12" ng-hide="total_quanty8 == '0'">
+                                           <!-- <h4 class="text-center graph-text">{{rounddata(total_quanty8)}}
+<br> MT</h4>
+                                            <h4>
+											   <canvas  id="doughnutChart15" width="150" height="150" ></canvas>
+										   </h4>-->
+
+                                             <canvas id="doughnutChart15" width="170"></canvas>
+<div class="donut-inner">
+    <h5 style="font-size: 20px;">{{rounddata(total_quanty8)}}</h5>
+    <span style="font-size: 20px;">MT</span>
+</div>
+
+                                        </div>
+                                        <div class="col-md-8 col-xs-12 prodMixVals">
+                                            <div class="row min_higlist" ng-repeat="da in datas118 | orderBy : '-label'">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty8">
+                                                <br class="hidden-md hidden-lg" ng-if="!total_quanty8">
+                                                <h5 class="h5_dashboard">
+                                                    <span class="fa fa-square fa-square_{{da.label}}"
+                                                    ng-style="{'padding':'12px'}"></span>
+                                                    <span> {{da.label}} : {{rounddata(da.value)}} MT</span>  <span ng-if="total_quanty8 != '0'">({{rounddata(da.value/total_quanty8*100)}}%)</span>
+                                                     <span ng-if="total_quanty8 == '0'">(0%)</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+
+
+        </div>
+    </div>
+</div>

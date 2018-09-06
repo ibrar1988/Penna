@@ -1,0 +1,58 @@
+<div class="add_family">
+    <div class="modal-header">
+        <h2 class="modal-title">Family Members</h2>
+    </div>
+    <div class="modal-body">
+
+        <form role="form" name="myForm">
+            <fieldset>
+                <div class="form-group" ng-class="(err.familyName == true) ? 'has-error' : 'has-primary' ">
+                    <label>Name</label>
+                    <input type="text" name="Name" ng-focus="err.familyName=false;" ng-model="userfam.familyName" class="form-control-custom" placeholder="" required onlytext-andspace="30" />
+                    <div class="errors">
+                        <span ng-show="err.familyName">Name is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.maritalStatus == true) ? 'has-error' : 'has-primary' ">
+                    <label>Marital Status</label>
+                    <select name="meritalStatus" ng-click="err.maritalStatus=false;" ng-model="userfam.maritalStatus" class="form-control-custom select-drop" ng-options="item.name as item.name for item in marital" required />
+                    <option value="" disabled="true">Select Marital Status</option>
+                    <option value="" ng-if="false"></option>
+                    </select>
+                    <div class="errors">
+                        <span ng-show="err.maritalStatus">Marital status is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="userfam.maritalStatus == 'Married'" ng-class="(err.anniversary == true) ? 'has-error' : 'has-primary' ">
+                    <label>Anniversary <span aria-hidden="true" class="icon_calendar pull-right" ng-click="err.anniversary=false;dateOptions.dtpickerfun('anniversary')"></span></label>
+                    <p class="input-group" style="width:100%;">
+                        <input type="text" readonly class="form-control-custom" show-button-bar="false" ng-click="err.anniversary=false;dateOptions.dtpickerfun('anniversary')" uib-datepicker-popup="dd/MM/yyyy" ng-model="userfam.anniversary" is-open="dateOptions.dtpicker['anniversary']" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                    </p>
+                    <div class="errors">
+                        <span ng-show="err.anniversary">Anniversary is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.relation == true) ? 'has-error' : 'has-primary' ">
+                    <label style="font-size: 15px;">Relation</label>
+                    <input type="text" ng-focus="err.relation=false;" name="relation" ng-model="userfam.relation" class="form-control-custom" placeholder="" required my-textlen="20">
+                    <div class="errors">
+                        <span ng-show="err.relation">Relation is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.dateOfBirth == true) ? 'has-error' : 'has-primary' ">
+                    <label>Date of Birth <span aria-hidden="true" class="icon_calendar pull-right" ng-click="err.dateOfBirth=false;dateOptions.dtpickerfun('dateOfBirth')"></span></label>
+                    <p class="input-group" style="width:100%;">
+                        <input type="text" name="dateOfBirth" readonly class="form-control-custom" show-button-bar="false" ng-click="err.dateOfBirth=false;dateOptions.dtpickerfun('dateOfBirth')" uib-datepicker-popup="dd/MM/yyyy" ng-model="userfam.dateOfBirth" is-open="dateOptions.dtpicker['dateOfBirth']" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                    </p>
+                    <div class="errors">
+                        <span ng-show="err.dateOfBirth">Date of birth is required</span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+        <a class="btn modal_blue" ng-click="save()">Save</a>
+    </div>
+</div>

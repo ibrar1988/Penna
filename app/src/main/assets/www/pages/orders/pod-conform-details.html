@@ -1,0 +1,122 @@
+<style>
+    .font_wei900{
+        font-weight: 900 !important;
+    }
+</style>
+<div class="single_tab_content">
+
+	<h2 class="page-header">
+        <a href="javascript:void(0)" ng-click="invoice_goback()" class="goback">  <!--ui-sref="orders.proof-of-delivery"-->
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-invoices pull-left"></i> Invoice
+        <!-- <a ng-href="{{pdfURL}}" class="pull-right" download><i class="icon_download"></i></a> -->
+         <span>
+<!--
+        <a ng-hide="inv.status_obj == 'completed'" ui-sref="orders.pending-pod-detailedit" class="pull-right edit_fields">
+            <span aria-hidden="true" class="icon_pencil-edit"></span>
+        </a>
+-->
+    </span>
+    </h2>
+
+	<div class="sectioncard">
+		<div class="">
+		</div>
+		<div class="card" ng-show="!myvalue">
+			<h4 class="font_wei900">Invoice Details</h4>
+			<!--<h4>Invoice Number - {{inv.sapInvoiceNumber}}</h4>-->
+
+			<!--<h4>Invoice Number - {{inv.ODNNumber}}</h4>-->
+			<h4 ng-if="inv.ODNNumber">Invoice Number - {{inv.ODNNumber}}</h4>
+            <h4 ng-if="!inv.ODNNumber">Invoice Number - {{inv.sapInvoiceNumber}}</h4>
+            <div class="single_info">
+               <p>Reference Number - {{inv.sapInvoiceNumber}}</p>
+             </div>
+			<div class="single_info">
+				<h3>Order Number</h3>
+				<p> {{inv.sapOrderLineNumber}}
+					<!--{{inv.orderNumber}}-->
+				</p>
+
+
+			</div>
+			<div class="single_info">
+				<h3 class="font_wei900">Quantity</h3>
+				<p>Total : {{inv.totalQuantity}} MT | Delivered Quantity : {{inv.deliveredQuantity}} MT</p>
+			</div>
+			<div class="single_info">
+				<!--<h3>Invoice Details</h3>-->
+				<!--<p>Invoice Number : {{inv.invoiceNumber}}</p>-->
+				<p>Amount Rs. {{inv.amount |INR}} /-</p>
+				<p ng-if="inv.cgst > 0 || inv.sgst > 0 || inv.ugst > 0 || inv.igst > 0">( Includes
+                    <span ng-if="inv.cgst > 0"> CGST : {{inv.cgst}} /-,</span>
+                    <span ng-if="inv.sgst > 0">SGST : {{inv.sgst}} /-,</span>
+                    <span ng-if="inv.ugst > 0"> UGST : {{inv.ugst}} /-,</span>
+                    <span ng-if="inv.igst > 0">IGST : {{inv.igst}} /-</span> )
+                </p>
+				<p>Date: {{inv.dateTime | date:"dd/MM/yyyy"}}</p>
+			</div>
+
+			<div class="single_info">
+				<h3 class="font_wei900">Delivery Details</h3>
+				<p>Delivery By- {{inv.deliveredBy}}</p>
+				<!-- <p>Driver Mobile Number +{{inv.mobileNumber}}</p>-->
+				<p>Material Grade : {{inv.materialGrade}} </p>
+				<p>Material Code : {{inv.materialCode}}</p>
+				<p>Plant/Depot : {{inv.plantCode}}</p>
+				<p>Truck Number - {{inv.truckNumber}}</p>
+				<p ng-if="inv.mobileNumber">Driver Mobile Number - {{inv.mobileNumber}}</p>
+
+
+				  <p ng-if="inv.TurvoLink">Delivery Tracking Link - 
+                <a style="cursor: pointer" ng-show="!ifMobile" ng-click="myTurvoLink_web(inv.TurvoLink)">
+                    View Pdf
+                 </a>
+                <!--<a ng-show="ifMobile" ng-click="myTurvoLink(inv.TurvoLink)">
+                    {{inv.TurvoLink}}
+                </a>-->
+                 <a ng-show="ifMobile" ng-click="myTurvoLink_web(inv.TurvoLink)">
+                    View Pdf
+                </a>
+            </p>
+<!--				<p>Received By : {{inv.receivedBy}}</p>-->
+			</div>
+			<div class="single_info">
+				<h3 class="font_wei900">Remarks</h3>
+				<!--<p>{{inv.remarks}}</p>-->
+
+                <p ng-if="inv.shortages && inv.status_obj == 'completed'">Shortages : {{inv.shortages}} <span>({{inv.shortageType}})</span></p>
+				<p ng-if="inv.comments && inv.status_obj == 'completed'">Comments : {{inv.comments}}</p>
+				<p ng-if="inv.confirmedOn && inv.status_obj == 'completed'"> Confirmed On : {{inv.confirmedOn | date:"dd/MM/yyyy"}}</p>
+				<p ng-if="inv.cancelledInvNo == ''">{{inv.remarks}}</p>
+				<p ng-if="inv.cancelledInvNo != ''" class="text_danger">This invoice has been cancelled</p>
+			</div>
+
+             <div>
+			<div class="card invoice_main" ng-click="invoicpdf(inv)" ng-show="inv.image != null && inv.image != ''" style="padding-left: 0px;padding-top: 0px;">
+                <ul class="list-inline">
+                      <li><label> Invoice PDF :</label></li>
+                      <li> <a href=""><i><img class="pdfImage"  height="36" width="36" src="img/pdfviwe.png">&nbsp;&nbsp;</i></a></li>
+                </ul>
+
+
+</div>
+
+
+
+
+<!--<div class="single_info" ng-if="inv.image !='' && ifMobile">
+
+	<a href ng-click="invoicpdf(pdfURL)">Invoice PDF <i class="fa fa-file-pdf-o"></i></a>
+</div>-->
+
+<div class="card invoice_main text-center" ng-if="inv.image ==''">
+	There is no invoice PDF available
+</div>
+            </div>
+
+		</div>
+
+
+	</div>
+</div>

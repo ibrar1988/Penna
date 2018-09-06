@@ -1,0 +1,21 @@
+<div ui-view autoscroll="true">
+	<div class="profile_alltabs">
+		<div class="list-group" ui-turn-off='uiSidebarLeft'>
+			<a class="list-group-item" ui-sref="accounts.statements">
+				<i class="pci icon-statements pull-left"></i> Statements
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" ui-sref="accounts.payments">
+				<i class="pci icon-payments pull-left"></i> Payments
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" ui-sref="accounts.accounts-credit-details">
+				<i class="pci icon-credit-details pull-left"></i> Outstanding Details
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" style="cursor: pointer;"  ng-click="moveto_invoce()">
+				<i class="pci icon-invoices pull-left"></i> Invoices
+				<i class="fa fa-caret-right pull-right"></i></a>
+			<a class="list-group-item" ui-sref="accounts.monthparty">
+				<i class="pci icon-payments pull-left"></i> Monthly Party Confirmation
+				<i class="fa fa-caret-right pull-right"></i></a>
+		</div>
+	</div>
+</div>

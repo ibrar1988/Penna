@@ -1,0 +1,50 @@
+<div class="single_tab_content" ng-controller="dashbordctrl" ng-init="pendingpods()">
+
+	<h2 class="page-header">
+        <a ng-click="gotoDashBoard()" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+       <!--  </a><i class="pci icon-proof-delivery pull-left"></i> Pending PODs
+       <div class="pod-main-actions pull-right">
+    <a href="" class="pull-right"><i class="icon_calendar"></i></a>
+    <a href="" class="pull-right"><i class="pci icon-filter"></i></a>
+</div>
+    </h2> -->
+    </a><i class="pci icon-proof-delivery pull-left"></i> Pending PODs
+       <!--<div class="pod-main-actions pull-right">
+    <a href="" class="pull-right"><i class="icon_calendar"></i></a>
+    <a href="" class="pull-right"><i class="pci icon-filter"></i></a>
+</div>-->
+<div ng-click="selectAll(invoicesList)" class="pull-right rad radio-custom-label">
+<a href="" >Select All</a>
+    </div>
+    </h2>
+
+
+	<div class="dashb_performance">
+		<ul class="all_pods">
+			<!---->
+			<li class="single_pod clearfix" ng-repeat="inv in invoicesList">
+				<i class="custom-list">{{$index+1}}</i>
+				<label class="pull-right rad radio-custom-label">
+					<input type="checkbox" value="option1" ng-model="inv.status" name="optionscheck" id="optionsRadios1" ng-change="multiplepodsconform(inv)"><i></i>
+				</label>
+				<div class="pending_data">
+					<a href="" ng-click="getsinglepod(inv)">
+
+						<p><strong>Invoice Number  - {{inv.sapInvoiceNumber}}</strong></p>
+						<p class="txt-grey">Order Number : {{inv.sapOrderLineNumber}}</p>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="sectioncard pending_data text-center" ng-show="invoicesList.length=='0'">
+
+					<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no POD's available".</h5>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="text-center" ng-if="invoicesList.length && podlist_button.length">
+		<a href="" class="btn penna-btn sm-full" ng-click="conformpod(invoicesList)">Confirm POD</a>
+	</div>
+</div>

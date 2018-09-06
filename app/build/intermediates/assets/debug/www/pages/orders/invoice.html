@@ -1,0 +1,109 @@
+<div class="single_tab_content" ng-controller="listorderctrl">
+
+	<!--<pre>{{invo1}}</pre>-->
+
+	<h2 class="page-header">
+              <a ui-sref="orders.list-of-orders-detail" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a> Invoices <!--: {{invo1[0].sapinvoiceNo}}-->
+       <!-- <a href="" class="pull-right"><i class="icon_download"></i></a>-->
+    </h2>
+	<!--<pre>{{invo1}}</pre>-->
+	<!-- <pre>{{singleorder.POLine[0].Quantity}}</pre>-->
+	<div class="sectioncard" ng-repeat="invo2 in invo1 | orderBy: '-invoiceDateAndTime'" ng-if="invo2.sapinvoiceType != 'S1'">
+		<div class="">
+			<!--<pre>
+			{{invo2.sapinvoiceType}}
+			{{invo2.cancelledInvoiceNumber}}
+			</pre>-->
+		</div>
+		<div class="card">
+			<h4>Invoice Details</h4>
+			<!--<h4>Invoice number - {{invo2.sapinvoiceNo}}</h4>-->
+			<!--<h4>Invoice Number - {{invo2.odnNumber}}</h4>-->
+			<h4 ng-if="invo2.odnNumber">Invoice Number - {{invo2.odnNumber}}</h4>
+			<h4 ng-if="!invo2.odnNumber">Invoice Number - {{invo2.sapinvoiceNo}}</h4>
+			<div class="single_info">
+				<p>Reference Number - {{invo2.sapinvoiceNo}}</p>
+			</div>
+			<div class="single_info">
+				<h3>Order Number</h3>
+				<p>{{singleorder.POLine[0].POLinenumber}}</p>
+			</div>
+
+			<div class="single_info">
+				<h3>Quantity</h3>
+				<p>Total :
+					<!--{{singleorder.totalqty}}-->{{singleorder.POLine[index1].OlTotalQty}} MT | Delivered Quantity : {{invo2.deliveredQuantity}}MT</p>
+			</div>
+			<div class="single_info">
+
+				<!--<p>Amount Rs. {{singleorder.POLine[0].netvalue}} /-</p>-->
+				<p>Amount Rs. {{invo2.invoiceValue |INR}} /-</p>
+                <p ng-if="invo2.cgst > 0 || invo2.sgst > 0 || invo2.ugst > 0 || invo2.igst > 0">( Includes
+                    <span ng-if="invo2.cgst > 0"> CGST : {{invo2.cgst}} /-,</span>
+                    <span ng-if="invo2.sgst > 0">SGST : {{invo2.sgst}} /-,</span>
+                    <span ng-if="invo2.ugst > 0"> UGST : {{invo2.ugst}} /-,</span>
+                    <span ng-if="invo2.igst > 0">IGST : {{invo2.igst}} /-</span> )
+                </p>
+				<p>Date: {{invo2.invoiceDateAndTime | date:"dd/MM/yyyy"}}</p>
+			</div>
+			<div class="single_info">
+				<h3>Delivery Details</h3>
+				<p>Delivery By- {{invo2.deliveredBy}}</p>
+				<!--<p>Driver Mobile Number {{invo1[0].deliverMobileNumber}}</p>-->
+				<p>Material Grade : {{invo2.materialGrade}} </p>
+				<p>Material Code : {{invo2.materialCode}}</p>
+				<p>Plant/Depot : {{invo2.plantCode}}</p>
+
+				<p>Truck Number - {{invo2.truckNumber}}</p>
+                <p ng-if="invo2.deliverMobileNumber">Driver Mobile Number - {{invo2.deliverMobileNumber}}</p>
+				<p ng-if="invo2.turvoLink">Delivery Tracking Link - 
+                <a ng-show="!ifMobile" target="_blank"  ng-href="{{invo2.turvoLink}}">
+                    {{invo2.turvoLink}}</a>
+                <a ng-show="ifMobile" ng-click="myTurvoLink(invo2.turvoLink)">
+                    {{invo2.turvoLink}}
+                </a>
+                </p>
+<!--
+				<p>Received By : {{invo2.receivedBy}}
+					{{invo1[0].transporterName}}
+				</p>
+-->
+			</div>
+			<div class="single_info">
+				<h3>Remarks</h3>
+				<!--<p>{{invo2.remarks}}</p>-->
+                 <p ng-if="invo2.shortageQty">Shortages : {{invo2.shortageQty}} <span ng-if="invo2.shorttype">({{invo2.shorttype}})</span></p>
+				<p ng-if="invo2.podComments">Comments : {{invo2.podComments}}</p>
+				<p ng-if="invo2.podDate"> Confirmed On : {{invo2.podDate | date:"dd/MM/yyyy"}}</p>
+				<p ng-if="invo2.cancelledInvoiceNumber == ''">{{invo2.remarks}}</p>
+				<p ng-if="invo2.cancelledInvoiceNumber != ''" class="text_danger">This invoice has been cancelled</p>
+			</div>
+
+			<!--   <pdf ng-href="{{pdfURL}}"></pdf>-->
+
+			<div class="card invoice_main" ng-click="invoicpdf(invo2)" ng-if="!invo1.image" ng-show="invo2.invoiceImage != null && invo2.invoiceImage != ''">
+				<ul class="list-inline">
+					<li><label> Invoice PDF :</label></li>
+					<li> <a href=""><i><img class="pdfImage"  height="36" width="36" src="img/pdfviwe.png">&nbsp;&nbsp;</i></a></li>
+				</ul>
+			</div>
+
+
+			<!--<div class="single_info" ng-if="(invo2.invoiceImage != null && invo2.invoiceImage != '')&& ifMobile">
+
+				    <ul class="list-inline">
+                      <li><label> Invoice PDF :</label></li>
+                      <li> <a href ng-click="showInvoice(invo2.invoiceImage)"><i><img class="pdfImage"  height="28" width="36" src="img/pdfviwe.png">&nbsp;&nbsp;</i></a></li>
+                </ul>
+
+			</div>-->
+
+			<!--<div class="card invoice_main text-center" ng-if="invo1.invoiceImage =='' && ifMobile">
+				Invoice PDF Not Avaliable
+			</div>-->
+			<!--   <pdf ng-href="{{pdfURL}}"></pdf>-->
+		</div>
+	</div>
+</div>

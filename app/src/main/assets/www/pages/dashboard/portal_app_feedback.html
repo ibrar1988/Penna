@@ -1,0 +1,373 @@
+<style>
+   fieldset.scheduler-border {
+      border: 2px solid #eee !important;
+      padding: 0 1.4em 0.2em 1.4em !important;
+      margin: 0 0 1.5em 0 !important;
+      -webkit-box-shadow:  0px 0px 0px 0px #000;
+      box-shadow:  0px 0px 0px 0px #000;
+   }
+
+   legend.scheduler-border {
+      font-size: 1.2em !important;
+      font-weight: bold !important;
+      text-align: left !important;
+      width:auto;
+      padding:0 10px;
+      border-bottom:none;
+      margin-bottom: 10px !important;
+   }
+
+   .form-horizontal .control-label{
+      margin-top: 0px;
+   }
+
+   .label11{
+      margin-left: 15px;
+      margin-top: 15px;
+   }
+   .labelbot11{
+      margin-left: 30px !important;
+      margin-right: 30px !important;
+   }
+
+   .labelbot13{
+      margin-left: 25px !important;
+      margin-right: 30px !important;
+   }
+
+   .labelbot14{
+      margin-left: -4px !important;
+      margin-right: 30px !important;
+      margin-top: 3px !important;
+   }
+
+   .labelbot14{
+      margin-left: -4px !important;
+      margin-right: 30px !important;
+      margin-top: -20px !important;
+   }
+
+   textarea::-webkit-input-placeholder {
+      color: #505051 !important;
+      padding-left: 5px;
+   }
+
+   textarea:-moz-placeholder { /* Firefox 18- */
+      color: #505051 !important;
+      padding-left: 5px;
+   }
+
+   textarea::-moz-placeholder {  /* Firefox 19+ */
+      color: #505051 !important;
+      padding-left: 5px;
+   }
+
+   textarea:-ms-input-placeholder {
+      color: #505051 !important;
+      padding-left: 5px;
+
+   }
+
+   .rating {
+      color: #a9a9a9;
+      margin: 0;
+      padding: 0;
+   }
+   ul.rating {
+      display: inline-block;
+   }
+   .rating li {
+      list-style-type: none;
+      display: inline-block;
+      padding: 1px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      font-size:30px;
+   }
+   .rating .filled {
+      color: #feca08;
+   }
+   .clear{
+      margin-top:20px;
+   }
+
+   .radios-list{
+      display: inline-block;
+   }
+
+   .radio-button {
+      cursor: pointer;
+      margin-right: 10px;
+   }
+
+   .radio-button .custom-radio {
+      width: 19px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #cccccc;
+      margin-right: 5px;
+      display: inline-block;
+      position: relative;
+      vertical-align: -4px;
+   }
+
+   .user-notification .radios-list {
+      margin-bottom: 10px;
+   }
+
+   .radio-button input[type="radio"] {
+      display: none;
+   }
+
+   .radio-button .custom-radio {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      border: 2px solid #cccccc;
+      margin-right: 5px;
+      display: inline-block;
+      position: relative;
+      vertical-align: -4px;
+   }
+
+   .radio-button input[type="radio"]:checked + .custom-radio::before {
+      transform: scale(1);
+   }
+
+
+   .radio-button .custom-radio::before{
+      content: "";
+      width: 9px;
+      height: 8px;
+      background: #00aeef;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      margin-left: -4.5px;
+      margin-top: -4px;
+      transform: scale(0);
+      transition: all 0.3s ease;
+   }
+
+   /* Base for label styling */
+   [type="checkbox"]:not(:checked),
+   [type="checkbox"]:checked {
+      position: absolute;
+      left: -9999px;
+   }
+   [type="checkbox"]:not(:checked) + label,
+   [type="checkbox"]:checked + label {
+      position: relative;
+      padding-left: 1.95em;
+      cursor: pointer;
+   }
+
+   /* checkbox aspect */
+   [type="checkbox"]:not(:checked) + label:before,
+   [type="checkbox"]:checked + label:before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 1.25em;
+      height: 1.25em;
+      border: 2px solid #ccc;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+   }
+   /* checked mark aspect */
+   [type="checkbox"]:not(:checked) + label:after,
+   [type="checkbox"]:checked + label:after {
+      content: '✔';
+      position: absolute;
+      top: .11em;
+      left: 0.07em;
+      font-size: 1.4em;
+      line-height: 0.8;
+      color: #09ad7e !important;
+      transition: all .2s;
+      font-family: Helvetica, Arial, sans-serif;
+   }
+   /* checked mark aspect changes */
+   [type="checkbox"]:not(:checked) + label:after {
+      opacity: 0;
+      transform: scale(0);
+   }
+   [type="checkbox"]:checked + label:after {
+      opacity: 1;
+      transform: scale(1);
+   }
+   /* disabled checkbox */
+   [type="checkbox"]:disabled:not(:checked) + label:before,
+   [type="checkbox"]:disabled:checked + label:before {
+      box-shadow: none;
+      border-color: #4778d9;
+      background-color: #ddd;
+      content: '';
+   }
+   [type="checkbox"]:disabled:checked + label:after {
+      color: #999;
+      content: '';
+   }
+   [type="checkbox"]:disabled + label {
+      color: #aaa;
+      content: '';
+   }
+
+   .modal_grey {
+      background: #808081;
+      color: #ffffff;
+      text-align: center;
+      float: right;
+      width: 50%;
+      padding: 10px;
+   }
+
+   .labelbot12 {
+      margin-left: 4px;
+      margin-right: 30px;
+   }
+
+   .largeWidthss{
+      margin-top: 15px !important;
+   }
+
+   .formggg{
+      margin-bottom: 7px;
+   }
+   .custradio         {
+      background: #00aeef !important;
+   }
+
+   .customradio{
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      border: 2px solid #cccccc;
+      margin-right: 5px;
+      display: inline-block;
+      position: relative;
+      vertical-align: -4px;
+   }
+
+   .pad40{
+      padding-bottom: 25px;
+   }
+
+   .repeat_qus{
+      /*// border-bottom: 2px solid #eee;*/
+      padding-bottom: 5px;
+   }
+
+   .repeat_qus:last-child{
+      border-bottom: 0px solid #eee;
+      padding-bottom: 38px;
+   }
+
+   .largeWidthss22{
+      margin-bottom: -11px;
+   }
+
+   .largeWidthss222{
+      margin-bottom: 10px;
+   }
+
+   .largeWidthss224 {
+      margin-bottom: -20px;
+   }
+   .feedback_form_readonly{
+      pointer-events: none;
+   }
+
+</style>
+<div class="add_family">
+  <div class="modal-header">
+    <h3 class="modal-title">Care Portal / App Feedback</h3>
+  </div>
+<div class="modal-body">
+
+<form id="portal_app_feedback_form">
+
+<div style="border: 1px solid #eee;padding-bottom: 0px;">
+   <div class="repeat_qus" ng-repeat="(key, question) in questions | orderBy:'sequenceNo'" >
+      <div class="largeWidthss22" ng-class="{ largeWidthss222:  question.questionType == 'Radio' }">
+         <label class="label11" ng-class="{ largeWidthss:  question.questionType == 'Text' }">
+            <span>{{key+1}}. <span>{{question.question}}</span></span>
+         </label>
+         <div class="labelbot11 text-are" ng-if="question.questionType == 'Text'">
+            <textarea ng-class="{'feedback_form_readonly': feedback_form_readonly===true}" class="form-control-custom" ng-model="question.answer" rows="4" style="height: 100px;    border: 1px solid #ccc;resize: none;padding: 5px;    margin-bottom: 3px;" maxlength="250" placeholder="Please give your valuable feed back"></textarea>
+         </div>
+         <div class="labelbot13 rating"  ng-if="question.questionType == 'Rating'">
+            <div ng-repeat="rating in ratings">
+               <div star-rating
+                  ng-model="question.rating[$index]"
+                  rating-value="question.current"
+                  max="question.options"
+                  readonly={{feedback_form_readonly}}
+                  on-rating-selected="getSelectedRating(rating,question,$index)"></div>
+            </div>
+         </div>
+         <div class="labelbot12 checkbox" ng-if="question.questionType == 'Radio'">
+            <div class="">
+               <ul
+                  class="list-inline"
+                  style="margin-left: 20px;
+                        margin-bottom: -32px;
+                        position: relative;
+                        top: -8px;">
+                  <li style="padding-left: 27px;"
+                     ng-repeat="option in question.options track by $index"
+                     class="check_visit">
+                     <input 
+                        ng-class="{'feedback_form_readonly': feedback_form_readonly===true}"
+                        style="margin-left: -25px;"
+                        type="radio"
+                        name="sms{{$index}}{{option}}"
+                        ng-model="question.answer"
+                        ng-value="option"/>
+                     <span style="color: #505051;
+                           font-weight: 600;
+                           font-size: 14px;">{{option}}</span>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="labelbot12 checkbox" ng-if="question.questionType == 'Checkbox'">
+            <div ng-class="{'feedback_form_readonly': feedback_form_readonly===true}">
+               <ul class="list-inline">
+                  <li style="padding-left: 27px;"
+                        ng-repeat="option in question.options track by $index"
+                        class="check_visit"
+                        >
+                     <input
+                        type="checkbox"
+                        value="option1"
+                        ng-model="question.answer[$index]"
+                        name="optionscheck"
+                        id="test_{{option}}"/>
+                     <label
+                        for="test_{{option}}"
+                        style="color: #505051;">{{option}}</label>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>
+
+
+
+</form>
+
+
+</div>
+<div class="modal-footer">
+      <a ng-show="feedback_form_readonly" class="btn modal_grey" ng-click="cancel()" style="width: 100%">Close</a>
+      <a ng-show="!feedback_form_readonly" class="btn modal_grey" ng-click="cancel()">Cancel</a>
+      <a ng-show="!feedback_form_readonly" class="btn modal_blue" ng-click="save(questions)">Save</a>
+</div>
+</div>

@@ -1,0 +1,87 @@
+<div class="single_tab_content" ng-controller="PartyConfirmation">
+
+    <h2 class="page-header">
+        <a ui-sref="accounts.statements.party-confirmation" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-statements pull-left"></i> Statements
+        <a href="" class="pull-right" ng-click="printContent('div3')"><i class="icon_printer"></i></a>
+    </h2>
+
+    <div class="sectioncard" id="div3">
+        <div class="card">
+            <div class="single_info">
+                <h3>Instrument Number</h3>
+                <p>
+                    <span ng-show="singparty.ind=='B'">{{singparty.chkCheckNo}}</span>
+                    <span ng-show="singparty.ind=='C'">{{singparty.retChkCheckNo}}</span>
+                </p>
+            </div>
+            <div class="single_info">
+                <h3>Instrument Date</h3>
+                <p>
+                    <span ng-show="singparty.ind=='B'">{{singparty.chkDate | date:"MM/dd/yyyy"}}</span>
+                    <span ng-show="singparty.ind=='C'">{{singparty.retChkDate | date:"MM/dd/yyyy"}}</span>
+                </p>
+            </div>
+            <div class="single_info">
+                <h3>Payment Type</h3>
+                <p>
+                    <span ng-show="singparty.chkPmtType=='CC'">Cheque</span>
+                    <span ng-show="singparty.chkPmtType=='DD'">Demand Draft</span>
+                    <span ng-show="singparty.chkPmtType=='DT'">RTGS</span>
+                    <span ng-show="singparty.chkPmtType=='CD'">Cash</span>
+                    <span ng-show="singparty.chkPmtType==''">N/A</span>
+                </p>
+            </div>
+            <div class="single_info">
+                <h3>Posting Date</h3>
+                <p>
+                    <span ng-show="singparty.ind=='B'">{{singparty.chkReceiptDate | date:"MM/dd/yyyy"}}</span>
+                    <span ng-show="singparty.ind=='C'">{{singparty.retChkReceiptDate | date:"MM/dd/yyyy"}}</span>
+                </p>
+            </div>
+            <div class="single_info">
+                <h3>Amount</h3>
+                <p>
+                    <span ng-show="singparty.ind=='B'">{{singparty.chkAmount}} /-</span>
+                    <span ng-show="singparty.ind=='C'">{{singparty.retChkAmount}} /-</span>
+                </p>
+            </div>
+            <div class="single_info">
+                <h3>Bank Details Description SBI</h3>
+                <p>OCC A/C No.
+                    <span ng-show="singparty.ind=='B'">{{singparty.chkBranchName}} </span>
+                    <span ng-show="singparty.ind=='C'">{{singparty.retChkBranchname}} </span>
+                </p>
+            </div>
+            <div class="single_info">
+                <h3>Payments</h3>
+                <p>{{singparty.chkPmtDscr}}</p>
+            </div>
+            <div class="single_info">
+                <h3>PO Number</h3>
+                <p>N/A</p>
+            </div>
+            <div class="single_info">
+                <h3>PO Dates</h3>
+                <p>N/A, N/A, N/A</p>
+            </div>
+            <div class="single_info">
+                <h3>Quantity</h3>
+                <p>N/A</p>
+            </div>
+            <div class="single_info">
+                <h3>Payment Dates</h3>
+                <p>N/A, N/A, N/A</p>
+            </div>
+            <div class="single_info">
+                <h3>Collection Dates</h3>
+                <p>N/A, N/A, N/A</p>
+            </div>
+            <div class="single_info">
+                <h3>Account Statement</h3>
+                <p>N/A</p>
+            </div>
+        </div>
+    </div>
+</div>

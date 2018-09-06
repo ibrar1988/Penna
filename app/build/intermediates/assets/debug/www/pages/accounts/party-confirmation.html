@@ -1,0 +1,435 @@
+<style type="text/css">
+	.uib-datepicker-popup {
+		top: 33px !important;
+		left: 0px;
+	}
+
+	.btn.disabled,
+	.btn[disabled],
+	fieldset[disabled] .btn {
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		opacity: .65;
+		pointer-events: none;
+	}
+</style>
+
+<div ui-view autoscroll="true">
+	<div class="single_tab_content" ng-controller="PartyConfirmation">
+		<h2 class="page-header">
+        <a ui-sref="accounts.statements" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-statements pull-left"></i> Statements
+
+           <!-- <a ng-show="layout == 'short'" href="" ng-click="openmodelshort('short')" class="pull-right"  data-toggle="tooltip" title="Print"><i class="icon_printer iconprint"></i></a>
+        <a ng-show="layout == 'long'" href="" ng-click="openmodellong('long')" class="pull-right" data-toggle="tooltip" title="Print"><i class="icon_printer iconprint" ng-show="invoice.length || check.length"></i></a>-->
+
+
+
+             <a ng-class="{disabled:!((layout == 'short')&&(shortinvoice.length>0 || shortcheck.length>0))}" ng-show="layout == 'short'" href="" ng-click="openmodelshort('short')" class="pull-right"  data-toggle="tooltip" title="Print"><i class="icon_printer iconprint"></i></a>
+
+        <a ng-class="{disabled:!((layout == 'long')&&(invoice.length>0 || check.length>0))}" ng-show="layout == 'long'" href="" ng-click="openmodellong('long')" class="pull-right" data-toggle="tooltip" title="Print"><i class="icon_printer iconprint" ></i></a>
+
+
+            <a ng-hide="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel('pdf',date1,date2)" data-toggle="tooltip" data-placement="bottom" title="Download Pdf" ><i><img class="pdfImage"  height="28" width="36" src="img/1-02-128.png">&nbsp;&nbsp;</i></a>
+
+            <a ng-hide="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel('excel',date1,date2,'pdf')" data-toggle="tooltip" data-placement="bottom" title="Download Excel" ><i><img class="excelImage"  src="img/Excel-icon.png" height="24"
+    width="28">&nbsp;&nbsp;</i></a>
+
+     <a ng-show="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel1('pdf',date1,date2,'pdf')" data-toggle="tooltip" data-placement="bottom" title="Download Pdf" ><i><img class="pdfImage"  height="28" width="36" src="img/1-02-128.png">&nbsp;&nbsp;</i></a>
+
+     <a ng-show="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel1('excel',date1,date2,'excel')" data-toggle="tooltip" data-placement="bottom" title="Download Excel" ><i><img class="excelImage"  src="img/Excel-icon.png" height="24"
+    width="28">&nbsp;&nbsp;</i></a>
+    </h2>
+		<div class="view_bar sort_tabs" ng-init="getpartyconform()">
+			<h4 class="pull-left nomrg"> Account Statement</h4>
+			<!-- These two buttons switch the layout -->
+			<div class="switch_party">
+				<a class="grid-icon" ng-class="{active: layout == 'short'}" ng-click="layout = 'short';validate('short')">Last 15 Days</a>
+				<a class="list-icon" ng-class="{active: layout == 'long'}" ng-click="layout = 'long';validate()">History</a>
+			</div>
+		</div>
+
+		<div ng-show="layout == 'short'" class="list">
+
+          <div>
+			<div class="sectioncard" ng-show="shortinvoice.length">
+
+				<h2>Invoices Details</h2>
+				<div class="card">
+					<div class="invoice_details" id="shortInvTbl">
+						<div class="table-responsive">
+							<table id="shortTable" class="table table-bordered  table-condensed table-hover confmtable">
+								<thead>
+									<tr class="couser">
+										<th>Invoice No</th>
+										<!--<th>Type of Transaction</th>-->
+										<!-- <th>Payment Type</th>-->
+										<th>Date</th>
+										<th>Amount</th>
+										<th>Quantity</th>
+										<th class="width100">Product Code / Material Code </th>
+										<th class="width150">Supplied by ( Plant / Depot )</th>
+										<th>Truck Number</th>
+										<th>Reference Number</th>
+										<th>Remarks</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr ng-repeat="patyconf in shortinvoice.slice(((partyconfPageinv-1)*itemsPerPage), ((partyconfPageinv)*itemsPerPage))">
+
+										<td>
+											<span ng-show="patyconf.invoiceNumber !=='' ">{{patyconf.chkPmtDscr}}</span>
+										</td>
+										<!--<td>
+	<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">Invoice</span>
+</td>-->
+										<!-- <td>
+                                            <span ng-hide="patyconf.chkPmtType=='CC' || patyconf.chkPmtType=='DD' || patyconf.chkPmtType=='DT' || patyconf.chkPmtType=='CD' ">N/A</span>
+                                        </td>-->
+										<td>
+											<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.dateTime | date:"dd/MM/yyyy "}}</span>
+										</td>
+										<td>
+											<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">
+                                                <span ng-if="patyconf.amount != 0" class="currency_penna">{{get_decimal(patyconf.amount)}}</span>
+                                                <span ng-if="patyconf.amount == 0" class="currency_penna">{{patyconf.amount }}</span>
+                                            </span>
+										</td>
+
+										<td>
+											<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.deliveredQuantity}}</span>
+										</td>
+										<td style="width: 110px;">
+											<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.materialCode}}</span>
+										</td>
+										<td style="width: 161px;">
+											<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.plantCode}}</span>
+										</td>
+										<td>
+											<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.truckNumber}}</span>
+										</td>
+										<td>
+											<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.sapInvoiceNum}}</span>
+										</td>
+
+										<td>
+											<span ng-show="patyconf.salesOrder !=='' ">Order Date:{{patyconf.SapOrderDate | date:"dd/MM/yyyy "}}, Order: {{patyconf.SapOrderNumber}}</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="text-center " ng-show="shortinvoice.length> 20" ng-show="shortinvoice.length=='0'">
+						<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="shortinvoice.length" ng-model="partyconfPageinv" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+
+					</div>
+				</div>
+			</div>
+
+                <div class="card text-center" ng-show="shortinvoice.length == '0'">
+				<h5 class="text-center">"Invoices are not available for this period".</h5>
+			</div>
+            </div>
+
+
+             <div>
+			<div class="sectioncard" ng-show="shortcheck.length">
+
+             <h2> Payments and Dishonour Cheques</h2>
+				<div class="card">
+					<div class="invoice_details" id="shortPayTbl">
+						<div class="table-responsive">
+							<table class="table table-bordered table-condensed  table-hover confmtable couser">
+								<thead>
+									<tr class="couser">
+										<th>Payment</th>
+										<!--<th>Type of Transaction</th>-->
+										<th>Payment Type</th>
+										<th>Date</th>
+										<th>Amount</th>
+										<th>DD/Cheque Number</th>
+										<th>Remarks</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="patyconff in shortcheck.slice(((partyconfPageshort -1)*itemsPerPage), ((partyconfPageshort)*itemsPerPage)) | orderBy:['-chkReceiptDate','-retChkDate']" class="couser">
+										<td>
+											<span>{{patyconff.checknor}}</span>
+											<!-- <span ng-show="patyconff.ind=='B'">{{patyconff.chkReceiptNo}}</span>
+                                            <span ng-show="patyconff.ind=='C'">{{patyconff.retChkReceiptNo}}</span>-->
+										</td>
+										<!--<td>
+											<span ng-show="patyconff.ind=='B'">Payment</span>
+											<span ng-show="patyconff.ind=='C'">Dishonour Payments</span>
+										</td>-->
+										<td>
+											<span>{{patyconff.chkPmtType}}</span>
+										</td>
+										<td>
+											<span ng-show="patyconff.ind=='B'">{{patyconff.chkDate | date:"dd/MM/yyyy"}}</span>
+											<span ng-show="patyconff.ind=='C'">{{patyconff.retChkDate | date:"dd/MM/yyyy"}}</span>
+										</td>
+										<td>
+											<span ng-show="patyconff.ind=='B'">
+                                                 <span ng-if="patyconff.chkAmount != 0" class="currency_penna">{{get_decimal(patyconff.chkAmount)}}</span>
+                                               <span ng-if="patyconff.chkAmount == 0" class="currency_penna">{{patyconff.chkAmount }}</span>
+                                            </span>
+											<span ng-show="patyconff.ind=='C'">
+                                                 <span ng-if="patyconff.retChkAmount != 0" class="currency_penna">{{get_decimal(patyconff.retChkAmount)}}</span>
+                                               <span ng-if="patyconff.retChkAmount == 0" class="currency_penna">{{patyconff.retChkAmount }}</span>
+                                            </span>
+										</td>
+										<td>
+											<span ng-show="patyconff.ind=='B'">{{patyconff.chkCheckNo}}</span>
+											<span ng-show="patyconff.ind=='C'">{{patyconff.retChkCheckNo}}</span>
+
+										</td>
+										<td>
+											<span ng-show="patyconff.salesOrder =='' && patyconff.ind=='B'">{{patyconff.chkPmtDscr}}</span>
+										<span ng-show="patyconff.salesOrder =='' && patyconff.ind=='C'">Return Cheque</span></td>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="text-center" ng-show="shortcheck.length> 20" ng-show="shortcheck.length=='0'">
+						<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="shortcheck.length" ng-model="partyconfPageshort" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+
+					</div>
+				</div>
+			</div>
+
+               <div class="card text-center" ng-show="shortcheck.length == '0'">
+				<h5 class="text-center">"Payment's are not available for this period".</h5>
+			</div>
+             </div>
+
+</div>
+
+
+
+
+		<div ng-show="layout == 'long'" class="grid sectioncard clearfix">
+
+
+			<div class="card">
+				<div class="clearb col-md-12">
+					<p>The Date Range should not be more than 90 days</p>
+				</div>
+				<div class="col-md-4">
+					<label>From</label>
+					<p class="input-group" ng-class="(err.date1 == true) ? 'has-error' : 'has-primary' ">
+
+						<input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" is-open="popup1.opened" datepicker-options="dateOptions_11" ng-required="true" close-text="Close" ng-model="date1" alt-input-formats="altInputFormats" ng-focus="err.date1=false;" ng-change="changedate_90(date1,date2)" />
+						<span class="input-group-btn">
+                           <button type="button" class="btn btn-default datepic-btn" ng-click="open1()"><i class="icon_calendar"></i></button>
+                        </span>
+
+						<p class="errors">
+							<span ng-show="err.date1">From Date is required</span>
+						</p>
+
+
+				</div>
+				<div class="col-md-4">
+					<label>To</label>
+					<p class="input-group" ng-class="(err.date2 == true) ? 'has-error' : 'has-primary' ">
+						<input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" is-open="popup2.opened" datepicker-options="dateOptions_11" ng-required="true" close-text="Close" ng-model="date2" alt-input-formats="altInputFormats" ng-focus="err.date2=false;" ng-change="changedate_90(date1,date2)" />
+						<span class="input-group-btn">
+                    <button type="button" class="btn btn-default datepic-btn" ng-click="open2()"><i class="icon_calendar"></i></button>
+                </span>
+					</p>
+					<p class="errors">
+						<span ng-show="err.date2">To Date is required</span>
+					</p>
+				</div>
+				<div class="text-center clearb">
+					<a class="btn penna-btn sm-full long_generate" ng-disabled="button_execute == false" ng-model="button_execute" ng-click="generate(date1,date2)">Generate</a>
+				</div>
+			</div>
+
+			<div class="list">
+				<div class="">
+
+                   <div>
+					<div class="card" ng-show="invoice.length">
+						<h2>Invoices Details</h2>
+						<div class="invoice_details" id="longInvTbl">
+							<div class="table-responsive">
+								<table class="table table-bordered table-condensed table-hover confmtable">
+									<thead>
+										<tr class="couser">
+											<th>Invoice No</th>
+											<!--<th>Type of Transaction</th>-->
+											<!-- <th>Payment Type</th>-->
+											<th>Date</th>
+											<th>Amount</th>
+											<th>Quantity</th>
+											<th class="custo">Product Code / Material Code </th>
+											<th class="width150">Supplied by ( Plant / Depot )</th>
+											<th>Truck Number</th>
+											<th>Reference Number</th>
+											<th>Remarks</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr ng-repeat="patyconfinv in invoice.slice(((invoiceCurrpage-1)*itemsPerPage), ((invoiceCurrpage)*itemsPerPage)) | orderBy:'-dateTime'">
+
+											<td>
+												<span ng-show="patyconfinv.invoiceNumber !=='' ">{{patyconfinv.chkPmtDscr}}</span>
+
+											</td>
+											<!--<td>
+												<span ng-hide="patyconfinv.ind=='B' || patyconf.ind=='C' ">Invoice</span>
+
+											</td>-->
+											<!--<td>
+
+    <span ng-hide="patyconfinv.chkPmtType=='CC' || patyconfinv.chkPmtType=='DD' || patyconf.chkPmtType=='DT' || patyconf.chkPmtType=='CD' ">N/A</span>
+</td>-->
+											<td>
+												<span ng-hide="patyconfinv.ind=='B' || patyconfinv.ind=='C' ">{{patyconfinv.dateTime | date:"dd/MM/yyyy "}}</span>
+
+											</td>
+											<td>
+
+												<span ng-hide="patyconfinv.ind=='B' || patyconfinv.ind=='C' ">
+                                                    <span ng-if="patyconfinv.amount != 0" class="currency_penna">{{patyconfinv.amount | number:2}}</span>
+                                                    <span ng-if="patyconfinv.amount == 0" class="currency_penna">{{patyconfinv.amount }}</span>
+                                                </span>
+											</td>
+											<td>
+												<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconfinv.deliveredQuantity}}</span>
+											</td>
+											<td>
+												<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconfinv.materialCode}}</span>
+											</td>
+											<td>
+												<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconfinv.plantCode}}</span>
+											</td>
+											<td>
+												<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconfinv.truckNumber}}</span>
+											</td>
+											<td>
+												<span ng-hide="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconfinv.sapInvoiceNum}}
+											</td>
+											<td>
+												<span ng-show="patyconfinv.salesOrder !=='' ">Order Date:{{patyconfinv.SapOrderDate | date:"dd/MM/yyyy "}}, Order: {{patyconfinv.SapOrderNumber}}</span>
+											</td>
+
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="text-center " ng-show="invoice.length> 20" ng-show="invoice.length=='0'">
+							<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="invoice.length" ng-model="invoiceCurrpage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+						</div>
+
+
+					</div>
+
+                       <div class="list" ng-show="invoice.length=='0'">
+						<h5 class="text-center">"Invoices are not available for this period".</h5>
+					</div>
+                    </div>
+
+
+                     <div>
+					<div class="card" ng-show="check.length">
+						<h2> Payments and Dishonour Cheques</h2>
+						<div class="invoice_details" id="longPayTbl">
+							<div class="table-responsive">
+								<table class="table table-bordered table-condensed table-hover confmtable couser">
+									<thead>
+										<tr class="couser">
+											<th>Payment</th>
+											<!--<th>Type of Transaction</th>-->
+											<th>Payment Type</th>
+											<th>Date</th>
+											<th>Amount</th>
+											<th>DD/Cheque Number</th>
+											<th>Remarks</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="patyconf in check.slice(((checkCurrPage-1)*itemsPerPage), ((checkCurrPage)*itemsPerPage)) | orderBy:['-chkReceiptDate','-retChkDate']" class="couser">
+											<!--ng-click="singleparty(patyconf,'long')-->
+											<td>
+												<span>{{patyconf.checknors}}</span>
+												<!-- <span ng-show="patyconf.ind=='B'">{{patyconf.chkReceiptNo}}</span>
+                                                <span ng-show="patyconf.ind=='C'">{{patyconf.retChkReceiptNo}}</span>-->
+											</td>
+											<!--<td>
+												<span ng-show="patyconf.ind=='B'">Payment</span>
+												<span ng-show="patyconf.ind=='C'">Dishonour Payments</span>
+											</td>-->
+											<td>
+												<span>{{patyconf.chkPmtType}}</span>
+											</td>
+											<td>
+												<span ng-show="patyconf.ind=='B'">{{patyconf.chkDate | date:"dd/MM/yyyy"}}</span>
+
+												<span ng-show="patyconf.ind=='C'">{{patyconf.retChkDate | date:"dd/MM/yyyy"}}</span>
+											</td>
+											<td>
+												<span ng-show="patyconf.ind=='B'">
+                                                     <span ng-if="patyconf.chkAmount != 0" class="currency_penna">{{patyconf.chkAmount | number:2}}</span>
+                                                    <span ng-if="patyconf.chkAmount == 0" class="currency_penna">{{patyconf.chkAmount }}</span>
+                                                </span>
+												<span ng-show="patyconf.ind=='C'">
+                                                    <span ng-if="patyconf.retChkAmount != 0" class="currency_penna">{{patyconf.retChkAmount | number:2}}</span>
+                                                    <span ng-if="patyconf.retChkAmount == 0" class="currency_penna">{{patyconf.retChkAmount }}</span>
+                                                </span>
+											</td>
+											<td>
+												<span ng-show="patyconf.ind=='B'">{{patyconf.chkCheckNo}}</span>
+												<span ng-show="patyconf.ind=='C'">{{patyconf.retChkCheckNo}}</span>
+											</td>
+
+											<td>
+												<span ng-show="patyconf.salesOrder =='' && patyconf.ind=='B'">{{patyconf.chkPmtDscr}}</span>
+                                                <span ng-show="patyconf.salesOrder =='' && patyconf.ind=='C'">Return Cheque</span>
+                                    </td>
+
+
+
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="text-center" ng-show="check.length> 20" ng-show="check.length=='0'">
+							<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="check.length" ng-model="checkCurrPage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+						</div>
+
+
+					</div>
+                       <div class="list" ng-show="check.length=='0'">
+						<h5 class="text-center">"Payment's are not available for this period".</h5>
+					    </div>
+                     </div>
+
+
+
+
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+</div>

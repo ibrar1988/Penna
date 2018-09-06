@@ -1,0 +1,122 @@
+<div class="add_family">
+    <div class="modal-header">
+        <h3 class="modal-title">Billing Address
+            <!-- <small ng-show="!billingAddrs.indicatorStatus && usersprofileList.otherBillingIndicatorStatu  ">Other address need to approve</small> -->
+			<!-- <small ng-show="usersprofileList.billingIndicator">Added address need to approve</small> -->
+            <!-- <small ng-show="(!usersprofileList.billingIndicator) && (billingAddrs.indicatorStatus || usersprofileList.otherBillingIndicatorStatus)">Need To Approve</small> -->
+            <small ng-show="billingAddrs.indicatorStatus">Need To Approve</small>
+
+        </h3>
+    </div>
+    <div class="modal-body">
+
+        <form role="form" name="myForm">
+            <fieldset>
+                <div class="form-group" ng-class="(err.street1 == true) ? 'has-error' : 'has-primary' ">
+                    <label>Street 1</label>
+                    <input name="taluk" type="text" ng-model=" billingAddrs.street1" class="form-control-custom" placeholder="" ng-focus="err.street1=false" required ng-readonly="billingAddrs.indicatorStatus" />
+                    <div class="errors">
+                        <span ng-show="err.street1">Street 1 is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.street2 == true) ? 'has-error' : 'has-primary' ">
+                    <label>Street 2</label>
+                    <input type="text" name="pin" ng-model="billingAddrs.street2" class="form-control-custom" placeholder="" required ng-focus="err.street2=false" ng-readonly="billingAddrs.indicatorStatus " />
+                    <div class="errors">
+                        <span ng-show="err.street2">Street 2 is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.street3 == true) ? 'has-error' : 'has-primary' ">
+                    <label>Street 3</label>
+                    <input type="text" name="phoneNumber" ng-model="billingAddrs.street3" class="form-control-custom" placeholder="" required ng-focus="err.street3=false" ng-readonly="billingAddrs.indicatorStatus" />
+                    <div class="errors">
+                        <span ng-show="err.street3">Street 3 is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.city == true) ? 'has-error' : 'has-primary' ">
+                    <label>City</label>
+                    <select name="city" ng-model="billingAddrs.city" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in cities| orderBy:'name'" ng-disabled="billingAddrs.indicatorStatus" ng-change="err.city=false;" onchange="angular.element(this).scope().citySelected(this)">
+                        <option value="" disabled="true">Select city</option>
+                        <option value="" ng-if="false"></option>
+                    </select>
+                    <div class="errors">
+                        <span ng-show="err.city">city is required</span>
+                    </div>
+                </div>
+                <!-- 
+                <div class="form-group" ng-class="(err.state == true) ? 'has-error' : 'has-primary' ">
+                    <label>State</label>
+                    <input name="state" type="text" ng-model="billingAddrs.state" class="form-control-custom" placeholder="" required ng-focus="err.state=false" ng-disabled="billingAddrs.indicatorStatus || usersprofileList.otherBillingIndicatorStatus || usersprofileList.billingIndicator" onlytext-andspace="20" />
+                    <div class="errors">
+                        <span ng-show="err.state">State is required</span>
+                    </div>
+                </div>
+                 -->
+                <div class="single_info">
+                    <div class="form-group" ng-class="(err.state == true) ? 'has-error' : 'has-primary' ">
+                        <label>State</label>
+                        <select name="state" ng-model="billingAddrs.state" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in states| orderBy:'name'" ng-disabled="billingAddrs.indicatorStatus" ng-change="err.state=false;" onchange="angular.element(this).scope().stateSelected(this)">
+                            <option value="" disabled="true">Select state</option>
+                            <option value="" ng-if="false"></option>
+                        </select>
+                        <div class="errors">
+                            <span ng-show="err.state">State is required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.country == true) ? 'has-error' : 'has-primary' ">
+                    <label>Country</label>
+                    <select name="country" ng-model="billingAddrs.country" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in countries| orderBy:'name'" ng-disabled="billingAddrs.indicatorStatus" ng-change="err.country=false;" onchange="angular.element(this).scope().countrySelected(this)">
+                        <option value="" disabled="true">Select country</option>
+                        <option value="" ng-if="false"></option>
+                    </select>
+                    <div class="errors">
+                        <span ng-show="err.country">country is required</span>
+                    </div>
+                </div>
+                <!-- my-textlen="25" -->
+                <div class="form-group" ng-class="(err.email == true) ? 'has-error' : 'has-primary' ">
+                    <label>Email</label>
+                    <input type="email" name="email" ng-model="billingAddrs.email" class="form-control-custom" id="inputEmail" placeholder="" ng-focus="err.email=false;" required ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
+                    <div class="errors">
+                        <span ng-show="err.email">Email is required</span>
+                        <span ng-show="!myForm.email.$error.required && (myForm.email.$error.email || myForm.email.$error.pattern) && myForm.email.$dirty">invalid email</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.mobileNumber == true || err.mobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+                    <label>Mobile Number</label>
+                    <input type="text" name="mobilenum" ng-model="billingAddrs.mobileNumber" class="form-control-custom" placeholder="" id="mobilenum" ng-maxlength="10" maxlength="10" my-length="10" ng-focus="err.mobileNumber=false;err.mobileNumberLength=false;" required />
+                    <div class="errors">
+                        <span ng-show="err.mobileNumber">Mobile number is required</span>
+                        <span ng-show="err.mobileNumberLength">Mobile number should be 10 digits</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.alternateMobileNumber == true || err.alternateMobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+                    <label>Alternate Mobile Number</label>
+                    <input type="text" name="altmobilenum" ng-model="billingAddrs.alternateMobileNumber" class="form-control-custom" placeholder="" maxlength="10" my-length="10" required />
+                    <div class="errors">
+                        <span ng-if="err.alternateMobileNumber">Alternate mobile number is required</span>
+                        <span ng-if="err.alternateMobileNumberLength">Alternate mobile number should be 10 digits</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.image == true) ? 'has-error' : 'has-primary' ">
+                    <!-- ng-hide="usersprofileList.otherBillingIndicatorStatus" -->
+                    <label>Attachment</label>
+                    <input type="file" id="billingImg" accept="image/*" name="image" style=" width: 2px; height:2px" ng-model="image" ng-show="hide" onchange="angular.element(this).scope().imageSelected(this)" required>
+                    <a href="" name="image" ng-click="err.image=false;mobileAttachUpload(billingAddrs)">Upload</a>
+                    <div class="pull-right" ng-show="image">
+                        <small class="text-primary">Image uploaded successfully</small>
+                    </div>
+                    <div class="errors">
+                        <span ng-show="err.image">Attachment is required</span>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+        <a class="btn modal_blue" ng-click="save()">Save</a>
+    </div>
+</div>

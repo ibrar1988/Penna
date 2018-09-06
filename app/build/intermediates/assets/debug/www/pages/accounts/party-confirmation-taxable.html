@@ -1,0 +1,276 @@
+<style type="text/css">
+	.uib-datepicker-popup {
+		top: 33px !important;
+		left: 0px;
+	}
+
+	.btn.disabled,
+	.btn[disabled],
+	fieldset[disabled] .btn {
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		opacity: .65;
+		pointer-events: none;
+	}
+</style>
+
+<div ui-view autoscroll="true">
+	<div class="single_tab_content" ng-controller="PartyConfirmationtax">
+		<h2 class="page-header">
+        <a ui-sref="accounts.statements" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-statements pull-left"></i> Statements
+
+           <!-- <a ng-show="layout == 'short'" href="" ng-click="openmodelshort('short')" class="pull-right"  data-toggle="tooltip" title="Print"><i class="icon_printer iconprint"></i></a>
+        <a ng-show="layout == 'long'" href="" ng-click="openmodellong('long')" class="pull-right" data-toggle="tooltip" title="Print"><i class="icon_printer iconprint" ng-show="invoice.length || check.length"></i></a>-->
+
+
+
+             <a ng-class="{disabled:!((layout == 'short')&&(payment_short.length>0))}" ng-show="layout == 'short'" href="" ng-click="openmodelshort('short')" class="pull-right"  data-toggle="tooltip" title="Print"><i class="icon_printer iconprint"></i></a>
+
+        <a ng-class="{disabled:!((layout == 'long')&&(payment_long.length>0))}" ng-show="layout == 'long'" href="" ng-click="openmodellong('long')" class="pull-right" data-toggle="tooltip" title="Print"><i class="icon_printer iconprint" ></i></a>
+
+
+            <a ng-hide="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel('pdf',date1,date2)" data-toggle="tooltip" data-placement="bottom" title="Download Pdf" ><i><img class="pdfImage"  height="28" width="36" src="img/1-02-128.png">&nbsp;&nbsp;</i></a>
+
+            <a ng-hide="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel('excel',date1,date2,'pdf')" data-toggle="tooltip" data-placement="bottom" title="Download Excel" ><i><img class="excelImage"  src="img/Excel-icon.png" height="24"
+    width="28">&nbsp;&nbsp;</i></a>
+
+     <a ng-show="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel1('pdf',date1,date2,'pdf')" data-toggle="tooltip" data-placement="bottom" title="Download Pdf" ><i><img class="pdfImage"  height="28" width="36" src="img/1-02-128.png">&nbsp;&nbsp;</i></a>
+
+     <a ng-show="ifMobile" id="pdf1" ng-href="{{excelUrl}}" class="pull-right" ng-click="getExcel1('excel',date1,date2,'excel')" data-toggle="tooltip" data-placement="bottom" title="Download Excel" ><i><img class="excelImage"  src="img/Excel-icon.png" height="24"
+    width="28">&nbsp;&nbsp;</i></a>
+    </h2>
+		<div class="view_bar sort_tabs" ng-init="getpartyconform()">
+			<h4 class="pull-left nomrg"> Taxable Discount Details</h4>
+			<!-- These two buttons switch the layout -->
+			<div class="switch_party">
+				<a class="grid-icon" ng-class="{active: layout == 'short'}" ng-click="layout = 'short';validate('short')">Last 15 Days</a>
+				<a class="list-icon" ng-class="{active: layout == 'long'}" ng-click="layout = 'long';validate()">History</a>
+			</div>
+		</div>
+
+		<div ng-show="layout == 'short'" class="list">
+
+
+
+             <div>
+          <div class="sectioncard" ng-show="payment_short.length">
+
+
+           <div class="card" >
+						<h2>Taxable Discount Details</h2>
+						<div class="invoice_details" id="longInvTbl">
+							<div class="table-responsive">
+								<table class="table table-bordered table-condensed table-hover confmtable">
+									<thead>
+										<tr class="couser">
+											<th>Financial Document No</th>
+											<th>Sales Invoice No</th>
+											<th>Invoice Date</th>
+											<th>Invoice Qty</th>
+											<th>Invoice Value </th>
+											<th>Taxable Credit Note No</th>
+											<th>Taxable Credit Note Date</th>
+											<th>Taxable Value</th>
+											<th>CGST</th>
+											<th>SGST</th>
+											<th>IGST</th>
+                                            <th>Gross Discounts</th>
+                                            <th>Business Place</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr ng-repeat="patyconfpaymentshort in payment_short1">
+
+											<td>{{patyconfpaymentshort.invoiceNo}}</td>
+											<td>{{patyconfpaymentshort.chkPmtDscr}}</td>
+											<td>{{patyconfpaymentshort.invoiceDate | date:"dd/MM/yyyy"}}</td>
+											<td>{{patyconfpaymentshort.invoiceQty}}</td>
+											<td>
+                                                <span ng-if="patyconfpaymentshort.amount != 0" class="currency_penna">{{get_decimal(patyconfpaymentshort.amount)}}</span>
+                                                <span ng-if="patyconfpaymentshort.amount == 0" class="currency_penna">0</span>
+                                            </td>
+											<td>{{patyconfpaymentshort.chkReceiptNo}}</td>
+											<td>{{patyconfpaymentshort.chkReceiptDate | date:"dd/MM/yyyy"}}</td>
+											<td>
+                                               <span ng-if="patyconfpaymentshort.taxableValue != 0" class="currency_penna">{{get_decimal(patyconfpaymentshort.taxableValue)}}</span>
+                                               <span ng-if="patyconfpaymentshort.taxableValue == 0" class="currency_penna">0</span>
+                                            </td>
+											<td>
+                                             <span ng-if="patyconfpaymentshort.ggst != 0" class="currency_penna">{{get_decimal(patyconfpaymentshort.ggst)}}</span>
+                                               <span ng-if="patyconfpaymentshort.ggst == 0" class="currency_penna">{{patyconfpaymentshort.ggst }}</span>
+                                            </td>
+											<td>
+                                                 <span ng-if="patyconfpaymentshort.sgst != 0" class="currency_penna">{{get_decimal(patyconfpaymentshort.sgst)}}</span>
+                                               <span ng-if="patyconfpaymentshort.sgst == 0" class="currency_penna">{{patyconfpaymentshort.sgst }}</span>
+                                            </td>
+											<td>
+                                                 <span ng-if="patyconfpaymentshort.igst != 0" class="currency_penna">{{get_decimal(patyconfpaymentshort.igst)}}</span>
+                                               <span ng-if="patyconfpaymentshort.igst == 0" class="currency_penna">{{patyconfpaymentshort.igst }}</span>
+                                            </td>
+                                             <td>
+                                                 <span ng-if="patyconfpaymentshort.grossDiscount != 0" class="currency_penna">{{get_decimal(patyconfpaymentshort.grossDiscount)}}</span>
+                                               <span ng-if="patyconfpaymentshort.grossDiscount == 0" class="currency_penna">{{patyconfpaymentshort.grossDiscount }}</span>
+                                            </td>
+											<td>{{patyconfpaymentshort.bisunessPlace}}</td>
+
+
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--<div class="text-center " ng-show="invoice.length> 20" ng-show="invoice.length=='0'">
+							<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="invoice.length" ng-model="invoiceCurrpage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+						</div>-->
+
+
+					</div>
+        </div>
+
+                <div class="card text-center " ng-show="payment_short.length == '0'">
+				<h5 class="text-center">"Taxable discount details are not available for this period".</h5>
+			</div>
+            </div>
+
+
+</div>
+
+
+
+
+		<div ng-show="layout == 'long'" class="grid sectioncard clearfix">
+
+
+			<div class="card">
+				<div class="clearb col-md-12">
+					<p>The Date Range should not be more than 90 days</p>
+				</div>
+				<div class="col-md-4">
+					<label>From</label>
+					<p class="input-group" ng-class="(err.date1 == true) ? 'has-error' : 'has-primary' ">
+
+						<input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" is-open="popup1.opened" datepicker-options="dateOptions_11" ng-required="true" close-text="Close" ng-model="date1" alt-input-formats="altInputFormats" ng-focus="err.date1=false;" ng-change="changedate_90(date1,date2)" />
+						<span class="input-group-btn">
+                           <button type="button" class="btn btn-default datepic-btn" ng-click="open1()"><i class="icon_calendar"></i></button>
+                        </span>
+
+						<p class="errors">
+							<span ng-show="err.date1">From Date is required</span>
+						</p>
+
+
+				</div>
+				<div class="col-md-4">
+					<label>To</label>
+					<p class="input-group" ng-class="(err.date2 == true) ? 'has-error' : 'has-primary' ">
+						<input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" is-open="popup2.opened" datepicker-options="dateOptions_11" ng-required="true" close-text="Close" ng-model="date2" alt-input-formats="altInputFormats" ng-focus="err.date2=false;" ng-change="changedate_90(date1,date2)" />
+						<span class="input-group-btn">
+                    <button type="button" class="btn btn-default datepic-btn" ng-click="open2()"><i class="icon_calendar"></i></button>
+                </span>
+					</p>
+					<p class="errors">
+						<span ng-show="err.date2">To Date is required</span>
+					</p>
+				</div>
+				<div class="text-center clearb">
+					<a class="btn penna-btn sm-full long_generate" ng-disabled="button_execute == false" ng-model="button_execute" ng-click="generate(date1,date2)">Generate</a>
+				</div>
+			</div>
+
+			<div class="list">
+				<div class="">
+
+					<div>
+                     <div class="card" ng-show="payment_long.length">
+						<h2>Taxable Discount Details</h2>
+						<div class="invoice_details" id="longInvTbl">
+							<div class="table-responsive">
+								<table class="table table-bordered table-condensed table-hover confmtable">
+									<thead>
+										<tr class="couser">
+											<th>Financial Document No</th>
+											<th>Sales Invoice No</th>
+											<th>Invoice Date</th>
+											<th>Invoice Qty</th>
+											<th>Invoice Value </th>
+											<th>Taxable Credit Note No</th>
+											<th>Taxable Credit Note Date</th>
+											<th>Taxable Value</th>
+											<th>CGST</th>
+											<th>SGST</th>
+											<th>IGST</th>
+                                            <th>Gross Discounts</th>
+                                            <th>Business Place</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr ng-repeat="patyconfpayment in payment_long">
+
+											<td>{{patyconfpayment.invoiceNo}}</td>
+											<td>{{patyconfpayment.chkPmtDscr}}</td>
+											<td>{{patyconfpayment.invoiceDate | date:"dd/MM/yyyy"}}</td>
+											<td>{{patyconfpayment.invoiceQty}}</td>
+											<td>
+                                                 <span ng-if="patyconfpayment.amount != 0" class="currency_penna">{{get_decimal(patyconfpayment.amount)}}</span>
+                                                    <span ng-if="patyconfpayment.amount == 0" class="currency_penna">{{patyconfpayment.amount }}</span>
+                                            </td>
+											<td>{{patyconfpayment.chkReceiptNo}}</td>
+											<td>{{patyconfpayment.chkReceiptDate | date:"dd/MM/yyyy"}}</td>
+											<td>
+                                                 <span ng-if="patyconfpayment.taxableValue != 0" class="currency_penna">{{get_decimal(patyconfpayment.taxableValue)}}</span>
+                                                    <span ng-if="patyconfpayment.taxableValue == 0" class="currency_penna">{{patyconfpayment.taxableValue }}</span>
+                                            </td>
+											<td>
+                                                 <span ng-if="patyconfpayment.ggst != 0" class="currency_penna">{{get_decimal(patyconfpayment.ggst)}}</span>
+                                                    <span ng-if="patyconfpayment.ggst == 0" class="currency_penna">{{patyconfpayment.ggst }}</span>
+                                            </td>
+											<td>
+                                                 <span ng-if="patyconfpayment.sgst != 0" class="currency_penna">{{get_decimal(patyconfpayment.sgst)}}</span>
+                                                    <span ng-if="patyconfpayment.sgst == 0" class="currency_penna">{{patyconfpayment.sgst }}</span>
+                                            </td>
+											<td>
+                                                 <span ng-if="patyconfpayment.igst != 0" class="currency_penna">{{get_decimal(patyconfpayment.igst)}}</span>
+                                                    <span ng-if="patyconfpayment.igst == 0" class="currency_penna">{{patyconfpayment.igst }}</span>
+                                            </td>
+                                            <td>
+                                                <span ng-if="patyconfpayment.grossDiscount != 0" class="currency_penna">{{get_decimal(patyconfpayment.grossDiscount)}}</span>
+                                                    <span ng-if="patyconfpayment.grossDiscount == 0" class="currency_penna">{{patyconfpayment.grossDiscount }}</span>
+                                            </td>
+                                            <td>
+                                                 {{patyconfpayment.bisunessPlace}}
+                                            </td>
+
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--<div class="text-center " ng-show="invoice.length> 20" ng-show="invoice.length=='0'">
+							<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="invoice.length" ng-model="invoiceCurrpage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+						</div>-->
+
+					</div>
+                    <div class="list" ng-show="payment_long.length=='0'">
+						<h5 class="text-center">"Taxable discount details are not available for this period".</h5>
+					</div>
+                      </div>
+
+        	</div>
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+</div>

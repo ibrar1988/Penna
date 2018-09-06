@@ -1,0 +1,63 @@
+<div class="single_tab_content" ng-controller="dashbordctrl">
+
+	<h2 class="page-header">
+        <a ui-sref="dashboard.pending-pod" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-proof-delivery pull-left"></i> Pending PODs 
+        <span>
+        <a ui-sref="dashboard.pending-pod-detailedit" class="pull-right edit_fields">
+            <span aria-hidden="true" class="icon_pencil-edit"></span>
+        </a>
+    </span>
+    </h2>
+
+
+	<div class="sectioncard dashb_performance">
+		<div class="card">
+			<div class="pod_details clearfix">
+				<div class="pending_data_det">
+
+					<!--<p><strong>Invoice Number  -   {{inv.sapInvoiceNumber}}</strong></p>-->
+					<!--<p>Invoice Number - {{inv.ODNNumber}}</p>-->
+					<p ng-if="inv.ODNNumber">Invoice Number - {{inv.ODNNumber}}</p>
+                    <p ng-if="!inv.ODNNumber">Invoice Number - {{inv.sapInvoiceNumber}}</p>
+            <div class="single_info">
+            <p>Reference Number - {{inv.sapInvoiceNumber}}</p>
+            </div>
+					<p class="txt-grey">Order Number : {{inv.sapOrderLineNumber}}</p>
+				</div>
+				<hr>
+				<div class="invoice-details">
+					<p><strong>Invoice Details</strong></p>
+					<!--<p>Invoice Number : {{inv.sapinvoiceNumber}}</p>-->
+					<p>Amount: {{inv.amount | INR}}/-</p>
+					<p>Date: {{inv.dateTime | date:"MM/dd/yyyy"}}</p>
+				</div>
+				<div class="delivery-detials">
+					<p><strong>Delivery Details</strong></p>
+					<p>Delivered by: {{inv.deliveredBy}}</p>
+					<!-- <p>Driver Mobile Number: {{inv.mobileNumber}}</p>-->
+					<p>Material Grade : {{inv.materialGrade}} </p>
+					<p>Material Code : {{inv.materialCode}}</p>
+					<p>Plant/Depot : {{inv.plantCode}}</p>
+					<p>Truck Number: {{inv.truckNumber}}</p>
+					 <p ng-if="inv.TurvoLink">Delivery Tracking Link - 
+                     <a ng-show="!ifMobile" target="_blank"  ng-href="{{inv.TurvoLink}}">
+                      {{inv.TurvoLink}}</a>
+                     <a ng-show="ifMobile" ng-click="myTurvoLink(inv.TurvoLink)">
+                      {{inv.TurvoLink}}
+                     </a>
+                </p><br>
+					<p>Received by: {{inv.receivedBy}}</p>
+				</div>
+				<div class="remarks">
+					<p><strong>Remarks</strong></p>
+					<p>{{inv.remarks}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center footer-buttons">
+		<a href="" class="btn action_btn sm-full" ng-click="conform()">Confirm POD</a>
+	</div>
+</div>

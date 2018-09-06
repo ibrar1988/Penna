@@ -1,0 +1,131 @@
+<div class="single_tab_content" ng-controller="dashbordctrl">
+
+	<h2 class="page-header">
+        <a ng-if="nextWindowState != 'orders.pending-pod-detailedit'" href="#/dashboard/pending-pod" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a>
+        <a ng-if="nextWindowState == 'orders.pending-pod-detailedit'" href="#/orders/proof-of-delivery" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a>
+        <i class="pci icon-proof-delivery pull-left"></i> Pending PODs
+        <span ng-controller="saveChange">
+            <a ng-if="nextWindowState != 'orders.pending-pod-detailedit'" href="" class="pull-right edit_fields" ng-click="updateinvoicedetails(inv)">
+                <span aria-hidden="true" class="icon_floppy"></span>
+            </a>
+                        <a ng-if="nextWindowState == 'orders.pending-pod-detailedit'" href="" class="pull-right edit_fields" ng-click="updateinvoicedetail(inv)">
+                <span aria-hidden="true" class="icon_floppy"></span>
+            </a>
+        </span>
+    </h2>
+
+
+	<div class="dashb_performance">
+		<ul class="all_pods">
+			<li class="single_pod clearfix">
+				<div class="pending_data_det">
+
+					<!--	<p><strong>Invoice Number  - {{inv.sapInvoiceNumber}}</strong></p>-->
+					<!--<p>Invoice Number - {{inv.ODNNumber}}</p>-->
+					<p ng-if="inv.ODNNumber">Invoice Number - {{inv.ODNNumber}}</p>
+					<p ng-if="!inv.ODNNumber">Invoice Number - {{inv.sapInvoiceNumber}}</p>
+					<div class="single_info">
+						<p>Reference Number - {{inv.sapInvoiceNumber}}</p>
+					</div>
+					<p class="txt-grey">Order Number : {{inv.sapOrderLineNumber}}</p>
+				</div>
+				<hr>
+				<div class="invoice-details">
+					<p><strong>Invoice Details</strong></p>
+					<!-- <p>Invoice Number : {{inv.sapinvoiceNumber}}</p>-->
+					<p>Amount: {{inv.amount | INR}}/-</p>
+					<p>Date: {{inv.dateTime | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+				</div>
+				<div class="delivery-detials">
+					<p><strong>Delivery Details</strong></p>
+					<p>Delivered by: {{inv.deliveredBy}}</p>
+					<!--<p>Driver Mobile Number: {{inv.mobileNumber}}</p>-->
+					<p>Truck Number: {{inv.truckNumber}}</p>
+					<p ng-if="inv.TurvoLink">Delivery Tracking Link - 
+                     <a ng-show="!ifMobile" target="_blank"  ng-href="{{inv.TurvoLink}}">
+                    {{inv.TurvoLink}}</a>
+                     <a ng-show="ifMobile" ng-click="myTurvoLink(inv.TurvoLink)">
+                    {{inv.TurvoLink}}
+                    </a>
+                    </p><br>
+					<p>Received by:
+						<input type="text" ng-model="inv.receivedBy" class="form-control-custom">
+					</p>
+				</div>
+
+				  <div class="form-group">
+                    <label>Attachment</label>
+                    <input type="file" class="addpodInput" id="addpodInput" accept="image/*" name="image" style=" width: 2px; height:2px" ng-model="image" ng-show="hide" ng-change="err.podImage=false;imageSelected()" valid-file required onchange="angular.element(this).scope().imageSelected(this)">
+                    <a href="" name="image" ng-click="err.podImage=false;mobileUploadAttachment()">Upload</a>
+                </div>
+
+
+
+				  <div class="form-group">
+                    <label class="control-label col-md-2 col-xs-3" style="padding:0px !important">Any Damages/ Shortages
+                    </label>
+                    <div class="col-md-2 col-xs-4">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="inv.damage" value="yes"> Yes
+                        </label>
+                    </div>
+
+                    <div class="col-md-5 col-xs-4">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="inv.damage" value="no"> No
+                        </label>
+                    </div>
+
+                    <br>
+
+                </div>
+
+
+
+				<div class="form-group" style="margin-top:50px" ng-show="inv.damage == 'yes'">
+                    <label class="control-label col-md-2 col-xs-3" style="padding-left:0px">Product</label>
+                    <div class="col-md-3 col-xs-6">
+                        <select ng-model="inv.damagedproduct" class="form-control-custom select-drop" name="comptype" ng-options="item.name as item.name for item in productlist">
+                            <option value="" disabled="true">Product</option>
+                            <option value="" ng-if="false"></option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group" style="margin-top:50px" ng-show="inv.damage == 'yes'">
+                    <label class="control-label col-md-2 col-xs-3" style="padding-left:0px">Quantity</label>
+                    <div class="col-md-3 col-xs-3">
+                        <label>
+                            <input type="text" ng-model="inv.damagedquantity" class="form-control-custom">
+                        </label>
+                    </div>
+                    <div class="col-md-2 col-xs-4">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="inv.damagedquantity_type" name="bags" value="bag"> Bags
+                        </label>
+                    </div>
+                    <div class="" class="col-md-4 col-xs-4">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="inv.damagedquantity_type" name="mt" value="mt"> MT
+                        </label>
+                    </div>
+                </div>
+                <br>
+
+				<div class="remarks" style="margin-top:50px">
+					<p><strong>Remarks</strong></p>
+					<input type="text" class="form-control-custom" ng-model="inv.remarks">
+				</div>
+			</li>
+		</ul>
+	</div>
+<!--
+	<div class="text-center footer-buttons">
+		<a href="" class="btn action_btn sm-full" ng-click="conform()">Confirm POD</a>
+	</div>
+-->
+</div>

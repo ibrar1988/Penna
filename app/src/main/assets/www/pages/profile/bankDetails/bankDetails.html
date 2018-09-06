@@ -1,0 +1,109 @@
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="single_tab_content">
+			<h2 class="page-header"><a href="#/profile" class="goback">
+                <i class="fa fa-angle-left"></i></a>  
+                <i class="pci icon-bankdetails pull-left"></i>Bank Details</h2>
+			<div class="custom-panel">
+				<h3 class="section-head mrgbtm5"> Bank Details <a href="" class="pull-right edit_fields" ng-click="addBankDetails()" data-toggle="tooltip" title="Add New"><span class="icon_plus_alt2"></span></a></h3>
+				<div class="bankdetails_acc">
+					<uib-accordion>
+						<uib-accordion-group is-open="status.open" ng-repeat="bankdata in getbankdet.BankDetails">
+							<uib-accordion-heading>
+								Bank Name - {{bankdata.bankName}}
+								<br>Account Number - {{bankdata.accountNumber}}
+								<i class="pull-right glyphicon" ng-class="{'arrow_carrot-down': status.open, 'arrow_carrot-right': !status.open}"></i>
+							</uib-accordion-heading>
+							<div class="single_info">
+								<h3>Bank Name</h3>
+								<p>{{bankdata.bankName}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>Account Name</h3>
+								<p>{{bankdata.accntName}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>Account Number</h3>
+								<p>{{bankdata.accountNumber}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>IFSC Code</h3>
+								<p>{{bankdata.ifsccode}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3><i class="pci-sm icon-address pull-left"></i> Bank Address</h3>
+								<p>{{bankdata.bankAddress}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>MICR Code</h3>
+								<p>{{bankdata.micr}}</p>
+							</div>
+							<!--
+                                <div class="single_info">
+                                    <div class="form-group">
+                                        <h3>Attachment</h3>
+                                        <div ng-show="bankdata.image">
+                                            <img ng-src="{{bankdata.image}}" style="width:150px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                 -->
+
+						</uib-accordion-group>
+
+
+					</uib-accordion>
+
+				</div>
+			</div>
+
+			<div class="custom-panel">
+				<h3 class="section-head mrgbtm5">Penna beneficiary details <a style="display:none" href="" class="pull-right edit_fields" ng-click="addBankBenficiary()"><span class="icon_plus_alt2"></span></a></h3>
+				<div class="bankdetails_acc">
+					<uib-accordion>
+						<uib-accordion-group is-open="status.open" ng-repeat="bankbendata in getbankdet.PennaBenificiaryDetails">
+							<uib-accordion-heading>
+								<br>Account Number - {{bankbendata.accountNumber}}<i class="pull-right glyphicon" ng-class="{'arrow_carrot-down': status.open, 'arrow_carrot-right': !status.open}"></i>
+							</uib-accordion-heading>
+							<div class="single_info">
+								<h3>Bank Name</h3>
+								<p>{{bankbendata.bankName}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>Account Name</h3>
+								<p>{{bankbendata.accntName}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>Account Number</h3>
+								<p>{{bankbendata.accountNumber}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>IFSC Code</h3>
+								<p>{{bankbendata.ifsccode}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3><i class="pci-sm icon-address pull-left"></i> Bank Address</h3>
+								<p>{{bankbendata.bankAddress}}</p>
+							</div>
+
+							<div class="single_info">
+								<h3>MICR Code</h3>
+								<p>{{bankbendata.micr}}</p>
+							</div>
+
+						</uib-accordion-group>
+					</uib-accordion>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

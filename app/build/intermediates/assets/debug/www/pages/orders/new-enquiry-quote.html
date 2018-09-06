@@ -1,0 +1,76 @@
+<div class="single_tab_content">
+    <h2 class="page-header">
+        <a ui-sref="orders" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-newenquires-quote pull-left"></i> New Enquiry / Get Quote
+    </h2>
+
+
+    <div class="sectioncard">
+        <div class="card get_quote_main">
+            <h3>Order Details</h3>
+            <div class="quote_form">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Product :</label>
+                        <div class="col-sm-10">
+                            <select ng-model="productTypes" class="form-control-custom">
+                                <option value="ppcCement">Penna Power -PPC Cement</option>
+                                <option value="pscCement">Penna Suraksha - PSC Cement</option>
+                                <option value="opcCement">Penna Premium - Ordinary Portland Cement(OPC)</option>
+                                <option value="premiumOpc">Penna PremiumOPC 53 Grade</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Quantity :</label>
+                        <div class="col-sm-8 col-xs-8">
+                            <input type="text" class="form-control-custom" placeholder="">
+                        </div>
+                        <div class="col-sm-2 col-xs-4 qnty_untis">
+                            <p>MT</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Ship To Address :</label>
+                        <div class="col-sm-10">
+                            <select ng-model="shipToAddress" class="form-control-custom">
+                                <option value="address1">JP Constructions, #3, 1-45-5, Road No - 2, Banjara Hills, Hyderabad 500086, Telangana.</option>
+                                <option value="address2">JP Constructions, #3, 1-45-5, Road No - 2, Banjara Hills, Hyderabad 500086, Telangana.</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Date of Delivery :</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control-custom" placeholder="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="text-center footer-buttons ng-scope">
+        <a ui-sref="orders.quote-notification" class="btn action_btn penna-btn sm-full">Get Quote</a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h2 class="modal-title">Penna beneficiary Account</h2>
+</div>
+<div class="modal-body">
+    <form role="form" name="myForm" id="imageForm">
+        <fieldset>
+            <div class="form-group" ng-class="(err.beneficiary == true) ? 'has-error' : 'has-primary' ">
+                <label>Beneficiary</label>
+                <select name="beneficiary" ng-model="billingAddrs" class="form-control-custom select-drop" required ng-options="item as item.pennaBenificiary for item in pennabeneficiaryList" >
+                    <option value="" disabled="true">Select Beneficiary</option>
+                    <option value="" ng-if="false"></option>
+                </select>
+                <div class="errors">
+                    <span ng-show="err.beneficiary">Beneficiary is required</span>
+                </div>
+            </div>
+            <div>
+                <small class="lable"> Bank Name</small>
+                <p class="lableVal"> {{billingAddrs.PennaBenificiaryDetails[0].bankName}} </p>
+
+                <small class="lable"> Account Name</small>
+                <p class="lableVal"> {{billingAddrs.PennaBenificiaryDetails[0].accntName}} </p>
+
+                <small class="lable"> Account Number</small>
+                <p class="lableVal"> {{billingAddrs.PennaBenificiaryDetails[0].accountNumber}} </p>
+
+                <small class="lable"> IFSC Code</small>
+                <p class="lableVal"> {{billingAddrs.PennaBenificiaryDetails[0].ifsccode}} </p>
+
+                <small class="lable"> Bank Address</small>
+                <p class="lableVal"> {{billingAddrs.PennaBenificiaryDetails[0].bankAddress}} </p>
+
+                <small class="lable"> MICR</small>
+                <p class="lableVal"> {{billingAddrs.PennaBenificiaryDetails[0].micr}} </p>
+
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+    <a class="btn modal_blue" ng-click="addpennabenf()">Ok</a>
+</div>

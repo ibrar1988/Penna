@@ -1,4 +1,4 @@
-#Thu Sep 06 11:51:42 IST 2018
+#Thu Sep 06 13:18:47 IST 2018
 base.0=/home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_33c98507abf2790f716c80fbc0baa109aa602952
 renamed.1=classes2.dex
 renamed.0=classes.dex

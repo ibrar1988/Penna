@@ -1,0 +1,122 @@
+<div class="navbar penna-main-navbar navbar-app navbar-fixed-top">
+	<div ng-show="!ifMobile" class="btn-group pull-left app_logo">
+		<a href="http://www.pennacement.com/" target="_blank">
+			<img src="img/penna-logo.svg" width="57" alt="Penna Logo" href="http://www.pennacement.com/" target="_blank" ng-click="netWorkAccessTrue()" />
+		</a>
+		<!-- ng-click="netWorkAccessTrue()" -->
+	</div>
+	<div ng-show="ifMobile" class="btn-group pull-left app_logo" href="">
+		<a ng-click="openPennaSite()">
+			<img src="img/penna-logo.svg" width="57" alt="Penna Logo" ng-click="netWorkAccessTrue();" />
+		</a>
+		<!-- ng-click="netWorkAccessTrue()" -->
+	</div>
+	<div class="btn-group mar-top">
+		<p ng-show="!ifMobile" class="refer-nav-link1" style="margin-top: 2px;"> Welcome {{user_name}} ! <img src="img/imgpsh_fullsize.png" width="25" alt="Penna Logo" /></p>
+		<a ng-show="ifMobile" class="refer-nav-link1" style=""> Welcome {{user_name}} ! <img src="img/imgpsh_fullsize.png" class="img-smily" alt="Penna Logo" /></a>
+	</div>
+
+
+	<div class="btn-group pull-right navgations" ui-yield-to="navbarAction">
+
+		<a ng-show="!ifMobile" class="refer-nav-link" href="https://{{hostName}}/data/usermanual/CARE_User_Manual.html" target="_blank">  User Manual </a>
+		<a ng-show="ifMobile" class="refer-nav-link" ng-click="openusermanul()" href=""> User Manual </a>
+		<ul class="primary-nav clearfix">
+			<li class="appsearch">
+				<!--<a ui-sref="login.search">
+                        <i class="icon_search"></i>
+                </a>-->
+				<!--<a target="_blank" href="http://www.pennacement.com/">http://www.pennacement.com/</a>-->
+			</li>
+			<li ui-sref="notifications" style="cursor: pointer;">
+                <a>
+					<i class="fa fa-bell-o"></i>
+                </a>
+                <sup>11</sup>
+            </li>
+            <!--
+            <li>
+                <a href="javascript:void(0)">
+					<span aria-hidden="true" class="icon_cart_alt"></span>
+                </a>
+            </li>
+             -->
+			<li uib-dropdown on-toggle="toggled(open)">
+				<a href id="simple-dropdown" uib-dropdown-toggle>
+					<i class="fa fa-ellipsis-v"></i>
+				</a>
+				<ul uib-dropdown-menu aria-labelledby="simple-dropdown" class="kranthi">
+					<li>
+						<!-- <div class="dropinfo-head">
+								<i class="pci icon-appsettings pull-left"></i>
+								<h4>App Settings</h4>
+							</div> -->
+
+						<div class="dropinfo app-sett-drop" style="margin-top: 15px;">
+							<p>
+								<i class="pci icon-change-pwd pull-left"></i>
+								<a href="" ui-sref="changePassword">Change Password</a>
+							</p>
+							<!--<p><a href="javascript:void(0)">Notification Settings</a></p>-->
+						</div>
+						<div class="dropinfo app-sett-drop" style="margin-top: 15px;">
+							<p>
+								<i class="pci icon-contact-us pull-left"></i>
+								<a href="" ui-sref="contactUs">Contact Us</a>
+							</p>
+
+						</div>
+					</li>
+
+					<li ng-show="ifMobile">
+						<div class="dropinfo-head">
+							<i class="pci icon-logout pull-left"></i>
+							<h4><a href ng-click="Term_cond()">Terms & Conditions</a></h4>
+						</div>
+					</li>
+					<li>
+						<div class="dropinfo-head" ng-show="!ifMobile">
+							<i class="pci icon-logout pull-left"></i>
+							<h4><a target="_blank" href="https://{{hostName}}/data/termsandconditions/termsAndConditions.html">Terms & Conditions</a></h4>
+						</div>
+					</li>
+					<li>
+						<div class="dropinfo-head">
+							<i class="pci icon-logout pull-left"></i>
+							<h4><a href ng-click="logout()"> Logout </a></h4>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="app-body penna_main">
+	<ul class="nav nav-tabs">
+		<li ui-sref-active="active" class="active">
+			<a ui-sref="dashboard({new:true})" ui-sref-opts="{reload: true, notify: true}">
+				<i class="dashboard_tab"></i> Dashboard</a>
+		</li>
+		<li ui-sref-active="active">
+			<a ui-sref="profile">
+				<i class="profile_tab"></i> Profile </a>
+		</li>
+		<li ui-sref-active="active">
+
+			<a href="" ui-sref="orders" ng-click="get()">
+				<i class="orders_tab"></i> Orders </a>
+		</li>
+
+		<li ui-sref-active="active">
+			<a ui-sref="accounts">
+				<i class="accounts_tab"></i>Accounts</a>
+		</li>
+
+		<li ui-sref-active="active">
+			<a ui-sref="others">
+				<i class="others_tab"></i>Others</a>
+		</li>
+
+	</ul>
+</div>

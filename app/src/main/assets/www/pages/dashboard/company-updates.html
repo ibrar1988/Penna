@@ -1,0 +1,49 @@
+<div class="single_tab_content" ng-controller="dashbordctrl">
+
+	<h2 class="page-header">
+        <a href="" ng-click="gotoDashBoard();" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-company-updates pull-left"></i> Company Updates     
+    </h2>
+
+	<div class="sectioncard dashb_performance">
+		<!--<h2 class="section-head section-point">Company Updates</h2>-->
+		<div class="all_updates">
+
+			<div class="single_update clearfix" ng-repeat="companyupdate in companyupdates">
+				<div class="update-thumb">
+					<img src="img/update2.png" width="50" alt="update2 thumb">
+				</div>
+				<div class="update-title" style="width: 87%;">
+					<h4 id="updateText{{$index}}"></h4>
+					<!-- <img ng-src="http://123.136.168.171{{companyupdate.UpdateText}}" /> -->
+					<img ng-src="{{companyupdate.imageUrl}}" width="325" />
+					<p>
+						<br/>
+						<time am-time-ago="companyupdate.CreateDateTime"></time>
+					</p>
+				</div>
+				<!-- <div class="update-time">
+
+                    <time am-time-ago="companyupdate.CreateDateTime"></time>
+
+                    <p ng-show="minutes">{{minutes1}} minute ago</p>
+                    <p ng-show="hours">{{hours1}} hour ago</p>
+                    <p ng-show="days">{{days1}} day ago</p>
+                    <p ng-show="month">{{month1}} month ago</p>
+                    <p ng-show="years">{{years1}} year ago</p>
+
+
+                </div>-->
+			</div>
+
+
+			<div class="sectioncard text-center" ng-show="companyupdates.length == '0'">
+				<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"There are no Company Updates available".</h5>
+			</div>
+
+
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="single_tab_content" ng-controller="PaymenthistoryCtrl">
+	<h2 class="page-header">
+        <a ui-sref="accounts.payments.payment-history" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-payments pull-left"></i> Payments 
+    </h2>
+
+	<div class="sectioncard">
+		<div class="card get_quote_main">
+			<h3>Payment History Details</h3>
+			<div class="single_info">
+				<h3>Payment Transaction Number</h3>
+				<p>{{payhistory.sapcollectionNumber}}</p>
+				<h3>Payment Date</h3>
+				<p>{{payhistory.dateAndTime | date:"dd-MM-yyyy"}}</p>
+			</div>
+			<div class="single_info">
+				<h3>Payment Type</h3>
+				<!--<p ng-show="payhistory.natureOfDeposit == 'CC'">Cheque</p>
+                <p ng-show="payhistory.natureOfDeposit == 'DD'">Demand</p>
+                <p ng-show="payhistory.natureOfDeposit == 'DT'">RTGS</p>
+                <p ng-show="payhistory.natureOfDeposit == 'Non-CMS'">Non-CMS</p>
+                <p ng-show="payhistory.natureOfDeposit == 'CMS'">CMS</p>
+                <p ng-show="payhistory.natureOfDeposit == 'CD'">CD</p>-->
+				<p>{{payhistory.collectionMode}}</p>
+
+			</div>
+			<div class="single_info">
+				<h3>Posting Date</h3>
+				<p>{{payhistory.dateAndTime | date:"dd-MM-yyyy"}}</p>
+			</div>
+			<div class="single_info">
+				<h3>Amount</h3>
+				<p>{{payhistory.collectionAmount | INR}}</p>
+			</div>
+			<!--<div class="single_info">
+    <h3>Bank Details</h3>
+    <p>{{payhistory.depositingBank}}</p>
+</div>-->
+		</div>
+	</div>
+</div>

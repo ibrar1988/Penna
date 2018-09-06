@@ -1,0 +1,209 @@
+<style type="text/css">
+	.uib-datepicker-popup {
+		top: 33px !important;
+		left: 0px;
+	}
+</style>
+
+<style type="text/css">
+	.btn.disabled,
+	.btn[disabled],
+	fieldset[disabled] .btn {
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		opacity: .65;
+		pointer-events: none;
+	}
+</style>
+
+
+<div class="single_tab_content" ng-controller="invoicectrl">
+	<h2 class="page-header">
+        <a ui-sref="accounts" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-invoices pull-left"></i> Invoices
+       <!--<div class="pod-main-actions pull-right">
+    <a href="" class="pull-right"><i class="icon_calendar"></i></a>
+    <a href="" class="pull-right"><i class="pci icon-filter"></i></a>
+</div>-->
+    </h2>
+	<div class="view_bar sort_tabs" ng-init="getpartyconform()">
+		<!-- 			<h4 class="pull-left nomrg"> Account Statement</h4>
+ -->
+		<!--<div class="switch_party">
+			These two buttons switch the layout
+		</div>
+		<div class="switch_party">
+			<a class="grid-icon" ng-class="{active: layout == 'short'}" ng-click="layout = 'short';validate('short')">Last 15 Days</a>
+			<a class="list-icon" ng-class="{active: layout == 'long'}" ng-click="layout = 'long';validate('long')"> History </a>
+		</div>-->
+
+		<div class="row">
+
+			<div class="col-md-6" style="padding-left: 10px;">
+				<p class="pull-left" style="font-style: italic;">"Cancelled Invoices are displayed in RED color"</p>
+			</div>
+			<div class="col-md-6">
+				<div class="switch_party">
+					<a class="grid-icon" ng-class="{active: layout == 'short'}" ng-click="layout = 'short';validate('short')">Last 15 Days</a>
+					<a class="list-icon" ng-class="{active: layout == 'long'}" ng-click="layout = 'long';validate('long')"> History </a>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+	<div ng-show="layout == 'short'" class="list">
+		<div class="sectioncard">
+			<div class="dashb_performance">
+				<div class="all_pods">
+					<!--<pre>{{invoicesList}}</pre>-->
+					<div class="single_pod clearfix" ng-repeat="inv in invoicesList.slice(((invoiceCurrpage-1)*itemsPerPage), ((invoiceCurrpage)*itemsPerPage))">
+						<i class="custom-list">{{((invoiceCurrpage-1)*20)+($index+1)}}</i>
+						<div class="pending_data">
+							<!--<pre>{{inv}}</pre>-->
+							<a href ng-click="singleinvo(inv)">
+							<!--	<p><strong ng-class="{'largeWidth': inv.cancelledInvNo != ''}">Invoice Number - {{inv.sapInvoiceNumber}}</strong></p>-->
+
+								<p ng-if="inv.ODNNumber">
+								 	<span class="highlight" ng-class="{'largeWidth': inv.cancelledInvNo != ''}">Invoice Number -  {{inv.ODNNumber}}</span>
+							 	</p>
+								<p ng-if="!inv.ODNNumber">
+									<span class="highlight" ng-class="{'largeWidth': inv.cancelledInvNo != ''}">Invoice Number -  {{inv.sapInvoiceNumber}}</span>
+								</p>
+								<p ng-class="{'largeWidth': inv.cancelledInvNo != ''}">Invoice Date - {{inv.dateTime | date:"dd/MM/yyyy"}}</p>
+								<p ng-class="{'largeWidth': inv.cancelledInvNo != ''}">Order Number - {{inv.SapOrderNumber}}</p>
+							</a>
+						</div>
+					</div>
+
+
+					<div class="sectioncard text-center" ng-show="invoicesList.length == '0'">
+						<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"Invoices are not available for this period".</h5>
+					</div>
+
+
+					<div class="text-center" ng-show="invoicesList.length >20 ">
+						<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="invoicesList.length" ng-model="invoiceCurrpage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+
+						<!--max-size="maxSize" class="pagination-sm" boundary-links="true"-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div ng-show="layout == 'long'" class="grid sectioncard clearfix">
+		<div class="card">
+            <form class="form-horizontal">
+                <div class="form-group">
+									<label class="col-sm-2 control-label inv_lablel" style="padding-right: 0px;">Invoice Number :
+									</label>
+									<div class="col-sm-2">
+										<input type="text" id="decimal" ng-model="com.invId" class="form-control-custom" placeholder="Enter Invoice Number" value="" style="border: 1px solid #ccc;height: 30px;padding-left: 5px;"/>
+									</div>
+								</div>
+
+
+			<div class="clearb col-sm-12 text-center">
+				<p>(OR)</p>
+			</div>
+
+			<div class="clearb col-sm-offset-1 col-sm-11" style="padding-left: 0px">
+				<p class="">The Date Range should not be more than 90 days</p>
+			</div>
+
+
+             <div class="form-group">
+									<label class="col-md-1 control-label"><!--Date Range :--></label>
+			<div class="col-md-5" >
+				<label>From</label>
+				<p class="input-group" ng-class="(err.date1 == true) ? 'has-error' : 'has-primary' ">
+
+					<input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" is-open="popup1.opened" datepicker-options="dateOptions_11" ng-required="true" close-text="Close" ng-model="com.date1" alt-input-formats="altInputFormats" ng-focus="err.date1=false;" ng-change="changedate_90(com)" />
+					<span class="input-group-btn">
+                           <button type="button" class="btn btn-default datepic-btn" ng-click="open1()"><i class="icon_calendar"></i></button>
+                        </span>
+
+					<p class="errors">
+						<span ng-show="err.date1">From Date is required</span>
+					</p>
+
+
+			</div>
+			<div class="col-md-5" >
+				<label>To</label>
+				<p class="input-group" ng-class="(err.date2 == true) ? 'has-error' : 'has-primary' ">
+					<input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" is-open="popup2.opened" datepicker-options="dateOptions_11" ng-required="true" close-text="Close" ng-model="com.date2" alt-input-formats="altInputFormats" ng-focus="err.date2=false;" ng-change="changedate_90(com)" />
+					<span class="input-group-btn">
+                    <button type="button" class="btn btn-default datepic-btn" ng-click="open2()"><i class="icon_calendar"></i></button>
+                </span>
+				</p>
+				<p class="errors">
+					<span ng-show="err.date2">To Date is required</span>
+				</p>
+			</div>
+                </div>
+			<div class="text-center clearb">
+				<a class="btn penna-btn sm-full long_generate" ng-disabled="button_execute == false" ng-model="button_execute" ng-click="generate(com)">Generate</a>
+			</div>
+
+            </form>
+		</div>
+
+
+
+
+		<div class="">
+			<div class="dashb_performance">
+				<div class="all_pods">
+					<!--<pre>{{invoicesList.length}}</pre>-->
+					<div class="single_pod clearfix" ng-repeat="inv_long in invoicesList_long.slice(((invoiceCurrpage-1)*itemsPerPage), ((invoiceCurrpage)*itemsPerPage))">
+						<i class="custom-list">{{((invoiceCurrpage-1)*20)+($index+1)}}</i>
+						<div class="pending_data">
+							<!--<pre>{{inv_long}}</pre>-->
+							<a href ng-click="singleinvo(inv_long)">
+								<!--<p><strong ng-class="{'largeWidth': inv_long.cancelledInvNo != ''}">Invoice Number - {{inv_long.sapInvoiceNumber}}</strong></p>-->
+
+
+								<p ng-if="inv_long.ODNNumber"><strong ng-class="{'largeWidth':                                                    inv_long.cancelledInvNo != ''}">Invoice Number -  {{inv_long.ODNNumber}}                                          </strong></p>
+
+                                 <p ng-if="!inv_long.ODNNumber"><strong ng-class="{'largeWidth':                                                  inv_long.cancelledInvNo != ''}">Invoice Number -  {{inv_long.sapInvoiceNumber}}                                  </strong></p>
+								<p ng-class="{'largeWidth': inv_long.cancelledInvNo != ''}">Invoice Date - {{inv_long.dateTime | date:"dd/MM/yyyy"}}</p>
+								<p ng-class="{'largeWidth': inv_long.cancelledInvNo != ''}">Order Number - {{inv_long.SapOrderNumber}}</p>
+							</a>
+						</div>
+					</div>
+
+
+					<div class="text-center" ng-show="invoicesList_long.length == '0'">
+						<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"Invoices are not available for this period".</h5>
+					</div>
+
+
+					<div class="text-center" ng-show="invoicesList_long.length >20 ">
+						<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="invoicesList.length" ng-model="invoiceCurrpage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage();" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+
+						<!--max-size="maxSize" class="pagination-sm" boundary-links="true"-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	</div>
+
+
+
+</div>

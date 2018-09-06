@@ -1,0 +1,29 @@
+<div class="single_tab_content" ng-controller="newPaymentCtrl">
+
+    <h2 class="page-header">
+        <a ui-sref="accounts.payments.new-payment.payment-details" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-payments pull-left"></i> Payment Confirmation    
+    </h2>
+
+    <div class="sectioncard">
+        <div class="card quote_notification" ng-show="pay_status.transCode == 0">
+            <i class="success_note"></i>
+            <div class="quote_description">
+
+                <p>Payment With Transaction <b>{{pay_status.pgTxnId}}</b> for amount <b>{{pay_status.amount | INR}} </b> has been Successful. </p>
+
+            </div>
+        </div>
+
+        <div class="card quote_notification" ng-show="pay_status.transCode != 0">
+            <div class="quote_description">
+                <p>{{pay_status.statusMessage}}</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

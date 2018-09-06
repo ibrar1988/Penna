@@ -1,0 +1,58 @@
+<div class="single_tab_content">
+    <h3 class="page-header"><a ui-sref="profile.suggestions" class="goback">
+            <i class="fa fa-angle-left"></i></a>  <i class="pci icon-suggestions pull-left"></i> Service list</h3>
+
+    <h2 class="section-head mrgbtm15">My Service Requests</h2>
+    <div class="custom-panel">
+        <uib-accordion>
+            <uib-accordion-group is-open="status.open" ng-repeat="presugg in presuggests | orderBy:'-id'">
+                <uib-accordion-heading>
+                    Request Number - <strong>{{presugg.requestNumber}}</strong>
+                    <br> Status : <span class="green-txt"><strong>{{presugg.status}}</strong></span>
+                    <i class="pull-right glyphicon" ng-class="{'arrow_carrot-right': status.open, ' arrow_carrot-down': !status.open}"></i>
+                </uib-accordion-heading>
+                <div class="single_info">
+                    <h3>Suggestion Type</h3>
+                    <p>{{presugg.complaintType}}</p>
+                </div>
+
+                <div class="single_info">
+                    <h3>Suggestion</h3>
+                    <p ng-show="presugg.complaintTxt != null">{{presugg.complaintTxt}}</p>
+
+                    <!--<ul class="list-unstyled">
+    <li ng-repeat="presuggcom in presugg.commentsList">{{presuggcom}}</li>
+</ul>-->
+
+                </div>
+
+
+                <div class="single_info">
+                    <!-- 
+                    <div class="form-group" ng-hide="presugg.attachment">
+                        <h3>Attachment</h3>
+                        <form id="csvForm">
+                            <input type="file" multiple onchange="angular.element(this).scope().changeFile(this)" id="image" accept="image/*" name="image" style="visibility: hidden; width: 1px; height: 1px">
+                            <a href="" onclick="document.getElementById('image').click(); return false" class="cusupload" ng-click="imguploadsugg(presugg)">Upload</a>
+                        </form>
+                    </div>
+                     -->
+                    <!-- && interNet -->
+
+                    <div class="form-group" ng-show="presugg.attachment != ''">
+                        <h3>Attachment</h3>
+                        <img ng-hide="mode != 'online'" ng-src="{{presugg.attachments}}" class="img-thumbnail" alt="Thumbnail Image" width="300px" height="300px">
+                    </div>
+                </div>
+            </uib-accordion-group>
+
+        </uib-accordion>
+
+        <div class="sectioncard">
+            <h5 class="text-center" ng-show="ListofServices.length == 0" style="padding-top:25px;padding-bottom:25px">"There are no  Service requests available".</h5>
+
+        </div>
+
+    </div>
+
+</div>

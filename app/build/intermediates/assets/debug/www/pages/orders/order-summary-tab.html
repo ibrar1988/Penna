@@ -1,0 +1,160 @@
+<!--<div ng-repeat="productlistdetail in productlistdetails">
+    66666666 {{productlistdetail.OrderLines[0].productName | json}}
+
+</div>-->
+<style>
+    .confmtable tr {
+        cursor: default !important;
+    }
+    table.customs{
+   /* border: 1px solid black;*/
+    width: 500px !important;
+            margin-bottom: 0px !important;
+}
+table.customs > th{
+    width: 100px !important;
+}
+.marB5{
+    margin-bottom: 5px;
+}
+</style>
+
+<div ng-controller="conformctrl">
+
+    <div class="sectioncard">
+        <!---->
+        <!--<pre>{{productlistdetails |json}}</pre>-->
+        <!-- <pre>{{productlistdetails | json}}</pre>-->
+        <!--<pre>{{productlistdetails.OrderLines[0] | json}}</pre>-->
+        <div class="card invoice_main" ng-repeat="productlistdetail in productlistdetails.OrderLines | orderBy:'pro_id'">
+            <h3 class="sub-header"><i class="pull-left icon_menu-square_alt2"></i> Order Summary
+            <a href="" ng-click="updateorder(productlistdetails.OrderLines,'true')"  class="mrgright10 pull-right"><i class="icon_pencil-edit"></i></a>
+            <!--ui-sref="orders.create-new-order.order-details-tab"-->
+        </h3>
+           <!-- <h4>Order Line Details</h4>-->
+            <!--   <pre>{{productlistdetail}}</pre>-->
+            <h2><strong>Product:</strong> {{productlistdetail.productName}}</h2>
+             <hr/>
+            <h4><strong> Shipping Details</strong></h4>
+            <div style="margin-left: 15px">
+              <p><strong>Shipping Address :</strong><span> {{productlistdetails.OrderLines[0].shipToAddress.address}}</span></p>
+             <p><strong>Phone Number :</strong><span>{{productlistdetails.OrderLines[0].shipToAddress.mobile}}</span></p>
+
+
+               <!-- {{productlistdetails.OrderLines[0].incoterms}}-->
+
+            <div>
+
+                <div class="shipping_details" ng-show="productlistdetail.Modetransport">
+                    <p><strong>Mode of Transport</strong></p>
+                    <span>: {{productlistdetail.modetransport}}</span>
+                </div>
+                <div class="shipping_details" ng-show="productlistdetail.plant">
+                    <p><strong>Plant / Depo</strong></p>
+                    <span>: {{productlistdetail.plant}}</span>
+                </div>
+                <div class="shipping_details" ng-show="productlistdetail.packaging">
+                    <p><strong>Packaging</strong></p>
+                    <span>: {{productlistdetail.packaging}}</span>
+                </div>
+                <div class="shipping_details" ng-show="productlistdetail.packagingType">
+                    <p><strong>Packaging Type</strong></p>
+                    <span>: {{productlistdetail.packagingType}}</span>
+                </div>
+
+
+                <div class="shipping_details" ng-show="productlistdetail.incoterms">
+                    <p><strong>Inco Terms</strong></p>
+                    <span>: {{productlistdetail.incoterms}}</span>
+                </div>
+
+               <div class="shipping_details" ng-show="productlistdetail.incoterms == 'EXWorksGoDown'">
+                   <p><strong>Truck Number</strong></p>
+                    <span>: {{productlistdetail.truckNumber}}</span>
+                </div>
+                <div class="shipping_details" ng-show="productlistdetail.incoterms == 'EXWorksGoDown'">
+                    <p><strong>Driver Name</strong></p>
+                    <span>: {{productlistdetail.driverName}}</span>
+                </div>
+                <div class="shipping_details" ng-show="productlistdetail.incoterms == 'EXWorksGoDown'">
+                    <p><strong>Driver Mobile Number</strong></p>
+                    <span>: {{productlistdetail.driverMobileNumber}}</span>
+                </div> 
+
+                <div class="shipping_details" ng-show="productlistdetail.transporter">
+                    <p><strong>Source of Delivery</strong></p>
+                    <span>: {{productlistdetail.transporter}}</span>
+                </div>
+
+                <div class="shipping_details" ng-show="productlistdetail.paymenttype">
+                    <p><strong>Payment Terms</strong></p>
+                    <span>: {{productlistdetail.paymenttype}}</span>
+                </div>
+
+                <div class="shipping_details" ng-show="productlistdetail.poordernumber">
+                    <p><strong>PO Order Number</strong></p>
+                    <span>: {{productlistdetail.poordernumber}}</span>
+                </div>
+
+                <div class="shipping_details" ng-show="productlistdetail.notes">
+                    <p><strong>Notes</strong></p>
+                    <span>: {{productlistdetail.notes}}</span>
+                </div>
+
+                <div class="shipping_details" ng-show="productlistdetail.cform">
+                    <p><strong>C-Form Number</strong></p>
+                    <span>: {{productlistdetail.cform}}</span>
+                </div>
+
+                <div class="shipping_details" ng-show="productlistdetail.podate">
+                    <p><strong>PO date</strong></p>
+                    <span>: {{productlistdetail.podate}}</span>
+                </div>
+
+                  <div class="shipping_details" ng-show="productlistdetail.transport">
+                      <p><strong>Transport</strong></p>
+                    <span>: {{productlistdetail.transport}}</span>
+                </div>
+                <!--  <div class="shipping_details">
+                    <p>C-Form Attachment</p>
+                    <span>: Attachment <i class="icon_paperclip"></i></span>
+                </div>-->
+            </div>
+
+           <!-- <pre>{{productlistdetail.ScheduleLines}}</pre>-->
+            <div class="table-responsive" ng-if="productlistdetail.ScheduleLines.length > 0">
+                <table class="table table-bordered table-condensed confmtable customs" style="cursor:default !important;">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Schedule Line Date</th>
+                            <!-- <th></th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ScheduleLines in productlistdetail.ScheduleLines track by $index" tyle="cursor:default !important;">
+                            <td class="text-center"> {{ScheduleLines.schedulequantity}}</td>
+                            <td class="text-center"> {{ScheduleLines.scheduledate | date:"dd/MM/yyyy"}}</td>
+                            <!--<td class="delete-schedule"><a href=""><i class="fa fa-trash-o icon-del"></i></a></td>-->
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            </div>
+
+            <h4 style="border-top: 1px solid #cccccc;border-bottom:1px solid #cccccc;padding-top: 10px;padding-bottom: 10px;"><strong>Total Quantity: {{productlistdetail.quantity}} MT</strong></h4>
+
+            <!--<h3 class="shipping-total"><strong> Total Amount   Rs.1,50,000/-</strong></h3>-->
+        </div>
+
+    </div>
+    <div class="text-center footer-buttons clearfix ng-scope">
+        <a ng-click="updateorder(productlistdetails.OrderLines,'true')" class="marB5 btn action_btn sm-full">Edit Order</a>
+         <a ng-click="confirmorder()" class="marB5 btn action_btn sm-full">Confirm Order</a>
+    </div>
+</div>
+
+
+<!--ui-sref="orders.create-new-order.order-confirmation-tab"-->

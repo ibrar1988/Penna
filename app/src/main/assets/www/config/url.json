@@ -1,0 +1,9 @@
+{
+	"server_url_prod": "https://customerportal.pennacement.com:443",
+	"termsAndConditions_prod": "/data/termsandconditions/termsAndConditions.html",
+	"termsAndConditions_login_prod": "/data/termsandconditions/termsAndConditionsLogin.html",
+	"usermanual_prod": "/data/usermanual/CARE_User_Manual.html",
+	"rewards": "http://rewards.pennacement.in/",
+	"pennacement": "http://www.pennacement.com/",
+	"myshipment": "http://app.turvo.com/#/shipments/cards?status=ship"
+}

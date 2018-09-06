@@ -1,0 +1,67 @@
+<div class="add_family">
+    <div class="modal-header">
+        <h3 class="modal-title">Individual / Partner Profile</h3>
+    </div>
+    <div class="modal-body">
+        <form role="form" name="myForm">
+            <fieldset>
+                <div class="form-group" ng-class="(err.name == true) ? 'has-error' : 'has-primary' ">
+                    <label>Proprietor Name</label>
+                    <input type="text" name="name" ng-model="userpro.name" ng-focus="err.name=false;" class="form-control-custom" placeholder="" required  onlytext-andspace="30" />
+                    <div class="errors">
+                        <span ng-show="err.name">Propritor name is required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.mobileNumber == true || err.mobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+                    <label>Mobile Number</label>
+                    <input type="text" name="mobileNumber" ng-focus="err.mobileNumber=false;err.mobileNumberLength=false;" ng-model="userpro.mobileNumber" class="form-control-custom" placeholder="" required my-length="10" />
+                    <div class="errors">
+                        <span  ng-show="err.mobileNumber">Mobile number is required</span>
+                        <span  ng-show="err.mobileNumberLength">Mobile number should be 10 digits</span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="(err.alternateNumber == true || err.alternateMobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+                    <label>Alternate Mobile Number</label>
+                    <input type="text" name="alternateNumber" ng-model="userpro.alternateNumber" ng-focus="err.alternateNumber=false;err.alternateMobileNumberLength=false" class="form-control-custom" placeholder="" required my-length="10" />
+                    <div class="errors">
+                        <span ng-if="err.alternateNumber">Alternate mobile number is required</span>
+                        <span ng-if="err.alternateMobileNumberLength">Alternate mobile number should be 10 digits</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="(err.email == true) ? 'has-error' : 'has-primary' ">
+                    <label>Email</label>
+                    <input type="email" name="email" ng-model="userpro.email" class="form-control-custom" ng-focus="err.email=false;" placeholder="" required my-textlen="40" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" /> <!--ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"-->
+                    <div class="errors">
+                        <span ng-show="err.email">Email is required</span>
+                        <span style="color:red" ng-show="!myForm.email.$error.required && (myForm.email.$error.email || myForm.email.$error.pattern) && myForm.email.$dirty">Invalid email</span>
+                    </div>                    
+                </div>
+
+                <div class="form-group" ng-class="(err.userRole == true) ? 'has-error' : 'has-primary' ">
+                    <label>Type of Partner</label>
+                    <select ng-model="userpro.userRole" class="form-control-custom ng-pristine ng-valid ng-empty ng-touched select-drop" ng-change="err.userRole=false;" ng-options="item.val as item.name for item in typeOfPartners">
+                        <option value="" disabled="true">Select Partner</option>
+                        <option value="" ng-if="false"></option>
+                    </select>
+                    <div class="errors">
+                        <span ng-show="err.userRole">Type of partner is required</span>
+                    </div>                    
+                </div>
+
+                <div class="form-group" ng-class="(err.address == true) ? 'has-error' : 'has-primary' ">
+                    <label>Home Address </label>
+                    <textarea class="form-control-custom" my-textlen="100" ng-focus="err.address=false;"  ng-model="userpro.address" ></textarea>
+                    <div class="errors">
+                        <span ng-show="err.address">Home address is required</span>
+                    </div>                    
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+        <a class="btn modal_blue" ng-click="save()">Save</a>
+    </div>
+</div>
+

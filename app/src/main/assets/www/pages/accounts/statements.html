@@ -1,0 +1,15 @@
+<div ui-view autoscroll="true" ng-controller="statementsctrl">
+	<div class="single_tab_content">
+		<h2 class="page-header">
+        <a ui-sref="accounts" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-statements pull-left"></i> Statements     
+    </h2>
+
+		<div class="list-group" ui-turn-off='uiSidebarLeft'>
+			<a class="list-group-item" ui-sref="accounts.statements.party-confirmation"> Account Statement</a>
+            <a class="list-group-item" ng-if="show_table" ng-click="movetoacctax('taxable')" style="cursor: pointer"> Taxable Discount Details</a>
+			<!--<a class="list-group-item" ui-sref="accounts.statements.account-statement"> Account Statement</a>-->
+		</div>
+	</div>
+</div>

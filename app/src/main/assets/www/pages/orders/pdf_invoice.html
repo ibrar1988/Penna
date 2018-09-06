@@ -1,0 +1,26 @@
+<div class="single_tab_content" ng-controller="orderinvoicepdfctrl">
+	<h2 class="page-header">
+        <a ui-sref="orders.invoice" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-invoices pull-left"></i> Invoice
+        <a ng-href="{{pdfURL}}" class="pull-right" download><i class="icon_download"></i></a>
+    </h2>
+
+	<div class="sectioncard">
+
+		<div class="card">
+
+
+
+			<div class="card">
+
+				<div class="card invoice_main">
+					<pdf src="pdfURL"></pdf>
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,60 @@
+<div class="single_tab_content" ng-controller="OrderDetails">
+	<h2 class="page-header">
+       <!-- <a href="" ng-click="gobackorder()" class="goback"> --> <!--ui-sref="orders" -->
+        <a href="" ui-sref="orders" ng-click="get()" class="goback">  <!--ui-sref="orders" -->
+            <i class="fa fa-angle-left pull-left"></i>
+        </a>  <i class="pci icon-neworders pull-left"></i>  Create New Order
+    </h2>
+
+	<div class="sectioncard">
+		<!-- {{uiRouterState.current.name}}-->
+		<div class="card">
+			<div class="orders_main_tabs">
+				<ul class="order_steps clearfix" style="display: inline-block;">
+					<!--ui-sref-active="active"-->
+					<li id="a" class="linkDisabled">
+						<!--
+ng-class="{active: (location == '/orders/create-new-order/select-product-tab') }"
+<a id="myDiv" ui-sref=".select-product-tab">Select Product
+ng-disabled="uiRouterState.current.name != 'orders.create-new-order.select-product-tab'"
+-->
+						<a id="myDiv">Select Product <!--ng-click="selectpro()"-->
+                    <div class="step_icon">
+                        <span class="order_state_icon"><i class="fa icon_tags_alt"></i></span>
+                    </div>
+                    </a>
+					</li>
+					<li id="b">
+						<!-- <a ui-sref=".order-details-tab">Order Details-->
+						<a ng-click="orderdetails()">Order Details
+
+                    <div class="step_icon">
+                        <span class="order_state_icon icon_documents_alt"></span>
+                    </div>
+                    </a>
+					</li>
+					<li id="c">
+						<!-- <a ui-sref=".order-summary-tab">Order Summary-->
+						<a ng-click="ordersumm()">Order Summary
+
+                    <div  class="step_icon">
+                        <span class="order_state_icon icon_menu-square_alt2"></span>
+                    </div>
+                    </a>
+					</li>
+					<li id="d">
+						<!-- <a ui-sref=".order-confirmation-tab">Order Confirmation-->
+						<a ng-click="orderconfor()">Order Confirmation
+                    <div class="step_icon">
+                        <span class="order_state_icon fa fa-check"></span>
+                    </div>
+                    </a>
+					</li>
+					<div class="step_line"></div>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div ui-view></div>
+</div>

@@ -1,0 +1,88 @@
+<style>
+	@media (max-width: 480px) {
+		.single_tab_content {
+			padding: 0px !important;
+		}
+	}
+</style>
+
+
+<div ui-view autoscroll="true" ng-controller="PaymenthistoryCtrl" ng-init="getpayhistory()">
+	<div class="single_tab_content">
+		<h2 class="page-header">
+        <a ui-sref="accounts.payments" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-payments pull-left"></i> Payments
+    </h2>
+		<!-- $scope.invoiceCurrpage = 1; $scope.itemsPerPage = 20; $scope.maxSize = 5;
+-->
+		<div class="sectioncard">
+			<div class="timeline">
+				<h4>Payments History</h4>
+			</div>
+			<div class="dashb_performance">
+				<div class="all_pods">
+					<div class="single_pod clearfix" ng-repeat="payhistory in paymenthistory.slice(((invoiceCurrpage-1)*itemsPerPage),((invoiceCurrpage)*itemsPerPage)) ">
+						<i class="custom-list">{{((invoiceCurrpage-1)*20)+($index+1)}}</i>
+						<div class="pending_data">
+							<a ng-click="singlepaymenthistory(payhistory)" href="">
+								<p content="telephone=no">
+                                    <span class="highlight">Payment Transaction Number - {{payhistory.sapcollectionNumber}}</span>
+                                </p>
+								<p>Payment Date - {{payhistory.dateAndTime | date:"dd-MM-yyyy"}}</p>
+							</a>
+						</div>
+					</div>
+
+					<div class="sectioncard" ng-show="paymenthistory.length ==0">
+
+						<h5 class="text-center" style="padding-top:25px;padding-bottom:25px">"Payments history are not available".</h5>
+						<br>
+					</div>
+
+
+					<div class="text-center" ng-show="paymenthistory.length> 20">
+						<uib-pagination class="pagination pagination-sm" max-size="maxSize" total-items="paymenthistory.length" ng-model="invoiceCurrpage" max-size="maxSize" boundary-links="true" items-per-page="itemsPerPage" ng-click="getCurrentPage(invoiceCurrpage,'true');" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+					</div>
+
+					<!--<div class="single_pod clearfix">
+                        <i class="custom-list">2</i>
+                        <div class="pending_data">
+                            <a ui-sref="accounts.payments.payment-history.payment-history-details">
+                                <p><strong>Instrument Number - 7641172</strong></p>
+                                <p>Instrument Date - 12.02.2016 | 10:05 AM</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single_pod clearfix">
+                        <i class="custom-list">3</i>
+                        <div class="pending_data">
+                            <a ui-sref="accounts.payments.payment-history.payment-history-details">
+                                <p><strong>Instrument Number - 7641172</strong></p>
+                                <p>Instrument Date - 12.02.2016 | 10:05 AM</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single_pod clearfix">
+                        <i class="custom-list">4</i>
+                        <div class="pending_data">
+                            <a ui-sref="accounts.payments.payment-history.payment-history-details">
+                                <p><strong>Instrument Number - 7641172</strong></p>
+                                <p>Instrument Date - 12.02.2016 | 10:05 AM</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single_pod clearfix">
+                        <i class="custom-list">5</i>
+                        <div class="pending_data">
+                            <a ui-sref="accounts.payments.payment-history.payment-history-details">
+                                <p><strong>Instrument Number - 7641172</strong></p>
+                                <p>Instrument Date - 12.02.2016 | 10:05 AM</p>
+                            </a>
+                        </div>
+                    </div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

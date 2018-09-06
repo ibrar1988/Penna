@@ -1,0 +1,647 @@
+<style>
+	.form-horizontal .control-label {
+		padding-top: 7px;
+		margin-bottom: 0;
+
+	}
+
+    .no-padding-left{
+        padding-left: 0px !important;
+    }
+
+    input,select{
+        border: 1px solid #ccc !important;
+        display: block !important;
+    width: 100% !important;
+    height: 34px !important;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    color: #555 !important;
+    background-color: #fff !important;
+    background-image: none !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s !important;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s !important;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s !important;
+    }
+
+    input:focus,select:focus{
+    border-color: #66afe9 !important;
+    outline: 0 !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6) !important;
+    }
+
+    .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: none !important;
+}
+
+
+    .mar_bot25{
+        margin-bottom: 25px !important;
+    }
+
+    .mar_bot15{
+        margin-bottom: 15px !important;
+    }
+
+</style>
+
+
+
+<div ng-controller="addformorder">
+	<!-- ng-init="tabsorders();"-->
+	<div>
+		<div class="sectioncard">
+			<div class="card invoice_main">
+				<h3 class="sub-header"><i class="pull-left icon_documents_alt"></i> Order Details</h3>
+				<form class="form-horizontal order-details-form">
+					<div class="form-group" style="margin-top: 7px;">
+						<label class="col-sm-3 col-md-2 col-xs-12 control-label">Product: </label>
+						<div class="col-sm-9 col-md-10 margin">
+							<!--<input type="text" ng-model="productlist.productName" class="form-control-custom" placeholder="" value="" disabled>-->
+							<p class="product-PPC" style="margin-top: 8px;">{{productlist.productName}}</p>
+
+    <!--<select name='partyid' id="partyid" class="form-control-custom select-drop" ng-model="productlist.productName" ng-if="edit_pro">
+<option ng-repeat="item in productnames" value="{{item.productName}}" ng-selected="productlist.productName == item.productName">{{item.productName}}
+</option>
+</select>-->
+
+						</div>
+					</div>
+
+					<!-- <pre>{{productlistdetails[0].OrderLines[0].shipToAddress}}</pre>-->
+					<!-- <pre>{{OrderConfig}}</pre>-->
+					<!--<pre>{{productlist.packaging}}</pre>-->
+					<!-- <div class="form-group" ng-class="(err.street1 == true) ? 'has-error' : 'has-primary' ">
+<label>Street 1</label>
+<input type="text" name="street1" ng-model="shipadd.street1" class="form-control-custom" placeholder="" ng-focus="err.street1=false;" required id="street1" ng-disabled="shipadd.indicatorStatus" />
+<div class="errors">
+    <span ng-show="err.street1">Street 1 is required</span>
+</div>
+</div>-->
+					<!--<pre>{{productlist}}</pre>-->
+
+
+					<div class="form-group mar_bot25" ng-class="(err.quantity == true) ? 'has-error' : 'has-primary'" style="margin-top: 10px;">
+						<label class="col-sm-3 col-md-2 col-xs-12 control-label">Total Quantity: </label>
+						<div class="col-sm-9 col-md-10">
+							<input type="text" ng-model="productlist.quantity" class="form-control-custom" placeholder="Quantity in MT" value="" allow-twodecimals ng-focus="err.quantity = false;" />
+							<div class="errors">
+								<span ng-show="err.quantity">Total Quantity is required</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group mar_bot25" ng-class="(err.shipToAddress == true) ? 'has-error' : 'has-primary'" ng-show="details[0].ShippingAddress == 'YES' && !productlistdetails[0].OrderLines[0].shipToAddress && editKey != 'true'" style="margin-top: 10px;">
+						<label class="col-sm-3 col-md-2 control-label">Ship To Address :</label>
+						<div class="col-sm-9 col-md-10">
+							<select ng-model="productlist.shipToAddress"  ng-focus="err.shipToAddress = false;" ng-options="adress as adress.address  for adress in shipadrr" ng-change="mobileno(productlist.shipToAddress)">
+								<option value="" disabled="true">Select Ship To Address</option>
+								<option value="" ng-if="false"></option>
+							</select>
+
+
+							<div class="errors">
+								<span ng-show="err.shipToAddress">Ship To Address is required</span>
+							</div>
+						</div>
+					</div>
+					<!-- <pre>{{productlist}}</pre>-->
+
+					<!--<pre>{{shipadrr | json}}</pre>-->
+
+
+
+					<div class="form-group" ng-class="(err.shipToAddress == true) ? 'has-error' : 'has-primary'" ng-show="details[0].ShippingAddress == 'YES' && editKey == 'true' && editKeys != 'true'" style="margin-top: 10px;">
+						<label class="col-sm-3 col-md-2 control-label">Ship To Address :</label>
+						<div class="col-sm-9 col-md-10 margin">
+							<!--<p>{{productlistdetails.OrderLines[0].shipToAddress.custName}}</p>-->
+							<p>
+								<!--jjjjjj-->{{productlist.shipToAddress.address}}
+							</p>
+
+							<div class="errors">
+								<span ng-show="err.shipToAddress">Ship To Address is required</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group" ng-show="productlistdetails[0] && details[0].ShippingAddress == 'YES'" style="margin-top: 10px;">
+
+						<label class="col-sm-3 col-md-2 control-label">Ship To Address:</label>
+						<div class="col-sm-9 col-sm-10 margin">
+							<!--yyyyyy-->{{productlistdetails[0].OrderLines[0].shipToAddress.address}}
+						</div>
+					</div>
+
+					<!-- <p ng-show="details[0].Phone== 'YES' && !productlistdetails[0].OrderLines[0].shipToAddress && editKey == 'true' && editKeys == 'true'">
+    zzzzzzz{{productlistdetails.shipToAddress.address}}
+</p>-->
+
+					<div class="form-group" ng-show="details[0].Phone == 'YES' && !productlistdetails[0].OrderLines[0].shipToAddress && editKey == 'true' && editKeys == 'true'" style="margin-top: 10px;">
+
+						<label class="col-sm-3 col-md-2 control-label">Ship To Address:</label>
+						<div class="col-sm-9 col-sm-10 margin">
+							<!---->{{productlistdetails.shipToAddress.address}}
+						</div>
+					</div>
+
+
+					<div class="form-group" ng-class="(err.phonenumber == true) ? 'has-error' : 'has-primary'" ng-show="details[0].Phone == 'YES' && !productlistdetails[0].OrderLines[0].shipToAddress && editKey != 'true'" style="margin-top: 10px;">
+						<label class="col-sm-3 col-md-2 col-xs-12 control-label">Phone Number: </label>
+						<!--ooooo-->
+						<div class="col-sm-9 col-md-10 margin">
+							<input type="text" class="form-control-custom" ng-model="productlist.phonenumber" placeholder="Enter Phone number" ng-focus="err.phonenumber = false;" disabled >
+							<!--<p>{{productlist.phonenumber}}</p>-->
+							<div class="errors">
+								<span ng-show="err.phonenumber">Phone Number is required</span>
+							</div>
+						</div>
+					</div>
+					<!-- phonenumber-->
+
+
+					<div class="form-group" ng-class="(err.shipToAddress == true) ? 'has-error' : 'has-primary'" ng-show="details[0].Phone == 'YES' && editKey == 'true' && editKeys != 'true'" style="margin-top: 10px;">
+
+						<label class="col-sm-3 col-md-2 col-xs-12 control-label">Phone Number:</label>
+						<div class="col-sm-9 col-sm-10 margin">
+							<!--jjjjj-->
+							<!-- <input type="text" ng-model="productlist.shipToAddress.mobile" class="form-control-custom" placeholder="" value="" disabled>-->
+							<p content="telephone=no">{{productlist.shipToAddress.mobile}}</p>
+							<div class="errors">
+								<span ng-show="err.shipToAddress">phone number is required</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group" ng-show="productlistdetails[0] && details[0].Phone == 'YES'" style="margin-top: 10px;">
+
+						<label class="col-sm-3 col-md-2 col-xs-12 control-label">Phone Number:</label>
+						<div class="col-sm-9 col-sm-10 margin">
+							<!--yyyyyy-->
+							<p content="telephone=no">{{productlistdetails[0].OrderLines[0].shipToAddress.mobile}}</p>
+						</div>
+					</div>
+
+					<div class="form-group" ng-show="details[0].Phone == 'YES' && !productlistdetails[0].OrderLines[0].shipToAddress && editKey == 'true' && editKeys == 'true'" style="margin-top: 10px;">
+
+						<label class="col-sm-3 col-md-2 col-xs-12 control-label">Phone Number:</label>
+						<div class="col-sm-9 col-sm-10 margin">
+							<!--kkkkkk -->
+							<p content="telephone=no">{{productlistdetails.shipToAddress.mobile}}</p>
+						</div>
+					</div>
+
+
+					<!-- <p ng-show="productlistdetails[0] && details[0].Phone== 'YES'">
+    yyyyyy {{productlistdetails[0].OrderLines[0].shipToAddress.mobile}} </p>-->
+
+
+
+
+					<!--</form>-->
+
+					<div class="order_shipping_det">
+						<h4><strong>Shipping Details</strong></h4>
+						<form class="form-horizontal">
+
+							<div class="form-group" ng-class="(err.plant == true) ? 'has-error' : 'has-primary'" ng-show="details[0].PlantorDepo == 'YES'" style="margin-top: 10px;">
+								<label class="col-sm-3 col-md-2 control-label">Plant / Depo :</label>
+								<div class="col-sm-9 col-md-10">
+
+									<!--  <input type="text" class="form-control-custom" ng-model="productlist.plant" placeholder="" ng-focus="err.plant=false;">-->
+
+									<select ng-model="productlist.plant" class="form-control-custom" ng-focus="err.plant = false;">
+										<option value="Depo">Depo</option>
+										<option value="Plant">Plant</option>
+										<!-- <option value="option3">Option3</option>-->
+									</select>
+									<div class="errors">
+										<span ng-show="err.plant">Plant / Depo is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.packaging == true) ? 'has-error' : 'has-primary'" ng-show="details[0].Packaging == 'YES'" style="margin-top: 20px;">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">Packaging :</label>
+								<div class="col-sm-9 col-md-10 col-xs-6">
+									<input id="pack-loose" ng-model="productlist.packaging" class="toggle toggle-left" name="packaging" value="loose" type="radio" ng-click="err.packaging = false;" checked>
+									<label for="pack-loose" class="btn-radio" ng-focus="err.packaging = false;">Loose</label>
+									<input id="pack-bags" ng-model="productlist.packaging" class="toggle toggle-right" name="packaging" value="bags" type="radio" ng-click="err.packaging = false;">
+									<label for="pack-bags" class="btn-radio" ng-focus="err.packaging = false;">Bags</label>
+								</div>
+								<div class="errors" style="margin-top: 35px;padding-right: 14px;">
+									<span ng-show="err.packaging">Packaging is required</span>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.packagingType == true) ? 'has-error' : 'has-primary'" ng-show="details[0].packagingTypes == 'YES'" style="margin-top: 10px;">
+								<!---->
+								<label class="col-sm-3 col-md-2 control-label">Packaging Type :</label>
+								<div class="col-sm-9 col-md-10">
+
+									<!-- <input type="text" class="form-control-custom" ng-model="productlist.packagingType" placeholder="" ng-focus="err.packagingType=false;">-->
+
+									<select ng-model="productlist.packagingType" class="form-control-custom" ng-focus="err.packagingType = false;">
+										<option value="Paper">Paper</option>
+										<option value="Laminated">Laminated Paper</option>
+										<option value="Polythene">Polythene</option>
+									</select>
+									<div class="errors">
+										<span ng-show="err.packagingType">Packaging is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.transport == true) ? 'has-error' : 'has-primary'" ng-show="details[0].Transport == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">Transport :</label>
+								<div class="col-sm-9 col-md-10 col-xs-6">
+									<input id="transportPenna" ng-model="productlist.transport" class="toggle toggle-left" name="transport" value="penna" type="radio" ng-click="err.transport = false;" checked>
+									<label for="transportPenna" class="btn-radio">Penna</label>
+									<input id="transportOwn" ng-model="productlist.transport" class="toggle toggle-right" name="transport" value="own" type="radio" ng-click="err.transport = false;">
+									<label for="transportOwn" class="btn-radio">Own</label>
+									<div class="errors">
+										<span ng-show="err.transport">Transport is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.transporter == true) ? 'has-error' : 'has-primary'" ng-show="details[0].Sourceofdelivary == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md hidden-lg">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">Source of Delivery :</label>
+								<div class="col-sm-9 col-md-10 col-xs-6">
+									<input id="Transporter" ng-model="productlist.transporter" class="toggle toggle-left" name="delivery" value="Transporter" type="radio" ng-click="err.transporter = false;" checked>
+									<label for="Transporter" class="btn-radio" style="
+                                           border: 1px solid #cccccc;
+                                           ">Transporter</label>
+									<input id="cfAgent" ng-model="productlist.transporter" class="toggle toggle-right" name="delivery" value="cfAgent" type="radio" ng-click="err.transporter = false;">
+									<label for="cfAgent" class="btn-radio">C&F agent</label>
+									<input id="truckDriver" ng-model="productlist.transporter" class="toggle toggle-right" name="delivery" value="truckDriver" type="radio" ng-click="err.transporter = false;">
+									<label for="truckDriver" class="btn-radio">Truck Driver</label>
+									<div class="errors">
+										<span ng-show="err.transporter">Source of Delivery is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.incoterms == true) ? 'has-error' : 'has-primary'" ng-show="details[0].IncoTerms == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md hidden-lg">
+								<!---->
+								<label class="col-sm-3 col-md-2 control-label">Inco Terms :</label>
+								<div class="col-sm-9 col-md-10">
+
+									<!--    <input type="text" class="form-control-custom" ng-model="productlist.incoterms" placeholder="" ng-focus="err.incoterms=false;">-->
+
+									<select ng-model="productlist.incoterms"  ng-focus="err.incoterms = false;" ng-change="popup1()">
+										<option value="" disabled="true">Select Inco Terms</option>
+										<option value="Paid">Paid</option>
+										<option value="To Pay">To Pay</option>
+										<option value="EXWorksGoDown">EX Works/Go Down</option>
+									</select>
+									<div class="errors">
+										<span ng-show="err.incoterms">Inco Terms is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" style="margin-top: 10px;" ng-show="details[0].truck_number == 'YES' &&  productlist.incoterms == 'EXWorksGoDown'">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">Truck Number: </label>
+								<div class="col-sm-9 col-md-10">
+									<input type="text" placeholder="Truck Number" ng-model="productlist.truckNumber" class="form-control-custom" />
+								</div>
+							</div>
+
+							<div class="form-group" style="margin-top: 10px;" ng-show="details[0].truck_number == 'YES'  &&  productlist.incoterms == 'EXWorksGoDown' ">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">Driver Name: </label>
+								<div class="col-sm-9 col-md-10">
+									<input type="text" placeholder="Driver Name" ng-model="productlist.driverName" class="form-control-custom" />
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.driverMobileNumber == true) ? 'has-error' : 'has-primary'" style="margin-top: 10px;" ng-show="details[0].truck_number == 'YES' &&  productlist.incoterms == 'EXWorksGoDown'">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">Driver Mobile Number: </label>
+								<div class="col-sm-9 col-md-10">
+									<input type="text" maxlength="10" placeholder="Driver Mobile Number" my-length="10" required ng-model="productlist.driverMobileNumber" class="form-control-custom"  ng-focus="err.driverMobileNumber=false;" />
+								</div>
+								<div class="errors">
+								<span ng-show="err.driverMobileNumber">Enter 10 digit Number</span>
+							</div>
+							</div> 
+
+							<!-- <div class="form-group" ng-show="details[0].truck_number == 'YES' &&  productlist.incoterms == 'EXWorksGoDown'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 control-label">Authentication Letter:</label>
+								<div class="col-sm-9 col-md-10">
+									<input type="file" class="addAunticationLetter" id="addAunticationLetter" accept="image/*" name="addAunticationLetter" style=" width: 2px; height:2px" ng-model="productlist.authenticationLetter" ng-show="hide" ng-change="imageSelected1()" valid-file required onchange="angular.element(this).scope().imageSelected1(this)">
+									<a href="" name="addAunticationLetter" ng-click="mobileUploadAttachment1()">Upload</a>
+									<div class="pull-right" ng-show="productlist.authenticationLetter">
+										<small class="text-primary">Image uploaded successfully</small>
+									</div>
+								</div>
+							</div> -->
+
+
+							<div class="form-group" ng-class="(err.cform == true) ? 'has-error' : 'has-primary'" ng-show="details[0].CFormNumber == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">C-Form Number :</label>
+								<div class="col-sm-9 col-xs-6">
+									<input id="cfyes" ng-model="productlist.cform" class="toggle toggle-left" name="cform" value="cfyes" type="radio" ng-click="err.cform = false;" checked>
+									<label for="cfyes" class="btn-radio">Yes</label>
+									<input id="cfno" ng-model="productlist.cform" class="toggle toggle-right" name="cform" value="cfno" type="radio" ng-click="err.cform = false;">
+									<label for="cfno" class="btn-radio">No</label>
+									<div class="errors">
+										<span ng-show="err.cform">C-Form Number is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.paymenttype == true) ? 'has-error' : 'has-primary'" ng-show="details[0].PaymentTerms == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 control-label">Payment Terms:</label>
+								<div class="col-sm-9">
+
+									<!-- <input type="text" class="form-control-custom" ng-model="productlist.paymenttype" placeholder="" ng-focus="err.paymenttype=false;">-->
+									<select ng-model="productlist.paymenttype" class="form-control-custom" ng-focus="err.paymenttype = false;">
+										<option value="term1">Term 1</option>
+										<option value="term2">Term 2</option>
+										<option value="term3">Term 3</option>
+									</select>
+									<div class="errors">
+										<span ng-show="err.paymenttype">Payment Terms Number is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.poordernumber == true) ? 'has-error' : 'has-primary'" ng-show="details[0].POOrderNumber == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 control-label">PO Order Number :</label>
+								<div class="col-sm-9 col-md-10">
+									<input type="text" ng-model="productlist.poordernumber" class="form-control-custom" placeholder="PO Order Number" ng-focus="err.poordernumber = false;">
+									<div class="errors">
+										<span ng-show="err.poordernumber">PO Order Number is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.podate == true) ? 'has-error' : 'has-primary'" ng-show="details[0].POdate == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 control-label">PO date :</label>
+								<div class="col-sm-9 col-md-10">
+									<!--<input type="date" class="form-control-custom" placeholder="">-->
+									<div class="col-xs-10 no-padding-right">
+										<input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="productlist.podate" is-open="openPo.opened" datepicker-options="dateOptionspayment" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-focus="err.podate = false;" />
+									</div>
+									<div class="col-xs-2 no-padding-left">
+										<span class="input-group-btn">
+                                            <button type="button" class="btn btn-default datepic-btn" ng-click="openPo()"><i class="icon_calendar"></i></button>
+                                        </span>
+
+									</div>
+									<div class="errors">
+										<br>
+										<br>
+										<span ng-show="err.podate">PO date is required</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.image == true) ? 'has-error' : 'has-primary'" ng-show="details[0].POUpload == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 control-label">PO Upload :</label>
+								<div class="col-sm-9 col-md-10">
+									<input type="file" class="addsuggAttachInput" id="addsuggAttachInput" accept="image/*" name="image" style=" width: 2px; height:2px" ng-model="image" ng-show="hide" ng-change="err.suggestionImage = false;imageSelected()" valid-file required onchange="angular.element(this).scope().imageSelected(this)">
+									<a href="" name="image" ng-click="err.suggestionImage = false;mobileUploadAttachment()">Upload</a>
+								</div>
+								<div class="errors">
+									<span ng-show="err.image">Attachement is required</span>
+								</div>
+							</div>
+
+							<div class="form-group" ng-class="(err.notes == true) ? 'has-error' : 'has-primary'" ng-show="details[0].Notes == 'YES'" style="margin-top: 10px;">
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 control-label">Notes:</label>
+								<div class="col-sm-9 col-md-10">
+									<textarea class="form-control-custom" ng-model="productlist.notes" rows="3" ng-focus="err.notes = false;" placeholder="Notes"></textarea>
+									<div class="errors">
+										<span ng-show="err.notes">Notes is required</span>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="form-group mar_bot15" ng-init="productlist.scheduledelivery = scheduledelivery_order" ng-class="(err.scheduledelivery == true) ? 'has-error' : 'has-primary'" style="margin-top: 10px;">
+                               <!-- ng-init="productlist.scheduledelivery = 'sdiyes'"-->
+								<br class="hidden-md">
+								<label class="col-sm-3 col-md-2 col-xs-12 control-label">When do you want the delivery? :</label>
+								<div class="col-sm-9 col-md-10 col-xs-12">
+									<!--<input id="sdiyes" ng-model="productlist.scheduledelivery" class="toggle toggle-left" name="SDI" value="sdiyes" type="radio" ng-focus="err.scheduledelivery = false;">
+									<label for="sdiyes" class="btn-radio pull-left">Yes</label>
+									<input id="sdino" ng-model="productlist.scheduledelivery" class="toggle toggle-right" name="SDI" value="sdino" type="radio" ng-focus="err.scheduledelivery = false;">
+									<label for="sdino" class="btn-radio pull-left" >No</label>-->
+
+                                    <select ng-model="productlist.scheduledelivery" class="form-control-custom" ng-focus="err.scheduledelivery = false;movetoacctax('shedulelines')">
+                                        <option value="" disabled="true">Select Schedule Delivery</option>
+										<option value="sdiyes">Immediately</option>
+										<option value="sdino" ng-if="createschedule_line">In future</option>
+
+									</select>
+
+									<div class="errors">
+										<span ng-show="err.scheduledelivery">Schedule Delivery is required</span>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!--<pre>{{schedulelines}}</pre>-->
+
+                    <div class="schedule_line" ng-show="productlist.scheduledelivery == 'sdiyes'">
+
+
+						<div>
+                                    <div class="scheduleline_address">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-2 control-label">Quantity :</label>
+                                                <div class="col-sm-7 col-xs-8">
+                                                    <input type="text" ng-model="productlist.quantity" class="form-control-custom" placeholder="Quantity in MT" allow-twodecimals disabled>
+                                                </div>
+
+                                            </div>
+
+
+                                           <!-- <div class="form-group">
+                                                <label class="col-sm-3 col-md-2 control-label">Date of Delivery :</label>
+                                                <div class="col-sm-9 col-md-10">
+                                                    <div class="col-xs-10 no-padding-right no-padding-left">
+                                                        <input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="scheduledateyes" ng-model-options="{timezone: 'UTC'}" is-open="scheduleline.opened" datepicker-options="dateOptionspayment" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                                    </div>
+                                                    <div class="col-xs-2 no-padding-left">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-default datepic-btn" ng-click="openDd();scheduleline.opened = true"><i class="icon_calendar"></i></button>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>-->
+
+                                            <div class="form-group">
+   <label class="col-sm-3 col-md-2 control-label">Date of Delivery :</label>
+    <div class="input-group col-sm-7 col-xs-8" style="padding-left: 15px;padding-right: 15px;">
+     <input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="scheduledateyes" ng-model-options="{timezone: 'UTC'}" is-open="scheduleline.opened" datepicker-options="dateOptionspayment" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" disabled placeholder="Quantity in MT"/>
+      <div class="input-group-addon input-group-addon1">
+         <span class="input-group-btn">
+                    <button type="button" class="btn btn-default datepic-btn" ng-click="openDd();scheduleline.opened = true"><i class="icon_calendar"></i></button>
+          </span>
+      </div>
+    </div>
+  </div>
+
+
+                                        </form>
+                                    </div>
+                            </div>
+                    </div>
+
+
+					<div class="schedule_line" ng-show="productlist.scheduledelivery == 'sdino'">
+
+                            <h4><strong>Add Schedule Lines :</strong>
+                                <a href="" ng-click="addschedulelines($index)" data-toggle="tooltip" title="ADD"><span class="icon_plus_alt2 pull-right"></span></a>
+                            </h4>
+						<br>
+						<!-- ng-class="(scheduleline.err == true) ? 'has-error' : 'has-primary' " -->
+                           <!-- <pre>{{schedulelines | json}}</pre>-->
+						<div ng-repeat="(key,scheduleline) in schedulelines" style="margin-bottom: 10px">
+
+                                    <a ng-hide="schedulelines.length == 1" href="" ng-click="removeschedulelines($index)" data-toggle="tooltip" title="DELETE"><span class="fa fa-trash-o pull-right" style="font-size: 20px !important;"></span></a>
+                                    <div class="scheduleline_address">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-2 control-label">Quantity :</label>
+                                                <div class="col-sm-7 col-xs-8">
+                                                    <input type="text" ng-model="scheduleline.schedulequantity" class="form-control-custom" ng-focus="scheduleline.quantityErr = false;" allow-twodecimals placeholder="Quantity in MT">
+                                                </div>
+
+                                                <div class="errors">
+                                                    <br>
+                                                    <br>
+                                                    <span ng-show="scheduleline.quantityErr" style="margin-top:10px;padding-right: 20px">Quantity is required</span>
+                                                </div>
+                                            </div>
+
+
+                                           <!-- <div class="form-group">
+                                                <label class="col-sm-3 col-md-2 control-label">Date of Delivery :</label>
+                                                 <div class="col-sm-9 col-md-10">
+                                                    <div class="col-xs-10 no-padding-right no-padding-left">
+                                                        <input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="scheduleline.scheduledate" ng-model-options="{timezone: 'UTC'}" is-open="scheduleline.opened" datepicker-options="dateOptionspayment" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-click="scheduleline.opened = true;scheduleline.dateErr = false;" ng-focus="scheduleline.dateErr = false;"/>
+                                                    </div>
+                                                    <div class="col-xs-2 no-padding-left">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-default datepic-btn" ng-click="openDd();scheduleline.opened = true"><i class="icon_calendar"></i></button>
+                                                        </span>
+
+                                                    </div>
+                                                    <div class="errors">
+                                                        <br>
+                                                        <br>
+                                                        <span ng-show="scheduleline.dateErr">Date of Delivery is required</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>-->
+                                                                           <div class="form-group">
+   <label class="col-sm-3 col-md-2 control-label">Date of Delivery :</label>
+    <div class="input-group col-sm-7 col-xs-8" style="padding-left: 15px;padding-right: 15px;">
+    <input type="text" readonly class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="scheduleline.scheduledate" ng-model-options="{timezone: 'UTC'}" is-open="scheduleline.opened" datepicker-options="dateOptionspayment" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-click="scheduleline.opened = true;scheduleline.dateErr = false;" ng-focus="scheduleline.dateErr = false;" placeholder="Select Delivery Date"/>
+      <div class="input-group-addon input-group-addon1">
+         <span class="input-group-btn">
+                    <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-default datepic-btn" ng-click="openDd();scheduleline.opened = true"><i class="icon_calendar"></i></button>
+                                                        </span>
+          </span>
+      </div>
+         <div class="errors">
+                                                        <br>
+                                                        <br>
+                                                        <span ng-show="scheduleline.dateErr">Date of Delivery is required</span>
+                                                    </div>
+    </div>
+  </div>
+                                        </form>
+                                    </div>
+                            </div>
+                    </div>
+
+                </form>
+                <!--<div class="schedule_line" ng-show="productlist.scheduledelivery == 'sdiyes'">
+                <h4><strong>Schedule Lines : 1</strong>
+                    <a href=""><span class="icon_plus_alt2 pull-right"></span></a></h4>
+							<div class="scheduleline_address">
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Quantity :</label>
+										<div class="col-sm-8 col-xs-8">
+											<input type="text" ng-model="productlist.schedulequantity" class="form-control-custom" placeholder="" disabled>
+										</div>
+										<div class="col-sm-2 col-xs-4 qnty_untis">
+											<p>MT</p>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Date of Delivery :</label>
+										<div class="col-sm-10">
+											<div class="col-xs-10 no-padding-right">
+												<input type="text" readonly class="form-control" uib-datepicker-popup="{{format}}" ng-model="productlist.scheduledate" is-open="openDd.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" disabled/>
+											</div>
+											<div class="col-xs-2 no-padding-left">
+												<span class="input-group-btn">
+                                    <button type="button" class="btn btn-default datepic-btn" ng-click="openDdg()"><i class="icon_calendar"></i></button>
+                                </span>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>-->
+
+					</div>
+			</div>
+
+			<div class="footer-buttons clearfix text-center">
+				<a class="btn action_btn" ng-click="open(productlist)">Next</a>
+				<!-- <a ng-show="editKey != 'true'" class="btn action_btn" ng-click="addmoreproduct(productlist, 'true')">Add More</a>
+            <a ng-show="editKey == 'true'" class="btn action_btn" ng-click="addmoreproduct(productlist, 'true')">Add More</a>-->
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+	<!--Save changes MODAL DIV-->
+
+	<div class="add_family">
+		<script type="text/ng-template" id="saveOrderChangePop.html">
+			<div class="modal-body text-center saveconfirm">
+				<h4>Save changes made to Orders?</h4>
+			</div>
+			<div class="modal-footer">
+				<a class="btn modal_grey" ng-click="ok()">Cancel</a>
+				<br>
+				<a class="btn modal_blue" ui-sref="orders.create-new-order.order-summary-tab" ng-click="cancel()">Save</a>
+			</div>
+		</script>
+	</div>

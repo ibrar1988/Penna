@@ -1,0 +1,118 @@
+<div ui-view autoscroll="auto" ng-controller="dashbordctrl">
+	<div class="single_tab_content">
+		<h2 class="page-header">
+            <a ui-sref="dashboard.order-statuses" class="goback">
+                <i class="fa fa-angle-left pull-left"></i>
+            </a><i class="pci icon-orderslist pull-left"></i> Order Details
+        </h2>
+		<!-- <pre>{{singleorder}}</pre>-->
+		<div class="sectioncard">
+			<div class="card">
+				<!--<h4>Order Line Details</h4>-->
+				<div class="sub_order_detail" ng-controller="addOrders">
+					<!--ng-controller="addOrders"-->
+
+
+					<p><strong>Order Number - {{singleorder.PoNumber}}</strong>
+						<!--<a href="" class="pull-right" ng-click="open()"><i class="icon_plus_alt2"></i></a>--></p>
+					<!--<p>{{singleorder.POLine.length}} Order Line</p>-->
+				<!--<p ng-if="singleorder.POLine.length == 1">{{singleorder.POLine.length}} Order Line</p>
+<p ng-if="singleorder.POLine.length > 1">{{singleorder.POLine.length}} Order Lines</p>-->
+
+					<p>Total Quantity: <strong>{{singleorder.totalqty}} MT</strong> | Delivered: <strong>{{singleorder.POLine[0].OlDeliveredQty}} MT</strong></p>
+					<p>Order Placed – {{singleorder.SforderDate| date : "dd MMMM y"}}</p>
+				</div>
+				<ul class="order-status-list">
+					<li ng-repeat="plines in pline">
+						<!--  <pre>{{plines}}</pre>-->
+
+						<p><strong>Order Line Number: {{plines.POLinenumber}}</strong></p>
+						</a>
+						<p>Order Status - <span class="text-yellow"><strong>{{plines.orderStatus}}</strong></span></p>
+						<div class="sub-order-links" style="border-left: 0px solid #7A7A7A;">
+							<!--<p class="border-right"><a ng-show="plines.invoices.length == 0">Invoice</a></p>-->
+							<p ng-show="plines.invoices.length != 0" class="border-right"><a href="" ng-click="detailsinvo(plines)">Invoice</a></p>
+
+							<!-- <p class="border-right"><a href="" ng-click="detailsinvo(plines)">Invoice</a></p>-->
+							<p><a href="" ng-click="detailspo(plines,$index)">Details</a></p>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="add_family">
+		<script type="text/ng-template" id="orderstat-modal.html">
+			<div class="modal-header">
+				<h3 class="modal-title">Add More</h3>
+			</div>
+			<div class="modal-body">
+				<form role="form">
+					<fieldset>
+						<div class="form-group">
+							<label>Order number</label>
+							<p>70462598746</p>
+						</div>
+						<div class="form-group">
+							<label>Ordered Quantity</label>
+							<p>120 MT</p>
+						</div>
+						<div class="form-group">
+							<label>Balance Quantity</label>
+							<p>100 MT</p>
+						</div>
+						<div class="form-group">
+							<label>Order More</label>
+							<select class="form-control-custom">
+								<option value="Hyderabad">10 MT</option>
+								<option value="Bangalore">20 MT</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Select Ship Address</label>
+							<select class="form-control-custom">
+								<option value="Hyderabad">Hyderabad</option>
+								<option value="Bangalore">Bangalore</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Date <i class="pull-right icon_calendar"></i></label>
+							<input type="date" class="form-control-custom" placeholder="">
+						</div>
+						<div class="form-group">
+							<label>Delivery Type</label>
+							<select class="form-control-custom">
+								<option value="Hyderabad">Penna Truck</option>
+								<option value="Bangalore">Own Truck</option>
+							</select>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+				<a class="btn modal_blue" ng-click="ok()" ui-sref="orders.list-of-orders-detail.order-detail-confirm">Add</a>
+			</div>
+		</script>
+	</div>
+
+
+	<!--Modal for Exceeding Quantity-->
+	<div class="add_family">
+		<script type="text/ng-template" id="savechangepop.html">
+			<div class="modal-header exceed_pop_head text-center">
+				<h3><i class="icon_error-circle_alt"></i>Exceeding Quantity</h3>
+			</div>
+			<div class="modal-body text-center saveconfirm">
+				<h4>To order more than your balance quantity please create New Order</h4>
+			</div>
+			<div class="modal-footer">
+				<a class="btn modal_grey" ng-click="ok()">Cancel</a>
+				<a class="btn modal_blue" ui-sref="profile.my-profile" ng-click="cancel()">Save</a>
+			</div>
+		</script>
+	</div>
+</div>

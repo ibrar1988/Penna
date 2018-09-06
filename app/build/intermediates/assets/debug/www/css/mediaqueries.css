@@ -1,0 +1,1059 @@
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1300px) {
+
+.graph-text {
+		position: absolute;
+		padding-top: 20%;
+		padding-left: 20%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+    .inv_lablel{
+        margin-left: 15px
+    }
+
+
+}
+
+@media (min-width: 1281px) {
+
+.graph-text {
+		position: absolute;
+		padding-top: 20%;
+		padding-left: 20%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+.inv_lablel{
+        margin-left: 13px
+    }
+
+}
+
+
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1270px) {
+
+  .graph-text {
+		position: absolute;
+		padding-top: 20%;
+		padding-left: 20%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+.inv_lablel{
+        margin-left: 15px
+    }
+
+}
+
+@media (min-width: 1270px) and (max-width: 1280px) {
+
+  .graph-text {
+		position: absolute;
+		padding-top: 20%;
+		padding-left: 20%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+.inv_lablel{
+        margin-left: 15px
+    }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 1021px) and (max-width: 1025px) {
+
+  .graph-text {
+		position: absolute;
+    padding-top: 27%;
+    padding-left: 25%;
+    font-size: 20px;
+    font-weight: bold;
+	}
+
+    .login_form_section {
+    position: relative;
+    max-width: 300px;
+    left: 50%;
+    top: 50%;
+    margin-top: 15%;
+    margin-left: -150px;
+}
+
+    .inv_lablel{
+        margin-left: 15px
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1020px) {
+
+  .graph-text {
+		position: absolute;
+    padding-top: 27%;
+    padding-left: 25%;
+    font-size: 20px;
+    font-weight: bold;
+	}
+
+.inv_lablel{
+        margin-left: 15px
+    }
+
+}
+
+@media (min-width: 1021px) and (max-width: 1030px) and (orientation: landscape) {
+
+.graph-text {
+    position: absolute;
+    padding-top: 25%;
+    padding-left: 25%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.inv_lablel{
+        margin-left: 39px
+    }
+
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 855px) and (max-width: 1020px) and (orientation: landscape) {
+
+  .graph-text {
+		position: absolute;
+		padding-top: 10%;
+		padding-left: 10%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -95px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+
+.inv_lablel{
+        margin-left: 15px
+    }
+
+
+}
+
+
+@media (max-width: 854px) and (orientation: landscape) {
+
+
+
+  .graph-text {
+		position: absolute;
+		padding-top: 11%;
+		padding-left: 11%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+   top: -95px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+.inv_lablel{
+        margin-left: -10px
+    }
+
+}
+
+
+@media (min-width: 823px) and (max-width: 849px)  {
+
+ .graph-text {
+		position: absolute;
+		padding-top: 11%;
+		padding-left: 11%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+   top: -95px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+.inv_lablel{
+        margin-left: 0px
+    }
+}
+
+
+@media (min-width: 770px) and (max-width: 822px)  {
+
+ .graph-text {
+		position: absolute;
+		padding-top: 11%;
+		padding-left: 11%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -95px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+.inv_lablel{
+        margin-left: -2px
+    }
+
+}
+
+@media (max-width: 768px)  {
+
+ .graph-text {
+		position: absolute;
+		padding-top: 11%;
+		padding-left: 11%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+   top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+    .login_form_section {
+    position: relative;
+    max-width: 300px;
+    left: 50%;
+    top: 50%;
+    margin-top: 35%;
+    margin-left: -150px;
+}
+
+    .inv_lablel{
+        margin-left: 0px
+    }
+
+}
+
+
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+
+@media (min-width: 800px) and (max-width: 812px) and (orientation: landscape)   {
+
+
+}
+
+@media (max-width: 799px) and (orientation: landscape)   {
+
+
+}
+
+
+@media (min-width: 650px) and (max-width: 680px) and (orientation: landscape)   {
+
+
+}
+
+@media (min-width: 601px) and (max-width: 629px) and (orientation: landscape)   {
+
+
+}
+
+
+@media (min-width: 630px) and (max-width: 655px)  {
+
+    .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+    .inv_lablel{
+        margin-left: 15px
+    }
+
+
+}
+
+@media (min-width: 790px) and (max-width: 805px)  {
+
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+     .register_form_section,
+	.login_form_section {
+		margin-top: 50%;
+	}
+.inv_lablel{
+        margin-left: 0px
+    }
+
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+    .register_form_section,
+	.login_form_section {
+		margin-top: 6% !important;
+	}
+.inv_lablel{
+        margin-left: 15px
+    }
+}
+
+@media (min-width: 721px) and (max-width: 767px) {
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+   top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+.inv_lablel{
+        margin-left: 0px
+    }
+}
+
+@media (max-width: 732px)  {
+     .graph-text {
+		position: absolute;
+		padding-top: 15%;
+		padding-left: 15%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+   top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+.inv_lablel{
+        margin-left: 0px
+    }
+}
+
+@media (min-width: 680px) and (max-width: 720px) {
+    .graph-text {
+		position: absolute;
+		padding-top: 14%;
+		padding-left: 14%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+    .prodMixVals {
+   top: -46px;
+        margin-left: 20px;
+   }
+
+     .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+    .login_form_section {
+    position: relative;
+    max-width: 300px;
+    left: 50%;
+    top: 50%;
+    margin-top: 60%;
+    margin-left: -150px;
+}
+.inv_lablel{
+        margin-left: 0px
+    }
+
+}
+
+@media (min-width: 661px) and (max-width: 679px) {
+
+
+
+    .graph-text {
+		position: absolute;
+		padding-top: 14%;
+		padding-left: 14%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+    .prodMixVals {
+    top: -46px;
+        margin-left: 20px;
+   }
+
+     .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+.inv_lablel{
+        margin-left: 0px
+    }
+
+}
+
+
+@media (min-width: 601px) and (max-width: 660px) {
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+.inv_lablel{
+        margin-left: 15px
+    }
+
+}
+
+@media (min-width: 601px) and (max-width: 660px) and (orientation: landscape) {
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+    .register_form_section,
+	.login_form_section {
+		margin-top: 6%;
+	}
+.inv_lablel{
+        margin-left: 0px
+    }
+}
+
+
+@media (min-width: 590px) and (max-width: 600px) and (orientation: landscape) {
+
+}
+
+@media (max-width: 600px) {
+
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+
+    .login_form_section {
+    position: relative;
+    max-width: 300px;
+    left: 50%;
+    top: 50%;
+   margin-top: 40%;
+    margin-left: -150px;
+}
+.inv_lablel{
+        margin-left: 0px
+    }
+}
+
+
+@media (max-width: 589px) {
+
+  .graph-text {
+		position: absolute;
+		padding-top: 14%;
+		padding-left: 14%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+    .prodMixVals {
+    top: -46px;
+        margin-left: 20px;
+   }
+
+     .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+.inv_lablel{
+        margin-left: 15px
+    }
+
+
+}
+
+
+
+@media (max-width: 568px) {
+
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+.inv_lablel{
+        margin-left: 0px
+    }
+
+    .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 410px) and (max-width: 420px) {
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+.inv_lablel{
+        margin-left: 15px
+    }
+     .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+}
+
+@media (min-width: 380px) and (max-width: 390px) {
+     .graph-text {
+		position: absolute;
+		padding-top: 13%;
+		padding-left: 13%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+    top: -46px;
+         margin-left: 20px;
+   }
+
+    .my_perhigh{
+        height: 550px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 330px;
+    }
+.inv_lablel{
+        margin-left: 15px
+    }
+     .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+}
+
+@media (max-width: 480px) {
+
+ .graph-text {
+		position: absolute;
+		padding-top: 20%;
+		padding-left: 20%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+    .min_higlist{
+        height: 40px;
+    }
+     .prodMixVals {
+    top: -46px;
+         padding-left: 20px !important;
+   }
+
+     .my_perhigh{
+        height: 550px;
+    }
+
+    .perform_val1{
+        height: 330px;
+    }
+
+.inv_lablel{
+        margin-left: 0px
+    }
+     .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+
+}
+
+@media (min-width: 376px) and (max-width: 475px) {
+
+.graph-text {
+		position: absolute;
+		padding-top: 20%;
+		padding-left: 20%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+.inv_lablel{
+        margin-left: 0px
+    }
+     .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+
+}
+
+@media (max-width: 375px) {
+
+ .graph-text {
+		position: absolute;
+		padding-top: 20%;
+		padding-left: 20%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+    .min_higlist{
+        height: 40px;
+    }
+     .prodMixVals {
+    top: -46px;
+         padding-left: 20px !important;
+   }
+
+     .my_perhigh{
+        height: 550px;
+    }
+
+    .perform_val1{
+        height: 330px;
+    }
+
+.inv_lablel{
+        margin-left: 0px
+    }
+     .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+
+}
+
+@media (min-width: 360px) and (max-width: 374px) {
+
+ .graph-text {
+		position: absolute;
+		padding-top: 26%;
+		padding-left: 26%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+    .min_higlist{
+        height: 40px;
+    }
+     .prodMixVals {
+   top: -46px;
+         padding-left: 0px !important;
+   }
+
+     .my_perhigh{
+        height: 550px;
+    }
+
+    .perform_val1{
+        height: 330px;
+    }
+
+.inv_lablel{
+        margin-left: 0px
+    }
+     .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+
+}
+
+
+@media (min-width: 321px) and (max-width: 359px) {
+
+ .graph-text {
+		position: absolute;
+		padding-top: 26%;
+		padding-left: 26%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+    .min_higlist{
+        height: 40px;
+    }
+     .prodMixVals {
+    top: -46px;
+         padding-left: 0px !important;
+   }
+
+     .my_perhigh{
+        height: 550px;
+    }
+
+    .perform_val1{
+        height: 330px;
+    }
+
+
+.inv_lablel{
+        margin-left: 15px
+    }
+     .radio_visits{
+        width: 45%
+    }
+     .check_visit{
+        width: 45%
+    }
+}
+
+
+@media (max-width: 320px) {
+
+     .graph-text {
+		position: absolute;
+		padding-top: 29%;
+		padding-left: 29%;
+		font-size: 20px;
+		font-weight: bold;
+	}
+     .prodMixVals {
+   top: -46px;
+         margin-left: 0px !important;
+          padding-left: 0px !important;
+   }
+
+    .my_perhigh{
+        height: 600px;
+    }
+
+    .min_higlist{
+        height: 40px;
+    }
+
+     .perform_val1{
+        height: 360px;
+    }
+
+    .inv_lablel{
+        margin-left: 0px
+    }
+
+    .login_form_section {
+    position: relative;
+    max-width: 300px;
+    left: 50%;
+    top: 26%;
+    margin-top: 12%;
+    margin-left: -150px;
+}
+    .forgotpass {
+    padding-bottom: 0px;
+}
+
+    .signin {
+    background: #feca08;
+    color: #232323;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    border: 0;
+}
+     .radio_visits{
+        width: 45%
+    }
+
+    .check_visit{
+        width: 45%
+    }
+
+}
+
+
+
+

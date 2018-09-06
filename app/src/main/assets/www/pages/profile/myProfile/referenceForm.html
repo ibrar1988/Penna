@@ -1,0 +1,154 @@
+<div class="add_family">
+	<div class="modal-header">
+		<h3 class="modal-title">Reference</h3>
+	</div>
+	<div class="modal-body">
+		<form role="form" name="myForm">
+			<fieldset>
+				<div class="form-group" ng-class="(err.name == true) ? 'has-error' : 'has-primary' ">
+					<label>Name</label>
+					<input type="text" name="name" ng-model="referrer.name" ng-focus="err.name=false;" class="form-control-custom" placeholder="" required/>
+					<div class="errors">
+						<span ng-show="err.name">Name is required</span>
+					</div>
+				</div>
+				<div class="form-group" ng-class="(err.mobileNumber == true || err.mobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+					<label>Mobile Number</label>
+					<input type="text" name="mobileNumber" ng-focus="err.mobileNumber=false;err.mobileNumberLength=false;" ng-model="referrer.mobileNumber" class="form-control-custom" placeholder="" required my-length="10" />
+					<div class="errors">
+						<span ng-show="err.mobileNumber">Mobile number is required</span>
+						<span ng-show="err.mobileNumberLength">Mobile number should be 10 digits</span>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="(err.alternateMobileNumber == true || err.alternateMobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+					<label>Alternate Mobile Number</label>
+					<input type="text" name="alternateMobileNumber" ng-model="referrer.alternateMobileNumber" class="form-control-custom" placeholder="" required my-length="10" />
+					<div class="errors">
+						<span ng-if="err.alternateMobileNumber">Alternate mobile number is required</span>
+						<span ng-if="err.alternateMobileNumberLength">Alternate mobile number should be 10 digits</span>
+					</div>
+				</div>
+				<div class="form-group" ng-class="(err.email == true) ? 'has-error' : 'has-primary' ">
+					<label>Email</label>
+					<input type="email" name="email" ng-model="referrer.email" class="form-control-custom" ng-focus="err.email=false;" placeholder="" required my-textlen="40" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+					<div class="errors">
+						<span ng-show="err.email">Email is required</span>
+						<span style="color:red" ng-show="!myForm.email.$error.required && (myForm.email.$error.email || myForm.email.$error.pattern) && myForm.email.$dirty">Invalid email</span>
+					</div>
+				</div>
+				<div class="form-group" ng-class="(err.profession == true) ? 'has-error' : 'has-primary' ">
+					<label>Profession</label>
+					<!--  <input type="text" name="profession" ng-model="referrer.profession" class="form-control-custom" ng-focus="err.profession=false;" placeholder="" required />-->
+
+					<select name="city" ng-model="referrer.profession" class="form-control-custom select-drop" required ng-class="(err.profession == true) ? 'has-error' : 'has-primary' ">
+
+						<option value="" ng-show="false">Select profession</option>
+						<option ng-repeat="professions in profession" value="{{professions.id}}">{{professions.name}}</option>
+
+					</select>
+
+
+
+					<div class="errors">
+						<span ng-show="err.profession">Profession is required</span>
+					</div>
+				</div>
+
+				<div class="single_info">
+					<div class="form-group" ng-class="(err.street1 == true) ? 'has-error' : 'has-primary' ">
+						<label>Street 1</label>
+						<input type="text" name="street1" ng-focus="err.street1=false;" ng-model="referrer.street1" class="form-control-custom" placeholder="" required/>
+						<div class="errors">
+							<span ng-show="err.street1">Street 1 is required</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="single_info">
+					<div class="form-group">
+						<label>Street 2</label>
+						<input type="text" name="street2" ng-model="referrer.street2" class="form-control-custom" placeholder="" />
+					</div>
+				</div>
+
+				<div class="single_info">
+					<div class="form-group">
+						<label>Street 3</label>
+						<input type="text" name="street3" ng-model="referrer.street3" class="form-control-custom" placeholder="" />
+					</div>
+				</div>
+
+				<div class="single_info">
+					<div class="form-group" ng-class="(err.taluk == true) ? 'has-error' : 'has-primary' ">
+						<label>Taluk</label>
+						<input type="text" name="taluk" ng-model="referrer.taluk" class="form-control-custom" placeholder="" required/>
+						<div class="errors">
+							<span ng-show="err.taluk">Taluk is required</span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="single_info">
+					<div class="form-group" ng-class="(err.state == true) ? 'has-error' : 'has-primary' ">
+						<label>State</label>
+						<select name="state" ng-model="referrer.state" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in states| orderBy:'name'" ng-change="err.state=false;" onchange="angular.element(this).scope().stateSelected(this)">
+							<option value="" disabled="true">Select state</option>
+							<option value="" ng-if="false"></option>
+						</select>
+						<div class="errors">
+							<span ng-show="err.state">State is required</span>
+						</div>
+					</div>
+				</div>
+				<div class="single_info">
+					<div class="form-group" ng-class="(err.district == true) ? 'has-error' : 'has-primary' ">
+						<label>District</label>
+						<input type="text" name="District" ng-focus="err.district=false;" ng-model="referrer.district" class="form-control-custom" placeholder="" required/>
+						<div class="errors">
+							<span ng-show="err.district">District is required</span>
+						</div>
+					</div>
+				</div>
+				<div class="single_info">
+					<div class="form-group" ng-class="(err.city == true) ? 'has-error' : 'has-primary' ">
+						<label>City</label>
+						<select name="city" ng-model="referrer.city" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in cities| orderBy:'name'" ng-change="err.city=false;" onchange="angular.element(this).scope().citySelected(this)">
+							<option value="" disabled="true">Select city</option>
+							<option value="" ng-if="false"></option>
+						</select>
+						<div class="errors">
+							<span ng-show="err.city">City is required</span>
+						</div>
+					</div>
+				</div>
+
+				<!--
+                <div class="single_info">
+                    <div class="form-group" ng-class="(err.state == true) ? 'has-error' : 'has-primary' ">
+                        <label>State</label>
+                        <input type="text" name="State" ng-focus="err.state=false;" ng-model="referrer.state" class="form-control-custom" placeholder="" required my-textlen="20" />
+                        <div class="errors">
+                            <span ng-show="err.state">State is required</span>
+                        </div>
+                    </div>
+                </div> -->
+
+				<div class="single_info">
+					<div class="form-group" ng-class="(err.pin == true) ? 'has-error' : 'has-primary' ">
+						<label>Pin</label>
+						<input type="text" name="Name" ng-focus="err.pin=false;" ng-model="referrer.pin" class="form-control-custom" placeholder="" required/>
+						<div class="errors">
+							<span ng-show="err.pin">Pin is required</span>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+		<a class="btn modal_blue" ng-click="save()">Save</a>
+	</div>
+</div>

@@ -1,0 +1,197 @@
+<div class="form-group" ng-class="(err.Ship_to_Name == true) ? 'has-error' : 'has-primary' ">
+	<label>Name</label>
+	<input type="text" name="shipToName" ng-model="shipadd.Ship_to_Name" class="form-control-custom" placeholder="" required ng-disabled="shipadd.indicatorStatus" ng-focus="err.Ship_to_Name=false;" />
+	<div class="errors">
+		<span ng-show="err.Ship_to_Name">Ship to name is required</span>
+	</div>
+</div>
+
+
+
+<div class="form-group" ng-class="(err.street1 == true) ? 'has-error' : 'has-primary' ">
+	<label>Street</label>
+	<!--<pre>{{shipadd.street1}}</pre>-->
+	<input type="text" name="street1" ng-model="shipadd.street1" class="form-control-custom" placeholder="" ng-focus="err.street1=false;" required id="street1" ng-disabled="shipadd.indicatorStatus" />
+	<div class="errors">
+		<span ng-show="err.street1">Street is required</span>
+	</div>
+</div>
+<!--
+<div class="form-group" ng-class="(err.street2 == true) ? 'has-error' : 'has-primary' ">
+    <label>Street 2</label>
+    <input type="text" name="strret2" ng-model="shipadd.street2" class="form-control-custom" placeholder="" ng-focus="err.street2=false;" id="street2" required ng-disabled="shipadd.indicatorStatus" />
+    <div class="errors">
+        <span ng-show="err.street2">Street 2 is required</span>
+    </div>
+</div>
+-->
+<div class="form-group">
+
+	<input type="text" name="strret2" ng-model="shipadd.s2" class="form-control-custom" placeholder="" id="street2" ng-disabled="shipadd.indicatorStatus" />
+
+</div>
+
+<!--
+<div class="form-group" >
+
+    <input type="text" name="street3" id="street3" ng-model="shipadd.street3" class="form-control-custom" placeholder=""   ng-disabled="shipadd.indicatorStatus" />
+
+</div>
+-->
+
+<!--
+<div class="form-group" ng-class="(err.street3 == true) ? 'has-error' : 'has-primary' ">
+    <label>Street 3</label>
+    <input type="text" name="street3" id="street3" ng-model="shipadd.street3" class="form-control-custom" placeholder="" ng-focus="err.street3=false;" required ng-disabled="shipadd.indicatorStatus" />
+    <div class="errors">
+        <span ng-show="err.street3">Street 3 is required</span>
+    </div>
+</div>
+-->
+<div class="form-group" ng-class="(err.taluk == true) ? 'has-error' : 'has-primary' ">
+	<label>Taluk</label>
+	<input type="text" name="taluk" ng-model="shipadd.taluk" class="form-control-custom" placeholder="" required ng-disabled="shipadd.indicatorStatus" />
+	<div class="errors">
+		<span ng-show="err.taluk">Taluk is required</span>
+	</div>
+</div>
+<div class="form-group" ng-class="(err.district == true) ? 'has-error' : 'has-primary' ">
+	<label>District</label>
+	<input type="text" name="dis" id="district" ng-model="shipadd.district" class="form-control-custom" placeholder="" ng-focus="err.district=false;" required ng-disabled="shipadd.indicatorStatus" />
+	<div class="errors">
+		<span ng-show="err.district">District is required</span>
+	</div>
+</div>
+<div class="form-group" ng-class="(err.city == true) ? 'has-error' : 'has-primary' " ng-show="page=='add' || page=='update' && interNet">
+	<label>City</label>
+	<input type="text" name="city" id="city" ng-model="shipadd.city" class="form-control-custom" placeholder="" ng-focus="err.city=false;" required ng-disabled="shipadd.indicatorStatus" my-textlen="25" />
+	<div class="errors">
+		<span ng-show="err.city">City is required</span>
+	</div>
+</div>
+<!--<div class="form-group" ng-class="(err.city == true) ? 'has-error' : 'has-primary' " ng-show="page=='update' || !interNet">
+    <label>City</label>
+    <select name="city" ng-model="shipadd.city" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in cities| orderBy:'name'" ng-disabled="shipadd.indicatorStatus" ng-change="err.city=false;" onchange="angular.element(this).scope().citySelected(this)">
+        <option value="" disabled="true">Select city</option>
+        <option value="" ng-if="false"></option>
+    </select>
+    <div class="errors">
+        <span ng-show="err.city">city is required</span>
+    </div>
+</div>-->
+<div class="form-group" ng-class="(err.state == true) ? 'has-error' : 'has-primary' " ng-show="page=='add' || page=='update' && interNet">
+	<label>State</label>
+	<input type="text" name="state" id="state" ng-model="shipadd.state" class="form-control-custom" placeholder="" ng-focus="err.state=false;" required ng-disabled="shipadd.indicatorStatus" my-textlen="25" />
+	<div class="errors">
+		<span ng-show="err.state">State is required</span>
+	</div>
+</div>
+<!--<div class="single_info">
+    <div class="form-group" ng-class="(err.state == true) ? 'has-error' : 'has-primary' " ng-show="page=='update' || !interNet">
+        <label>State</label>
+        <select name="state" ng-model="shipadd.state" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in states| orderBy:'name'" ng-disabled="shipadd.indicatorStatus" onchange="angular.element(this).scope().stateSelected(this)">
+            <option value="" disabled="true">Select state</option>
+            <option value="" ng-if="false"></option>
+        </select>
+        <div class="errors">
+            <span ng-show="err.state">State is required</span>
+        </div>
+    </div>
+</div>-->
+<div class="form-group" ng-class="(err.country == true) ? 'has-error' : 'has-primary' " ng-show="page=='add' || page=='update' && interNet">
+	<label>Country</label>
+	<input type="text" name="country" id="country" ng-model="shipadd.country" class="form-control-custom" placeholder="" ng-focus="err.country=false;" required ng-disabled="shipadd.indicatorStatus" my-textlen="25" />
+	<div class="errors">
+		<span ng-show="err.country">Country is required</span>
+	</div>
+</div>
+<!--<div class="form-group" ng-class="(err.country == true) ? 'has-error' : 'has-primary' " ng-show="page=='update' || !interNet">
+    <label>Country</label>
+    <select name="country" ng-model="shipadd.country" class="form-control-custom select-drop" required ng-options="item.name as item.name for item in countries| orderBy:'name'" ng-disabled="shipadd.indicatorStatus" onchange="angular.element(this).scope().countrySelected(this)">
+        <option value="" disabled="true">Select country</option>
+        <option value="" ng-if="false"></option>
+    </select>
+    <div class="errors">
+        <span ng-show="err.country">country is required</span>
+    </div>
+</div>-->
+<div class="form-group" ng-class="(err.pin == true || err.pinLength == true) ? 'has-error' : 'has-primary' ">
+	<label>Pin Code</label>
+	<input type="text" name="pincode" id="pincode" ng-model="shipadd.pin" class="form-control-custom" placeholder="" ng-focus="err.pin=false;err.pinLength=false;" required ng-disabled="shipadd.indicatorStatus" my-length="6" />
+	<div class="errors">
+		<span ng-show="err.pin">Pin Code is required</span>
+		<span ng-show="err.pinLength">Pincode should be 6 digits</span>
+	</div>
+</div>
+
+<div class="form-group" ng-class="(err.ContactName == true) ? 'has-error' : 'has-primary' ">
+ <label>Primary Contact Name</label>
+ <input type="text" name="primaryContactName" ng-model="shipadd.ContactName" class="form-control-custom" placeholder="" required ng-disabled="shipadd.indicatorStatus" ng-focus="err.ContactName=false;" />
+ <div class="errors">
+  <span ng-show="err.ContactName">Primary contact name is required</span>
+ </div>
+</div>
+
+
+<div class="form-group" ng-class="(err.email == true) ? 'has-error' : 'has-primary' ">
+	<label>Email</label>
+	<input type="email" name="email" ng-model="shipadd.email" class="form-control-custom" id="inputEmail" placeholder="" ng-focus="err.email=false;" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required/>
+
+
+	<!--ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"-->
+	<!--ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"-->
+	<div class="errors">
+		<span ng-show="err.email">Email is required</span>
+		<span ng-show="!myForm.email.$error.required && (myForm.email.$error.email || myForm.email.$error.pattern) && myForm.email.$dirty">invalid email</span>
+	</div>
+</div>
+<div class="form-group" ng-class="(err.mobile == true || err.mobileNumberLength == true) ? 'has-error' : 'has-primary' ">
+	<label>Mobile Number</label>
+	<input type="text" name="mobile" ng-model="shipadd.mobile" class="form-control-custom" placeholder="" id="mobilenum" maxlength="10" my-length="10" ng-focus="err.mobile=false;err.mobileNumberLength=false;" required />
+	<div class="errors">
+		<span ng-show="err.mobile">Mobile number is required</span>
+		<span ng-show="err.mobileNumberLength">Mobile number should be 10 digits</span>
+
+	</div>
+</div>
+<div class="form-group" ng-class="(err.alternate_Mobile == true || err.alternateMobileNumberLength==true) ? 'has-error' : 'has-primary' ">
+	<label>Alternate Mobile Number</label>
+	<input type="text" name="alternate_Mobile" ng-model="shipadd.alternate_Mobile" class="form-control-custom" placeholder="" maxlength="10" my-length="10" ng-focus="err.alternate_Mobile=false;err.alternateMobileNumberLength=false;" required />
+	<div class="errors">
+		<span ng-show="err.alternate_Mobile">Alternate mobile number is required</span>
+		<span ng-if="err.alternateMobileNumberLength">Alternate mobile should be 10 digits</span>
+
+	</div>
+</div>
+<!-- 
+<div class="form-group ">
+    <img ng-show="shipadd.image" ng-src="{{shipadd.image}}"  style="width:150px;"/>
+</div>
+
+<div class="form-group" ng-class="(err.image == true) ? 'has-error' : 'has-primary' ">
+    <label>Attachment</label>
+    <input type="file" class="shipToAddAttachInput" id="shipToAddAttachInput" accept="image/*" name="image" style="display: none;" ng-model="image" ng-change="err.image=false;changeShipToAddrImg(shipadd)" onchange="angular.element(this).scope().changeShipToAddrImg(this)" required>
+    <a href="" name="image" ng-click="err.image=false;imguploadshipadd(shipadd)">
+        <span>Upload</span>
+    </a>
+    <div class="pull-right" ng-show="shipadd.image">
+        <small class=" text-primary ">Image uploaded successfully</small>
+    </div>
+    <div class="errors ">
+        <span ng-if="err.image ">Attachment is required</span>
+    </div>
+</div>
+ -->
+<div class="form-group">
+	<label>Attachment</label>
+	<input type="file" class="shipToAddAttachInput" id="shipToAddAttachInput" accept="image/*" name="image" style="display: none;" ng-model="image" ng-change="changeShipToAddrImg(shipadd)" onchange="angular.element(this).scope().changeShipToAddrImg(this)" required>
+	<a href="" name="image" ng-click="imguploadshipadd(shipadd)">
+		<span>Upload</span>
+	</a>
+	<div class="pull-right" ng-show="shipadd.image">
+		<small class=" text-primary ">Image uploaded successfully</small>
+	</div>
+	<!--  <div class="errors ">
+        <span ng-if="err.image ">Attachment is required</span>
+    </div> -->
+</div>

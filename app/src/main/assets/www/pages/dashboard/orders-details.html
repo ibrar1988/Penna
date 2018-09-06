@@ -1,0 +1,124 @@
+<div class="single_tab_content" ng-controller="dashbordctrl">
+	<h2 class="page-header">
+        <a ui-sref="dashboard.list-of-orders-detail" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a> Order Line Number : {{plines1.POLinenumber}}
+    </h2>
+
+	<div class="sectioncard">
+		<div class="card invoice_main">
+			<h4>Order Line Details</h4>
+			<!--<pre>{{plines1}}</pre>-->
+			<h2>Product:{{plines1.Product}}</h2>
+
+			<div class="table-responsive" ng-show="scheduleLines.length">
+				<table class="table table-bordered table-condensed table-hover confmtable">
+					<thead>
+						<tr>
+							<th>Schedule Lines</th>
+							<th>Shipping Address</th>
+							<th>Quantity</th>
+							<th>Delivery Date</th>
+							<!-- <th></th>-->
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="scheduleLine in scheduleLines">
+							<td>Schedule Line {{$index+1}}</td>
+							<td>
+								<!--JP Constructions, #3, 1-45-5
+                                <br> Road No-2, Banjara Hills,
+                                <br> Hyderabad 500086
+                                <br> Telangana-->
+								{{plines1.ShipTo}}
+							</td>
+							<td>{{scheduleLine.Quantity}} MT</td>
+							<td>{{scheduleLine.Date | date:'dd-MM-yyyy'}}</td>
+							<!--  <td class="text-center"><a href="" ng-click="deleteschedule(scheduleLine)"><i class="fa fa-trash-o"></i></a></td>-->
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+
+			<!-- CFormNumber: "NO"
+IncoTerms: "YES"
+Notes: "NO"
+POOrderNumber: "NO"
+POUpload: "NO"
+POdate: "NO"
+Packaging: "NO"
+PaymentTerms: "NO"
+Phone: "YES"
+PlantorDepo: "NO"
+ShippingAddress: "YES"
+Sourceofdelivary: "NO"
+Transport: "NO"
+packagingTypes: "NO"-->
+
+			<p><strong>Total Quantity: {{plines1.Quantity}} MT</strong></p>
+
+			<div class="order_shipping_det">
+				<h4><strong>Shipping Details</strong></h4>
+				<div class="shipping_details" ng-show="details[0].Transport== 'YES'">
+					<p>Mode of Transport</p>
+					<span>: {{plines1.TransportMode}}</span>
+				</div>
+				<div class="shipping_details" ng-show="details[0].PlantorDepo== 'YES'">
+					<p>Plant / Depo</p>
+					<span>: {{plines1.Plant}}</span>
+				</div>
+				<div class="shipping_details" ng-show="details[0].Packaging== 'YES'">
+					<p>Packaging</p>
+					<span>: {{plines1.Packaging}}</span>
+				</div>
+				<div class="shipping_details" ng-show="details[0].packagingTypes== 'YES'">
+					<p>Packaging Type</p>
+					<span>: {{plines1.PackagingType}}</span>
+				</div>
+				<div class="shipping_details" ng-show="details[0].Transport== 'YES'">
+					<p>Transport</p>
+					<span>: {{plines1.Transport}}</span>
+				</div>
+				<!--<div class="shipping_details" ng-show="plines1.TruckNumber != null">
+                    <p>Truck Number</p>
+                    <span>: {{plines1.TruckNumber}}</span>
+                </div>-->
+				<div class="shipping_details" ng-show="details[0].IncoTerms== 'YES'">
+					<p>Inco Terms</p>
+					<span>: {{plines1.IncoTerms}}</span>
+				</div>
+			 <div class="shipping_details" ng-show="plines1.IncoTerms == 'EXWorksGoDown' && details[0].truck_number== 'YES'">
+					<p>Truck Number</p>
+					<span>: {{plines1.truckNumber}}</span>
+				</div>
+			<div class="shipping_details" ng-show="plines1.IncoTerms == 'EXWorksGoDown' && details[0].truck_number== 'YES'">
+					<p>Driver Name</p>
+					<span>: {{plines1.driverName}}</span>
+				</div>
+			<div class="shipping_details" ng-show="plines1.IncoTerms == 'EXWorksGoDown' && details[0].truck_number== 'YES'">
+					<p>Driver Mobile Number</p>
+					<span>: {{plines1.driverMobileNumber}}</span>
+				</div> 
+				<!--<div class="shipping_details" ng-show="plines1.SezDetails != null">
+                    <p>SEZ Details</p>
+                    <span>: {{plines1.SezDetails}}</span>
+                </div>-->
+				<div class="shipping_details" ng-show="details[0].CFormNumber== 'YES'">
+					<p>C-Form Number</p>
+					<span>: {{plines1.CFormNumber}}</span>
+				</div>
+				<div class="shipping_details" ng-show="details[0].Notes== 'YES'">
+					<p>Notes</p>
+					<span>: {{plines1.notes}}</span>
+				</div>
+				<!-- <div class="shipping_details">
+                    <p>C-Form Attachment</p>
+                    <span>: Attachment <i class="icon_paperclip"></i></span>
+                </div>-->
+			</div>
+			{{pline_inco}}
+			<h3 class="shipping-total"><strong> Total Amount   Rs.{{plines1.netvalue}}/-</strong></h3>
+		</div>
+	</div>
+</div>

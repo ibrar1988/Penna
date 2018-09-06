@@ -1,0 +1,17 @@
+<div class="single_tab_content" ng-controller="depositctrl">
+    <h2 class="page-header"><a href="#/profile" class="goback">
+            <i class="fa fa-angle-left"></i></a>  <i class="pci icon-securitydep pull-left"></i> Security Deposit</h2>
+
+    <div class="sectioncard">
+        <div class="card">
+            <!-- <h3>Collateral put up with Penna</h3> -->
+            <h1 ng-show="securitydep.depositAmt != ''" class="text-yellow"><i class="fa fa-inr" style="font-size:30px;"></i> {{securitydep.depositAmt | rounded | INR}}/- </h1>
+            <h1 ng-show="securitydep.depositAmt == ''" class="text-yellow"><i class="fa fa-inr" style="font-size:30px;"></i> 0/- </h1>
+            <hr>
+            <div class="single_info">
+                <p>*Terms and conditions apply</p>
+                <p>In case of non-payment beyond 31 days past outstanding purchase, this amount shall be forfeited</p>
+            </div>
+        </div>
+    </div>
+</div>

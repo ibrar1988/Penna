@@ -1,0 +1,84 @@
+<div class="add_family">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+
+       <form class="form-horizontal">
+
+           <fieldset class="scheduler-border">
+            <legend class="scheduler-border" style="margin-left: -10px; ">Visit Details</legend>
+
+                 <table class="table" class="visit_table">
+    <tbody>
+      <tr>
+          <td class="bor_0 bor_10"><label class="control-label class_lable" style="padding-top: 0px;">Visit No :</label></td>
+        <td class="bor_0"> {{data.visitNo}}</td>
+      </tr>
+      <tr>
+          <td class="bor_0 bor_10"><label class="control-label class_lable" style="padding-top: 0px;">Executive Name :</label></td>
+        <td class="bor_0"> {{data.officerVisit}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+           </fieldset>
+
+              <div style="border: 1px solid #eee;padding-bottom: 0px;">
+                  <div class="repeat_qus" ng-repeat="question in questionss" style="">
+                      <div class="largeWidthss22" ng-class="{ largeWidthss224:  question.questionType == 'Radio' }">
+                    <label class="label11" ng-class="{ largeWidthss:  question.questionType == 'Text' }"> {{$index+1}}. {{question.question}}</label>
+                    <div class="labelbot11 text-are" ng-if="question.questionType == 'Text'">
+                        <textarea class="form-control-custom" ng-model="question.answer" rows="4" style="height: 100px;    border: 1px solid #ccc;resize: none;padding: 3px;    margin-bottom: 10px;" maxlength="250" placeholder="Please give your valuable feed back" ng-disabled="true"></textarea>
+                   </div>
+
+                     <div class="labelbot13 rating"  ng-if="question.questionType == 'Rating'">
+                       <div ng-repeat="rating in ratings">
+                              <div style="pointer-events: none;"  star-rating  ng-model="question.rating[$index]" rating-value="question.current" max="question.options" ></div>
+        </div>
+                   </div>
+
+
+                          <div class="labelbot12 checkbox" ng-if="question.questionType == 'Radio'">
+                          <div class="">
+                              <ul class="list-inline" style="margin-bottom: -20px; position: relative;top: -10px;">
+                                   <li style="padding-left: 27px;" ng-repeat="option in question.options" style="pointer-events: none;" class="check_visit">
+                                       <input type="radio" value="{{option}}" ng-model="question.answer" name="{{option}}" style="pointer-events: none;"/>
+                                       <span style="color: #505051;pointer-events: none;font-weight: 600;font-size: 14px;">{{option}}</span>
+                                 </li>
+                              </ul>
+
+                          </div>
+
+
+                   </div>
+
+
+
+                       <div class="labelbot12 checkbox" ng-if="question.questionType == 'Checkbox'">
+                          <div class="">
+                              <ul class="list-inline">
+                                   <li style="padding-left: 27px;" ng-repeat="option in question.options" style="pointer-events: none;" class="check_visit">
+                                       <input type="checkbox" value="option1" ng-model="question.answer[$index]" name="optionscheck" id="test_{{option}}" style="pointer-events: none;"/>
+                                      <label  for="test_{{option}}" style="color: #505051;pointer-events: none;">{{option}}</label>
+                                 </li>
+                              </ul>
+
+                          </div>
+
+
+                   </div>
+                     </div>
+                </div>
+             </div>
+
+
+
+        </form>
+
+
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal_grey" ng-click="cancel()" style="width: 100%">Close</a>
+    </div>
+</div>

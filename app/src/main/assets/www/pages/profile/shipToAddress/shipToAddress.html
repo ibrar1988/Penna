@@ -1,0 +1,99 @@
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="single_tab_content">
+			<h2 class="page-header">
+                <a href="#/profile" class="goback"> <i class="fa fa-angle-left"></i></a>  
+                <i class="pci icon-shipadd pull-left"></i> Ship to Address 
+                <!-- <small ng-show="!shipadd.companyAddress && getshipadd.shippingAddressOuterIndicator"> (Need to approve)</small> -->
+                <div class="pod-main-actions pull-right">
+                    <a class="btn btn-md btn-default rounded" style="border:none;" ng-click="openmap()" data-toggle="tooltip" title="Add New">
+                        <span class="icon_plus_alt2"></span>
+                    </a>
+                </div>
+            </h2>
+			<div class="ship_add_main" ng-show="getshipadd.companyAddress">
+				<uib-accordion>
+					<uib-accordion-group is-open="status.open" ng-repeat="shipadd in getshipadd.companyAddress track by $index">
+						<uib-accordion-heading>
+							<!--Address {{$index+1}}-->
+							<span class="highlight" ng-if="getshipadd.companyAddress[$index].Ship_to_Name">{{getshipadd.companyAddress[$index].Ship_to_Name}}</span>
+							<span class="highlight" ng-if="!getshipadd.companyAddress[$index].Ship_to_Name">{{shipadd.street1}},{{shipadd.state}},{{shipadd.country}} - {{shipadd.pin}}</span>
+							<i class="pull-right glyphicon" ng-class="{'arrow_carrot-down': status.open, 'arrow_carrot-right': !status.open}"></i>
+							<!--<a class="editicon" ng-hide="ship2AddrsEdit.num{{$index}}" href="" ng-click="$event.stopPropagation();updateShipToaddress(shipadd,key);" data-toggle="tooltip" title="Edit">
+								<i class="pull-right" ng-class="{'icon_pencil-edit': status.open}"></i>
+							</a>-->
+							<a class="editicon" ng-show="ship2AddrsEdit.num{{$index}}" href="" ng-click="$event.stopPropagation(); saveConfirmation(shipadd); ">
+								<i class="pull-right" ng-class="{ 'icon_floppy': status.open} "></i>
+							</a>
+						</uib-accordion-heading>
+						<div ng-hide="ship2AddrsEdit.num{{$index}}">
+							<div class="single_info ">
+								<!--<h3><i class="pci-sm icon-address pull-left "></i> Address {{$index+1}}-->
+								{{ship2AddrsEdit.companyAddress[$index].Ship_to_Name}}
+								<span ng-show="shipadd.indicatorStatus==true"> (Need to approve)</span>
+								<!-- || getshipadd.shippingAddressOuterIndicator -->
+								<!--<span ng-show="shipadd.indicatorStatus==false && getshipadd.someOtherIndicator==true"> (Some other address need to approve)</span>-->
+								</h3>
+								<!--
+								, {{shipadd.street2}}
+								 <p> {{shipadd.street3}}</p>
+-->
+								<p> {{shipadd.street1}}</p>
+
+								<p> {{shipadd.taluk}}</p>
+								<p> {{shipadd.district}}</p>
+								<p> {{shipadd.city}}</p>
+								<p> {{shipadd.state}}</p>
+								<p> {{shipadd.country}}</p>
+								<p> {{shipadd.pin}}</p>
+
+							</div>
+ 							<div class="single_info ">
+        						<h3> Primary Contact Name</h3>
+        						<p> {{shipadd.ContactName}}</p>
+       						</div>
+							<div class="single_info ">
+        					<h3>SalesForce Number</h3>
+        					<p> {{shipadd.sfNumber}}</p>
+       						</div>
+                        
+		                    <div class="single_info ">
+        					<h3>SAP Number</h3>
+        					<p> {{shipadd.sapNumber}}</p>
+       						</div>
+													
+							<div class="single_info ">
+								<h3><i class="pci-sm icon-mail pull-left "></i> Email</h3>
+								<p> {{shipadd.email}}</p>
+							</div>
+
+							<div class="single_info ">
+								<h3><i class="pci-sm icon-mobile pull-left "></i>Mobile Number</h3>
+								<p> {{shipadd.mobile}}</p>
+							</div>
+
+							<div class="single_info ">
+								<h3><i class="pci-sm icon-mobile pull-left "></i>Alternate Mobile Number</h3>
+								<p>{{shipadd.alternate_Mobile}}</p>
+							</div>
+
+							<div class="single_info " style="display:none">
+								<h3>Customer Number</h3>
+								<p>{{shipadd.consigneeCode}}</p>
+							</div>
+
+							<img ng-show="shipadd.image" ng-src="{{shipadd.image}}" style="width:150px;" />
+						</div>
+
+
+					</uib-accordion-group>
+				</uib-accordion>
+			</div>
+			<div class="ship_add_main" ng-show="noShipToAddrs">
+				<div class="single_info ">
+					<h3></i>No ship to address is available.</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

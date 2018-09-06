@@ -1,0 +1,115 @@
+<div class="single_tab_content" ng-controller="MyQuote">
+    <h2 class="page-header">
+        <a ui-sref="orders" class="goback">
+            <i class="fa fa-angle-left pull-left"></i>
+        </a><i class="pci icon-myquote pull-left"></i> My Quotes
+        <div class="pull-right">
+            <a href="" class="pull-right"><i class="icon_calendar"></i></a>
+            <div class="sort_enquiries pull-right">
+                <select ng-model="shipToAddress" class="form-control-custom">
+                    <option value="all">All</option>
+                    <option value="sent">Sent</option>
+                    <option value="underEvaluation">Under Evaluation</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+        </div>
+    </h2>
+
+    <div class="dashb_performance">
+        <div class="timeline">
+            <h4>Today</h4>
+        </div>
+    <ul class="all_pods">
+        <li class="single_pod clearfix">
+            <i class="custom-list">1</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail-undereval">
+                <p><strong>Quote Number - 62598746</strong></p>
+                <p><strong>Enquiry Number: 15462598746</strong></p>
+                <p>Status: <span class="txt-red">Under Evaluation</span></p>
+                </a>
+            </div>
+        </li>
+        <li class="single_pod clearfix">
+            <i class="custom-list">2</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail">
+                <p><strong>Quote Number - 62598725</strong></p>
+                <p><strong>Enquiry Number: 15462598746</strong></p>
+                <p>Status: <span class="txt-yellow">Sent</span></p>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+    <div class="dashb_performance">
+        <div class="timeline">
+            <h4>Feb - Jan, 2016 (10)</h4>
+        </div>
+        <ul class="all_pods">
+        <li class="single_pod clearfix">
+            <i class="custom-list">1</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail-undereval">
+                <p><strong>Quote Number - 62598746</strong></p>
+                <p><strong>Enquiry Number: 15462598746</strong></p>
+                <p>Status: <span class="txt-red">Under Evaluation</span></p>
+                </a>
+            </div>
+        </li>
+        <li class="single_pod clearfix">
+            <i class="custom-list">2</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail">
+                <p><strong>Quote Number - 62598725</strong></p>
+                <p><strong>Enquiry Number: 15462598746</strong></p>
+                <p>Status: <span class="txt-yellow">Sent</span></p>
+                </a>
+            </div>
+        </li>
+        <li class="single_pod clearfix">
+            <i class="custom-list">3</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail">
+                <p><strong>Quote Number - 62598746</strong></p>
+                <p><strong>Enquiry Number: 15462598746</strong></p>
+                <p>Status: <span class="green-txt">Approved</span></p>
+                </a>
+            </div>
+        </li>
+        <li class="single_pod clearfix">
+            <i class="custom-list">4</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail">
+                <p><strong>Quote Number - 62598717</strong></p>
+                <p><strong>Enquiry Number: 15462598746</strong></p>
+                <p>Status: <span class="txt-red">Rejected</span></p>
+                </a>
+            </div>
+        </li>
+        <li class="single_pod clearfix">
+            <i class="custom-list">5</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail">
+                <p><strong>Quote Number - 62598703</strong></p>
+                <p><strong>Enquiry Number: 15462598546</strong></p>
+                <p>Status: <span class="green-txt">Approved</span></p>
+                </a>
+            </div>
+        </li>
+        <li class="single_pod clearfix">
+            <i class="custom-list">6</i>
+            <div class="pending_data">
+                <a ui-sref="orders.my-quotes-detail">
+                <p><strong>Quote Number - 62598682</strong></p>
+                <p><strong>Enquiry Number: 15462598646</strong></p>
+                <p>Status: <span class="green-txt">Approved</span></p>
+                </a>
+            </div>
+        </li>
+        </ul>
+    </div>
+</div>

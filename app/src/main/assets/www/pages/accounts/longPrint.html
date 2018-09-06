@@ -1,0 +1,121 @@
+<div class="modal-header penna-modal-header">
+    <h3 class="modal-title">Party Confirmation
+        </h3>
+</div>
+
+<div class="list" id="div2">
+    <div class="">
+
+        <div class="card">
+            <div class="invoice_details">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-condensed table-hover confmtable">
+                        <thead>
+                            <tr class="couser">
+                                <th>Invoice No</th>
+                                <th>Type of Transaction</th>
+                                <th>Payment Type</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="patyconfinv in invoice" class="couser">
+
+                                <td>
+                                    <span ng-show="patyconfinv.invoiceNumber !=='' ">{{patyconfinv.sapInvoiceNum}}</span>
+
+                                </td>
+                                <td>
+                                    <span ng-hide="patyconfinv.ind=='B' || patyconf.ind=='C' ">Invoice</span>
+
+                                </td>
+                                <td>
+
+                                    <span ng-hide="patyconfinv.chkPmtType=='CC' || patyconfinv.chkPmtType=='DD' || patyconf.chkPmtType=='DT' || patyconf.chkPmtType=='CD' ">N/A</span>
+                                </td>
+                                <td>
+                                    <span ng-hide="patyconfinv.ind=='B' || patyconfinv.ind=='C' ">{{patyconfinv.dateTime | date:"dd/MM/yyyy "}}</span>
+
+                                </td>
+                                <td>
+
+                                    <span ng-hide="patyconfinv.ind=='B' || patyconfinv.ind=='C' ">{{patyconfinv.amount |INR}}</span>
+                                </td>
+                                <td>
+                                    <span ng-show="patyconfinv.salesOrder !=='' ">Order Date:{{patyconfinv.orderDate | date:"dd/MM/yyyy "}}, Order: {{patyconfinv.salesOrder}}</span>
+                                </td>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="card ">
+            <div class="invoice_details ">
+                <div class="table-responsive ">
+                    <table class="table table-bordered table-condensed table-hover confmtable ">
+                        <thead>
+                            <tr class="couser">
+                                <th>Payment</th>
+                                <th>Type of Transaction</th>
+                                <th>Payment Type</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="patyconf in check" class="couser">
+
+                                <td>
+                                    <span ng-show="patyconf.invoiceNo=='' ">{{patyconf.chkCheckNo}}</span>
+                                </td>
+                                <td>
+
+                                    <span ng-show="patyconf.ind=='B' || patyconfcheck.ind=='C'">Payment</span>
+                                    <!-- <span ng-show="patyconfcheck.ind=='C' ">Payment</span>-->
+                                </td>
+                                <td>
+
+                                    <span>{{patyconf.chkPmtType}}</span>
+
+                                </td>
+                                <td>
+
+                                    <span ng-show="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.chkDate | date:"dd/MM/yyyy"}}</span>
+                                </td>
+                                <td>
+
+                                    <span ng-show="patyconf.ind=='B' || patyconf.ind=='C' ">{{patyconf.chkAmount}}</span>
+                                </td>
+                                <td>
+
+                                    <span ng-show="patyconf.salesOrder=='' ">{{patyconf.chkPmtDscr}}</span></td>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal-footer">
+    <a class="btn modal_grey" ng-click="cancel()">Cancel</a>
+    <a class="btn modal_blue" ng-click="printContent1('div2')">Print</a>
+</div>

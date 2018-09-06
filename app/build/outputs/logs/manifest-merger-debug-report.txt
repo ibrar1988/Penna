@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:1-53:12
 	package
 		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:2:98-123
 	android:versionName
@@ -42,7 +42,7 @@ MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build
 	android:name
 		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:5:5-24:19
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:5:5-41:19
 MERGED from [com.google.firebase:firebase-core:11.4.2] /home/ibrar/.android/build-cache/6141c1d1e90f038c79298677697d600a0ef87b46/output/AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:24:5-34:19
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:24:5-28:19
@@ -203,8 +203,32 @@ ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/andr
 		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:23:19-43
 	android:name
 		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:23:68-142
+service#com.techv.penna.services.MessagingIDService
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:27:9-33:19
+	android:exported
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:29:13-37
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:28:13-56
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:30:13-32:29
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:31:17-80
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:31:25-77
+service#com.techv.penna.services.MessagingService
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:34:9-40:19
+	android:exported
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:36:13-37
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:35:13-54
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:37:13-39:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:38:17-78
+	android:name
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:38:25-75
 uses-sdk
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:25:5-74
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:42:5-74
 MERGED from [com.google.firebase:firebase-core:11.4.2] /home/ibrar/.android/build-cache/6141c1d1e90f038c79298677697d600a0ef87b46/output/AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:17:5-43
@@ -254,6 +278,7 @@ MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] /home
 MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] /home/ibrar/.android/build-cache/e1fa8bdd9abcfff2edd5d3f6ebb599a51e5bf503/output/AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-common-license:11.4.2] /home/ibrar/.android/build-cache/dc71d3614adf93a8d646801bd5bf442302f0cb7e/output/AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-messaging-license:11.4.2] /home/ibrar/.android/build-cache/e1088d5aee5b772eec5a5d3d4b48987195f2eb03/output/AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:multidex:1.0.1] /home/ibrar/.android/build-cache/cc794fec7ea2ff884d7c22dd12dccb9a6dc68fa4/output/AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:support-vector-drawable:26.0.1] /home/ibrar/.android/build-cache/a2cd3c4449e5c740c872ba0fe37a7fe86348d7dc/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:26.0.1] /home/ibrar/.android/build-cache/769f92d37037b39e1d6923f266b6243c157c3193/output/AndroidManifest.xml:21:5-23:58
 MERGED from [me.leolin:ShortcutBadger:1.1.21] /home/ibrar/.android/build-cache/3b22144698c8c1e5ef10740337e9e463bde81b00/output/AndroidManifest.xml:7:5-9:41
@@ -261,35 +286,35 @@ MERGED from [org.apache.cordova:CordovaLib:7.0.0:release] /home/ibrar/Documents/
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:26.0.1] /home/ibrar/.android/build-cache/d2316ec81577e0f0c2ff0573b3bc05cca22ae6aa/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:25:42-71
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:42:42-71
 		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:25:15-41
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:42:15-41
 		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:26:5-81
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:43:5-81
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:26:22-78
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:43:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:27:5-80
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:44:5-80
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:27:22-77
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:44:22-77
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:28:5-76
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:45:5-76
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:28:22-73
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:45:22-73
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:29:5-81
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:46:5-81
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:29:22-78
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:46:22-78
 uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:30:5-94
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:47:5-94
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:30:22-91
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:47:22-91
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:31:5-79
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:48:5-79
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:21:5-78
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:21:5-78
@@ -298,28 +323,28 @@ MERGED from [com.google.android.gms:play-services-maps:11.4.2] /home/ibrar/.andr
 MERGED from [com.google.android.gms:play-services-nearby:11.4.2] /home/ibrar/.android/build-cache/287ebf545dc56ce7e67547aced4404e3ab2d17d4/output/AndroidManifest.xml:4:5-78
 MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:19:5-78
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:31:22-76
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:48:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:32:5-81
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:49:5-81
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:32:22-78
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:49:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:33:5-79
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:50:5-79
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:33:22-76
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:50:22-76
 uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:34:5-89
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:51:5-89
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:34:22-86
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:51:22-86
 uses-permission#android.permission.WAKE_LOCK
-ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:35:5-68
+ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:52:5-68
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-analytics:11.4.2] /home/ibrar/.android/build-cache/ee6d4f3ccac7528b3eee8fa5d5eefe5dc6e5fb5c/output/AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/2187d765be9aa3023c711d69412d63ec68e00947/output/AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:21:5-67
 	android:name
-		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:35:22-65
+		ADDED from /home/ibrar/Documents/TechVedika-1/Penna Project/Penna/platforms/android/app/src/main/AndroidManifest.xml:52:22-65
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver
 ADDED from [com.google.firebase:firebase-analytics:11.4.2] /home/ibrar/.android/build-cache/7e6c31f328dcb0f33cae9b2bef874838b0ab7703/output/AndroidManifest.xml:25:7-26:18
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] /home/ibrar/.android/build-cache/d2fc531259fd0ba114664aec1c4bd0067f0f0e44/output/AndroidManifest.xml:25:7-26:18
@@ -433,14 +458,6 @@ ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/
 		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:23:88-111
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:23:18-87
-intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:24:13-26:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:24:28-51
-action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:25:17-77
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:11.4.2] /home/ibrar/.android/build-cache/8a08ef749752493d64983eef0ff33595351fb016/output/AndroidManifest.xml:25:25-75
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:24:5-109
 	android:protectionLevel
@@ -484,14 +501,6 @@ ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-
 		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:43:83-106
 	android:name
 		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:43:18-82
-intent-filter#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:44:13-46:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:44:28-51
-action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:45:17-79
-	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.4.2] /home/ibrar/.android/build-cache/d4a457dcd2f7e270e978dd32e56646e143418e28/output/AndroidManifest.xml:45:25-77
 provider#com.google.firebase.provider.FirebaseInitProvider
 ADDED from [com.google.firebase:firebase-common:11.4.2] /home/ibrar/.android/build-cache/9afa94cd7568e648f27471d31f5eb22fbbafb29f/output/AndroidManifest.xml:6:9-194
 	android:authorities

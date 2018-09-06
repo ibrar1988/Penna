@@ -1,0 +1,16 @@
+<div class="modal-header terms-header">
+	<h3 class="modal-title" id="modal-title">Update</h3>
+</div>
+<div class="modal-body terms-modal-body" id="modal-body">
+	<h3 ng-if="items.appupdate_status == 'YES'">A newer version of app is available. Please proceed to update</h3>
+	<h3 ng-if="items.appupdate_status == 'NO'">A newer version is avaliable. Would you like to update?</h3></div>
+<div class="modal-footer">
+	<a class="btn modal_grey disagree" ng-click="update_ver()">
+		<span ng-if="items.appupdate_status == 'YES'">UPDATE NOW</span>
+		<span ng-if="items.appupdate_status == 'NO'">UPDATE</span>
+	</a>
+	<a class="btn modal_blue agree" ng-click="cancel(items.type)">
+		<span ng-if="items.appupdate_status == 'YES'">UPDATE LATER</span>
+		<span ng-if="items.appupdate_status == 'NO'">NO, THANKS</span>
+	</a>
+</div>
